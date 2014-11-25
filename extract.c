@@ -14,11 +14,11 @@ int main (int argc, char *argv[])
 
 	if(argc < 9)
 	{
-		fprintf(stderr,"\nUSAGE:\nDNAExt -i IN_FILE -o OUT_FILE -pS FIRST_POSITION_NUMBER -pL LAST_POSITION_NUMBER\n\nCOMMON USAGE:\nDNAExt -i input -o output -pS 1000 -pL 1000000\n\n");
+		fprintf(stderr,"\nUSAGE:\nExtract -i IN_FILE -o OUT_FILE -pS FIRST_POSITION_NUMBER -pL LAST_POSITION_NUMBER\n\nCOMMON USAGE:\nDNAExt -i input -o output -pS 1000 -pL 1000000\n\n");
 		return 1;
 	}
 
-	fprintf(stderr,"\n[STATUS] Starting DNAExt...");
+	fprintf(stderr,"\n[STATUS] Starting Extract ...");
 
         for(n = 1 ; n < argc ; n++)
                 if(strcmp("-i", argv[n]) == 0)
