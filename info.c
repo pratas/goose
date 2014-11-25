@@ -15,7 +15,7 @@ int main(int32_t argc, char *argv[]){
 
   if(argc < 2){
     fprintf(stderr, "Usage: info [0|1] file\n");
-    return 1;
+    return EXIT_SUCCESS;
     }
 
   buf       = (uint8_t  *) Calloc(BUFFER_SIZE,  sizeof(uint8_t ));
@@ -56,6 +56,12 @@ int main(int32_t argc, char *argv[]){
       printf("%-2c : %"PRIu64"\n", norm_alp[n], counts[norm_alp[n]]);
     else
       printf("%-2d : %"PRIu64"\n", norm_alp[n], counts[norm_alp[n]]);
+
+  Free(buf,      BUFFER_SIZE  * sizeof(uint8_t ));
+  Free(alp,      MAX_ALPHABET * sizeof(uint8_t ));
+  Free(norm_alp, MAX_ALPHABET * sizeof(uint8_t ));
+  Free(mask,     MAX_ALPHABET * sizeof(uint8_t ));
+  Free(counts,   MAX_ALPHABET * sizeof(uint64_t));
       
   return EXIT_SUCCESS;
   }

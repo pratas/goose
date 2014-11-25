@@ -1,22 +1,17 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<stdint.h>
-#define __STDC_FORMAT_MACROS
-#include <inttypes.h>
-#include <unistd.h>
-
-#define BUFFER_SIZE 512
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "defs.h"
+#include "extra.h"
 
 int SearchFile(char *fn, char *str){	
-  FILE     *F = NULL;
+  FILE     *F = Fopen(fn, "r");
   uint64_t line = 0, found = 0;
-  char     buf[BUFFER_SIZE];
-  if(!(F = fopen(fn, "r"))) return(-1);
-  while(fgets(buf, BUFFER_SIZE, F)){
+  char     buf[BUFFER_SIZE_WS];
+  while(fgets(buf, BUFFER_SIZE_WS, F)){
     if(strstr(buf, str)){
       printf("Found match in range [ %"PRIu64" : %"PRIu64" ]\n", 
-      line*BUFFER_SIZE, (line+1)*BUFFER_SIZE);
+      line*BUFFER_SIZE_WS, (line+1)*BUFFER_SIZE_WS);
       printf("%s\n\n", buf);
       ++found;
       }
@@ -24,7 +19,7 @@ int SearchFile(char *fn, char *str){
     }
   if(!found) printf("NO matches found!\n");
   if(F) fclose(F);
-  return(0);
+  return 0;
   }
 
 void Usage(char *f){
@@ -37,5 +32,5 @@ int main(int argc, char *argv[]){
     perror("Error on running search!");
     exit(1);
     }
-  return(0);
+  return EXIT_SUCCESS;
   }

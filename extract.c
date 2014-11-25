@@ -1,84 +1,58 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include "defs.h"
+#include "extra.h"
 
-int main (int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
+  FILE *IN = NULL, *OUT = NULL;
+  uint32_t n;
+  uint64_t cnt = 0, init = 0, end = 0;
+  char c;
 
-	FILE	*IN = NULL, *OUT = NULL;
-	int 	n;
-	unsigned long long conter = 0;
-	unsigned long long start_position = 0;
-	unsigned long long end_position;
-	char 	c;
+  if(argc < 9){
+    fprintf(stderr, "USAGE:\n%s -i IN_FILE -o OUT_FILE -pS FIRST_POSITIO"
+    "N_NUMBER -pL LAST_POSITION_NUMBER\nCOMMON USAGE:\nDNAExt -i input -o ou"
+    "tput -pS 1000 -pL 1000000\n", argv[0]);
+    return EXIT_SUCCESS;
+    }
 
-	if(argc < 9)
-	{
-		fprintf(stderr,"\nUSAGE:\nExtract -i IN_FILE -o OUT_FILE -pS FIRST_POSITION_NUMBER -pL LAST_POSITION_NUMBER\n\nCOMMON USAGE:\nDNAExt -i input -o output -pS 1000 -pL 1000000\n\n");
-		return 1;
-	}
+  fprintf(stderr, "[>] Starting Extract ...\n");
 
-	fprintf(stderr,"\n[STATUS] Starting Extract ...");
+  for(n = 1 ; n < argc ; n++)
+    if(strcmp("-i", argv[n]) == 0){
+      IN = Fopen(argv[n+1], "r");
+      break;
+      }
 
-        for(n = 1 ; n < argc ; n++)
-                if(strcmp("-i", argv[n]) == 0)
-		{
-                        if(!(IN = fopen(argv[n+1], "r")))
-                        {
-                                fprintf(stderr, "[ERROR] Can't open read file 1\n");
-                                return 1;
-                        }
-                        break;
-                }
+  for(n = 1 ; n < argc ; n++)
+    if(strcmp("-o", argv[n]) == 0){
+      OUT = Fopen(argv[n+1], "w");
+      break;
+      }
 
-	for(n = 1 ; n < argc ; n++)
-                if(strcmp("-o", argv[n]) == 0)
-                {
-                        if(!(OUT = fopen(argv[n+1], "w")))
-                        {
-                                fprintf(stderr, "[ERROR] Can't open write file\n");
-                                return 1;
-                        }
-                        break;
-                }
+  for(n = 1; n < argc; n++)
+    if(strcmp("-pS",argv[n]) == 0){	
+      init = atol(argv[n+1]);
+      break;
+      }
 
-    	for(n = 1; n < argc; n++)
-      		if(strcmp("-pS",argv[n]) == 0)
-		{	
-			start_position = atol(argv[n+1]);
-		        break;
-		}
+  for(n = 1; n < argc; n++)
+    if(strcmp("-pL",argv[n]) == 0){      
+      end = atol(argv[n+1]);
+      break;
+      }
 
-	for(n = 1; n < argc; n++)
-                if(strcmp("-pL",argv[n]) == 0)
-                {      
-                        end_position = atol(argv[n+1]);
-                        break;
-                }
+  do{
+    c = fgetc(IN);
+    if(init <= cnt && end > cnt)
+      fprintf(OUT, "%c", c);		
+    if(cnt++ >= end) break;
+    }
+  while(c != EOF);
 
-	/*-----------------------------------------------------------*/
-
-	do
-	{
-		c = fgetc(IN);
-		if(start_position <= conter && end_position > conter)
-		{
-			fprintf(OUT, "%c", c);		
-		}
-		
-		if(conter >= end_position)
-			break;
-
-		conter++;
-
-	}while(c != EOF);
-
-	/*-----------------------------------------------------------*/
-
-	printf("\n[STATUS] Done! \n\n");
-
-	fclose(IN);
-	fclose(OUT);
-
-	return 0;
-}
+  fprintf(stderr, "[>] Done!\n");
+  fclose(IN); fclose(OUT);
+  return EXIT_SUCCESS;
+  }

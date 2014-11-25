@@ -9,10 +9,11 @@
 uint32_t garbage;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 // SYSTEM VALUES:
-#define BUFFER_SIZE  65535
-#define MAX_ALPHABET 256
+//
+#define BUFFER_SIZE            65535
+#define BUFFER_SIZE_WS         512
+#define MAX_ALPHABET           256
 #define PROGRESS_MIN           1000000
 #define DEFAULT_HELP           0
 #define DEFAULT_VERBOSE        0
