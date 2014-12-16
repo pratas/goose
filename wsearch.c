@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "defs.h"
-#include "extra.h"
+#include "misc.h"
 
 int SearchFile(char *fn, char *str){	
   FILE     *F = Fopen(fn, "r");

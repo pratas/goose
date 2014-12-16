@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 #include "defs.h"
-#include "extra.h"
+#include "misc.h"
 
 int main(int argc, char *argv[]){
   FILE *IN = NULL, *OUT = NULL;

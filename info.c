@@ -5,7 +5,7 @@
 #include <string.h>
 #include "defs.h"
 #include "mem.h"
-#include "extra.h"
+#include "misc.h"
 
 int main(int32_t argc, char *argv[]){
   FILE *IN  = NULL;

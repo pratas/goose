@@ -6,6 +6,8 @@
 #include <inttypes.h>
 #include <unistd.h>
 
+#define MAX(a,b) (((a)>(b))?(a):(b))
+
 uint32_t garbage;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
