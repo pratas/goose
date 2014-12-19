@@ -28,15 +28,12 @@ int main(int argc, char *argv[]){
             line = 1;
             break;
             }
-
           if(s == '\n'){ 
             line = 1;
             break;
             }
-          
           if(pos++ == 0 && s == '>')
             break;
-
         break;
         case 1: 
           if(s == '\n'){ 
