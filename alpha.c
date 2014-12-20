@@ -15,16 +15,29 @@ ALPHA *CreateAlphabet(void){
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+void LoadAlphabet(ALPHA *A, BUF *B){
+  int i, k;
+  while((k = fread(B->buf, 1, B->size, stdin)))
+    for(i = 0 ; i < k ; ++i){
+      A->mask[B->buf[i]] = 1;
+      } 
+
+  for(k = 0 ; k < MAX_ALPHA ; ++k){
+    if(A->mask[k] == 1){ 
+      A->symbolic[A->nSym] = k;
+      A->numeric[k] = A->nSym++;
+      }
+    }
+  }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 void DeleteAlphabet(ALPHA *A){
   Free(A->symbolic, MAX_ALPHA * sizeof(char));
   Free(A->numeric,  MAX_ALPHA * sizeof(char));
   Free(A->mask,     MAX_ALPHA * sizeof(char));
   Free(A, sizeof(char));
   }
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

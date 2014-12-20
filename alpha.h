@@ -2,6 +2,7 @@
 #define ALPHA_H_INCLUDED
 
 #include "defs.h"
+#include "misc.h"
 
 #define MAX_ALPHA ((1<<(sizeof(char)*8))-1)
 
@@ -16,6 +17,7 @@ ALPHA;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ALPHA   *CreateAlphabet  (void);
+void    LoadAlphabet     (ALPHA *, BUF *);
 void    DeleteAlphabet   (ALPHA *);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
