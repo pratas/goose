@@ -12,7 +12,7 @@ uint64_t *LoadPrimes(uint32_t n){
   primes[0] = 2;
   for(count = 2 ; count < n ; ++i){
     for(c = 2 ; c < i ; c++)
-      if(i % c) break;
+      if(i % c == 0) break;
     if(c == i){
       primes[++k] = i;
       ++count;
@@ -24,27 +24,51 @@ uint64_t *LoadPrimes(uint32_t n){
 int main(int argc, char *argv[]){
   BUF      *B;
   ALPHA    *A;
-  uint64_t *primes, nPrimes = 5000;
-  uint32_t k;
+  HASH     *H;
+  uint64_t *primes, nPrimes = 500;
+  uint64_t i, k, n, s, baskets;
   
   if(argc != 1){
     fprintf(stderr, "\nUsage: ./SearchPHash < input.seq > output.param    \n"
     "                                                                     \n"
     "SearchPHash search for the best two primes that approximate a hash "
-    "family function (a.p1 + b.p2) on a sequence.                         \n");
+    "family function ((p1*seed + p2) %%#Sequence) on a sequence.          \n");
     return EXIT_SUCCESS;
     }
 
   B = CreateBuffer(BUF_SIZE);
   A = CreateAlphabet();
-
   LoadAlphabet(A, B);
   primes = LoadPrimes(nPrimes);
+  H = CreateHash(0, A->nSym);
 
+  #ifdef SHOW_PRIMES
+  printf("Primes: ");
   for(k = 0 ; k < nPrimes ; ++k)
-    printf("%"PRIu64"\n", primes[k]);
+    printf("%"PRIu64" ", primes[k]);
+  printf("\n");
+  #endif
+
+  baskets = 0;
+  while((k = fread(B->buf, 1, B->size, stdin)))
+    for(i = 0 ; i < k ; ++i){
 
 
+      H->p1 = H->seed; 
+      H->p2 = H->seed + 6;
+      H->seed++;
+      n = A->numeric[B->buf[i]];
+      s = Hash(H);
+
+      if(n == s)
+        ++baskets;
+
+
+      }
+
+  printf("Baskets: %"PRIu64" of %"PRIu64" tries\n", baskets, H->seed);
+
+  //TODO:differentialState
   Free(primes, nPrimes * sizeof(uint64_t));
   DeleteAlphabet(A);
   RemoveBuffer(B); 

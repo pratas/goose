@@ -22,12 +22,14 @@ void LoadAlphabet(ALPHA *A, BUF *B){
       A->mask[B->buf[i]] = 1;
       } 
 
+  A->nSym = 0;
   for(k = 0 ; k < MAX_ALPHA ; ++k){
     if(A->mask[k] == 1){ 
       A->symbolic[A->nSym] = k;
       A->numeric[k] = A->nSym++;
       }
     }
+  rewind(stdin);
   }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

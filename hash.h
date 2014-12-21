@@ -4,18 +4,19 @@
 #include "defs.h"
 
 typedef struct{
-  uint32_t k;        // NUMBER OF HASHES 
-  uint32_t *a;       // A SEED
-  uint32_t *b;       // B SEED
-  uint32_t p;        // PRIME
+  uint64_t hash;     // CURRENT HASH
+  uint64_t seed;     // CURRENT SEED
+  uint64_t cardinal; // CARDINALITY OF THE ELEMENTS
+  uint64_t p1;       // PRIME 1
+  uint64_t p2;       // PRIME 2
   }
-HFAM;
+HASH;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-HFAM      *CreateHFamily (uint32_t, uint32_t);
-void      DeleteHFamily  (HFAM *);
-uint32_t  Hash           (HFAM *, uint64_t, uint32_t);
+HASH      *CreateHash (uint64_t, uint64_t);
+void      DeleteHash  (HASH *);
+uint64_t  Hash        (HASH *);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
