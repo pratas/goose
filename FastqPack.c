@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include "defs.h"
+#include "misc.h"
+#include "mem.h"
+#include "reads.h"
+#include "args.h"
+
+void PrintStream(uint8_t *b, uint32_t n, uint8_t terminator){
+  int k;
+  for(k = 0 ; k < n ; ++k)
+    if(b[k] == '\n' && terminator == 0) 
+      putchar(127);
+    else 
+      putchar(b[k]);
+  }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+int main(int argc, char *argv[]){
+  Read *Read = CreateRead(65536+GUARD, 65535+GUARD);
+
+  if(argc > 3 || ArgBin(0, argv, argc, "-h")){
+    fprintf(stderr, "\nUsage: ./FastqPack < input > output\n");
+    return EXIT_SUCCESS;
+    }
+  
+  while(GetRead(stdin, Read)){
+    PrintStream(Read->bases,   strlen((char *) Read->bases ),  0);
+    PrintStream(Read->scores,  strlen((char *) Read->scores),  0);
+    PrintStream(Read->header1, strlen((char *) Read->header1), 0);
+    PrintStream(Read->header2, strlen((char *) Read->header2), 1);
+    }
+
+  FreeRead(Read);
+  return EXIT_SUCCESS;
+  }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
