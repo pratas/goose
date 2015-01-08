@@ -13,6 +13,7 @@ int main(int argc, char *argv[]){
   BUF      *B;
   CBUF     *CB;
   FCM      *Fcm;
+  FILE     *PLOT = popen("gnuplot -p", "w");
 
   if(argc != 1){
     fprintf(stderr, "\nUsage: ./Period < input > output\n"
@@ -54,9 +55,17 @@ int main(int argc, char *argv[]){
     Free4DnaModel(Fcm);
     }
   
+  fprintf(PLOT, "plot '-' with lines\n");
   for(order = 1 ; order <= max ; ++order){
-    fprintf(stdout, "%u\t%.4g\n", order, (double) (2*info[0][order])/info[1][order]); 
+    fprintf(stdout, "%2u\t%.4g\n", order, (double) (2 * info[0][order]) /
+    info[1][order]); 
+    fprintf(PLOT,   "%2u\t%.4g\n", order, (double) (2 * info[0][order]) /
+    info[1][order]); 
     }
+
+  fprintf(PLOT, "e\n");
+  fflush(PLOT);
+  fclose(PLOT);
 
   return EXIT_SUCCESS;
   }
