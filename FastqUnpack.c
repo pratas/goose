@@ -64,11 +64,11 @@ int main(int argc, char *argv[]){
         break;
 
         case 3:        
-          if(s == '\n'){
+          if(s == ESCAPE || s == '\n'){
             R->header2[pos++] = '\n';
             R->header2[pos]   = '\0';
             pos  = 0;
-            line = 0;
+            line = 4;
             fprintf(stdout, "@%s", R->header1);
             fprintf(stdout, "%s",  R->bases);
             fprintf(stdout, "%s",  R->header2);
@@ -77,6 +77,14 @@ int main(int argc, char *argv[]){
             }
           else
             R->header2[pos++] = s;
+        break;
+
+        case 4:
+          if(s == '\n'){
+            pos  = 0;
+            line = 0;
+            break;
+            }
         break;
         }
       }
