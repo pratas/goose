@@ -25,18 +25,27 @@ void PrintID(uint32_t i){
 
 int main(int argc, char *argv[]){
   Read *Read = CreateRead(65536+GUARD, 65535+GUARD);
-  uint32_t i = 0;
+  uint32_t i = 0, scores = 0;
 
   if(argc > 3 || ArgBin(0, argv, argc, "-h")){
     fprintf(stderr, "\nUsage: ./FastqPack < input > output\n");
+    fprintf(stderr, " -s use scores as first chars (default: dna sequence)\n");
     return EXIT_SUCCESS;
     }
   
+  scores = ArgBin(0, argv, argc, "-s");
+  
   while(GetRead(stdin, Read)){
-    PrintStream(Read->bases,   strlen((char *) Read->bases ),  0);
-    PrintStream(Read->scores,  strlen((char *) Read->scores),  0);
-    PrintStream(Read->header1, strlen((char *) Read->header1), 0);
-    PrintStream(Read->header2, strlen((char *) Read->header2), 0);
+    if(scores == 0){
+      PrintStream(Read->bases,  strlen((char *) Read->bases ),  0);
+      PrintStream(Read->scores, strlen((char *) Read->scores),  0);
+      }
+    else{
+      PrintStream(Read->scores, strlen((char *) Read->scores),  0);
+      PrintStream(Read->bases,  strlen((char *) Read->bases ),  0);
+      }
+    PrintStream(Read->header1,  strlen((char *) Read->header1), 0);
+    PrintStream(Read->header2,  strlen((char *) Read->header2), 0);
     PrintID(i++);
     }
 

@@ -13,7 +13,7 @@ PROGS  = $(BIN)/extract \
          $(BIN)/info \
          $(BIN)/wsearch \
          $(BIN)/reverse \
-         $(BIN)/filter \
+         $(BIN)/Filter \
          $(BIN)/Fastq2Fasta \
          $(BIN)/Fastq2MFasta \
          $(BIN)/Fasta2Seq \
@@ -41,8 +41,8 @@ $(BIN)/wsearch: wsearch.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/wsearch wsearch.c $(OBJS) $(LIBS)
 $(BIN)/reverse: reverse.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/reverse reverse.c $(OBJS) $(LIBS)
-$(BIN)/filter: filter.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/filter filter.c $(OBJS) $(LIBS)
+$(BIN)/Filter: filter.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/Filter filter.c $(OBJS) $(LIBS)
 $(BIN)/Fastq2Fasta: Fastq2Fasta.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/Fastq2Fasta Fastq2Fasta.c $(OBJS) $(LIBS)
 $(BIN)/Fastq2MFasta: Fastq2MFasta.c $(DEPS) $(OBJS)

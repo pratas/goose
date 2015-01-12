@@ -54,7 +54,7 @@ int main(int argc, char *argv[]){
     else{
       if(undefSegment){
         undefSegment = 0;
-        fprintf(stdout, "%"PRIu64":%"PRIu64" (%"PRIu64")\n", start, nBases-1, 
+        fprintf(stdout, "%"PRIu64"\t%"PRIu64"\t%"PRIu64"\n", start, nBases-1, 
         nBases-start);
         }
       }

@@ -32,7 +32,7 @@ int main(int argc, char *argv[]){
 
   if(argc < 3){
     fprintf(stderr,
-    "Usage: filter <OPTIONS>... [FILE]                              \n"
+    "Usage: Filter <OPTIONS>... [FILE]                              \n"
     "a tool for filtering numerical sequences                       \n"
     "                                                               \n"
     "Non-mandatory arguments:                                       \n"
