@@ -3,7 +3,7 @@
 #============================================================================#
 BIN    = .
 CC     = gcc
-CPLP   = -fstrict-aliasing -ffast-math -msse2
+CPLP   = -fstrict-aliasing -ffast-math -msse2 -w
 #-----------------------------------------------------------------------------
 CFLAGS = -O3 -Wall $(CPLP) #-DPROGRESS
 #-----------------------------------------------------------------------------
@@ -26,7 +26,9 @@ PROGS  = $(BIN)/extract \
          $(BIN)/FastqClustReads \
          $(BIN)/FastqPack \
          $(BIN)/FastqUnpack \
-         $(BIN)/Period 
+         $(BIN)/Period \
+	 $(BIN)/GenRandomDNA \
+         $(BIN)/MutateDNA
 OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o #fhash.o
 #-----------------------------------------------------------------------------
@@ -69,6 +71,10 @@ $(BIN)/FastqUnpack: FastqUnpack.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/FastqUnpack FastqUnpack.c $(OBJS) $(LIBS)
 $(BIN)/Period: Period.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/Period Period.c $(OBJS) $(LIBS)
+$(BIN)/GenRandomDNA: GenRandomDNA.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/GenRandomDNA GenRandomDNA.c $(OBJS) $(LIBS)
+$(BIN)/MutateDNA: MutateDNA.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/MutateDNA MutateDNA.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
