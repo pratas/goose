@@ -9,10 +9,10 @@ CFLAGS = -O3 -Wall $(CPLP) #-DPROGRESS
 #-----------------------------------------------------------------------------
 LIBS   = -lm
 DEPS   = defs.h
-PROGS  = $(BIN)/extract \
-         $(BIN)/info \
-         $(BIN)/wsearch \
-         $(BIN)/reverse \
+PROGS  = $(BIN)/Extract \
+         $(BIN)/Info \
+         $(BIN)/Wsearch \
+         $(BIN)/Reverse \
          $(BIN)/Filter \
          $(BIN)/Fastq2Fasta \
          $(BIN)/Fastq2MFasta \
@@ -35,14 +35,14 @@ OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
 all:
 	$(MAKE) progs
 progs: $(PROGS)
-$(BIN)/extract: extract.c $(DEPS) $(OBJS) 
-	$(CC) $(CFLAGS) -o $(BIN)/extract extract.c $(OBJS) $(LIBS)
-$(BIN)/info: info.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/info info.c $(OBJS) $(LIBS)
-$(BIN)/wsearch: wsearch.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/wsearch wsearch.c $(OBJS) $(LIBS)
-$(BIN)/reverse: reverse.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/reverse reverse.c $(OBJS) $(LIBS)
+$(BIN)/Extract: extract.c $(DEPS) $(OBJS) 
+	$(CC) $(CFLAGS) -o $(BIN)/Extract extract.c $(OBJS) $(LIBS)
+$(BIN)/Info: info.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/Info info.c $(OBJS) $(LIBS)
+$(BIN)/Wsearch: wsearch.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/Wsearch wsearch.c $(OBJS) $(LIBS)
+$(BIN)/Reverse: reverse.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/Reverse reverse.c $(OBJS) $(LIBS)
 $(BIN)/Filter: filter.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/Filter filter.c $(OBJS) $(LIBS)
 $(BIN)/Fastq2Fasta: Fastq2Fasta.c $(DEPS) $(OBJS)
