@@ -17,6 +17,7 @@ PROGS  = $(BIN)/Extract \
          $(BIN)/Fastq2Fasta \
          $(BIN)/Fastq2MFasta \
          $(BIN)/Fasta2Seq \
+         $(BIN)/Seq2Fasta \
          $(BIN)/RandFastaExtraChars \
          $(BIN)/RandSeqExtraChars \
          $(BIN)/RandFastqExtraChars \
@@ -51,6 +52,8 @@ $(BIN)/Fastq2MFasta: Fastq2MFasta.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/Fastq2MFasta Fastq2MFasta.c $(OBJS) $(LIBS)
 $(BIN)/Fasta2Seq: Fasta2Seq.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/Fasta2Seq Fasta2Seq.c $(OBJS) $(LIBS)
+$(BIN)/Seq2Fasta: Seq2Fasta.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/Seq2Fasta Seq2Fasta.c $(OBJS) $(LIBS)
 $(BIN)/RandFastaExtraChars: RandFastaExtraChars.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/RandFastaExtraChars RandFastaExtraChars.c $(OBJS) $(LIBS)
 $(BIN)/RandSeqExtraChars: RandSeqExtraChars.c $(DEPS) $(OBJS)
