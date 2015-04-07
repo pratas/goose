@@ -33,18 +33,19 @@ int main(int argc, char *argv[]){
   if(argc < 3){
     fprintf(stderr,
     "Usage: Filter <OPTIONS>... [FILE]                              \n"
-    "a tool for filtering numerical sequences                       \n"
+    "A tool for filtering numerical sequences.                      \n"
+    "The output is sent to stdout.                                  \n"
     "                                                               \n"
     "Non-mandatory arguments:                                       \n"
     "                                                               \n"
-    "  -w  <M>       window sie (def: 0),                           \n"
+    "  -w  <M>       window size (def: 0),                          \n"
     "  -d  <drop>    discard elements (def: 0),                     \n"
     "  -wt <type>    window type (0=Hamm, 1=Hann, 2=Black, 3=rec),  \n"
     "  -1            read from one column,                          \n"
     "  -p1           print one column,                              \n"
     "  -r            reverse mode.                                  \n"
     "                                                               \n"
-    "  <FILE>       file to compress (last argument).               \n"
+    "  <FILE>       file to filter (last argument).                 \n"
     "                                                               \n"
     "Report bugs to <{pratas,ap}@ua.pt>.                            \n");
     return EXIT_SUCCESS;

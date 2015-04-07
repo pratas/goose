@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[]){
   uint32_t k, i;
-  uint8_t  s, line = 0, pos = 1;
+  uint8_t  s, header = 1;
   BUF *B;
 
   if(argc != 1){
@@ -21,29 +21,12 @@ int main(int argc, char *argv[]){
   while((k = fread(B->buf, 1, B->size, stdin)))
     for(i = 0 ; i < k ; ++i){
       s = B->buf[i];
-      switch(line){
-        case 0: 
-          if(pos == 0 && s != '>'){
-            putchar(s);
-            line = 1;
-            break;
-            }
-          if(s == '\n'){ 
-            line = 1;
-            break;
-            }
-          if(pos++ == 0 && s == '>')
-            break;
-        break;
-        case 1: 
-          if(s == '\n'){ 
-            line   = 0; 
-            pos    = 0;
-            break; 
-            }
-          putchar(s);
-        break;
-        } 
+      if(s == '>'){ header = 1; continue; }
+      if(s == '\n' && header == 1){ header = 0; continue; }
+      if(s == '\n') continue;
+      if(header == 1) continue;
+      if(s < 65 || s > 122) continue;
+      putchar(s);
       }
 
   RemoveBuffer(B); 
