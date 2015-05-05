@@ -10,7 +10,7 @@ CFLAGS = -O3 -Wall $(CPLP) #-DPROGRESS
 LIBS   = -lm
 DEPS   = defs.h
 PROGS  = $(BIN)/Extract \
-         $(BIN)/FASTAExtract \
+         $(BIN)/FastaExtract \
          $(BIN)/Info \
          $(BIN)/Wsearch \
          $(BIN)/Reverse \
@@ -39,8 +39,8 @@ all:
 progs: $(PROGS)
 $(BIN)/Extract: extract.c $(DEPS) $(OBJS) 
 	$(CC) $(CFLAGS) -o $(BIN)/Extract extract.c $(OBJS) $(LIBS)
-$(BIN)/FASTAExtract: FASTAExtract.c $(DEPS) $(OBJS) 
-	$(CC) $(CFLAGS) -o $(BIN)/FASTAExtract FASTAExtract.c $(OBJS) $(LIBS)
+$(BIN)/FastaExtract: FastaExtract.c $(DEPS) $(OBJS) 
+	$(CC) $(CFLAGS) -o $(BIN)/FastaExtract FastaExtract.c $(OBJS) $(LIBS)
 $(BIN)/Info: info.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/Info info.c $(OBJS) $(LIBS)
 $(BIN)/Wsearch: wsearch.c $(DEPS) $(OBJS)
