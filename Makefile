@@ -30,7 +30,8 @@ PROGS  = $(BIN)/Extract \
          $(BIN)/FastqUnpack \
          $(BIN)/Period \
 	 $(BIN)/GenRandomDNA \
-         $(BIN)/MutateDNA
+         $(BIN)/MutateDNA \
+         $(BIN)/CharToLine
 OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o #fhash.o
 #-----------------------------------------------------------------------------
@@ -81,6 +82,8 @@ $(BIN)/GenRandomDNA: GenRandomDNA.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/GenRandomDNA GenRandomDNA.c $(OBJS) $(LIBS)
 $(BIN)/MutateDNA: MutateDNA.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/MutateDNA MutateDNA.c $(OBJS) $(LIBS)
+$(BIN)/CharToLine: CharToLine.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/CharToLine CharToLine.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
