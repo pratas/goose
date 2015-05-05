@@ -7,12 +7,12 @@
 
 int main(int argc, char *argv[]){
   uint32_t n, k, i;
-  uint64_t cnt = 0, init = 0, end = 0;
+  uint64_t cnt = 0, init = 0, end = 100;
   uint8_t  s, header = 1;
 
   BUF *B;
 
-  if(argc != 1){
+  if(argc < 3){
     fprintf(stderr, "\nUsage: ./FASTAExtract -i <init> -e <end> < input.fasta >" 
     " out.seq\nFASTAExtract extracts a sequences from a FASTA file.\n");
     return EXIT_SUCCESS;
