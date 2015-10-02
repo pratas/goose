@@ -13,6 +13,7 @@ PROGS  = $(BIN)/Extract \
          $(BIN)/FastaExtract \
          $(BIN)/Info \
          $(BIN)/Min \
+         $(BIN)/Minus \
          $(BIN)/Wsearch \
          $(BIN)/Reverse \
          $(BIN)/Filter \
@@ -47,6 +48,8 @@ $(BIN)/Info: info.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/Info info.c $(OBJS) $(LIBS)
 $(BIN)/Min: min.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/Min min.c $(OBJS) $(LIBS)
+$(BIN)/Minus: minus.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/Minus minus.c $(OBJS) $(LIBS)
 $(BIN)/Wsearch: wsearch.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/Wsearch wsearch.c $(OBJS) $(LIBS)
 $(BIN)/Reverse: reverse.c $(DEPS) $(OBJS)
