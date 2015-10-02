@@ -12,6 +12,7 @@ DEPS   = defs.h
 PROGS  = $(BIN)/Extract \
          $(BIN)/FastaExtract \
          $(BIN)/Info \
+         $(BIN)/Min \
          $(BIN)/Wsearch \
          $(BIN)/Reverse \
          $(BIN)/Filter \
@@ -44,6 +45,8 @@ $(BIN)/FastaExtract: FastaExtract.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/FastaExtract FastaExtract.c $(OBJS) $(LIBS)
 $(BIN)/Info: info.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/Info info.c $(OBJS) $(LIBS)
+$(BIN)/Min: min.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/Min min.c $(OBJS) $(LIBS)
 $(BIN)/Wsearch: wsearch.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/Wsearch wsearch.c $(OBJS) $(LIBS)
 $(BIN)/Reverse: reverse.c $(DEPS) $(OBJS)
