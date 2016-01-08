@@ -1,4 +1,6 @@
-goose
+GOOSE
 =====
 
-Framework
+A framework for genomic sequence analysis.
+
+
