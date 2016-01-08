@@ -4,8 +4,6 @@ GOOSE
 <br>
 <p align="center"><img src="imgs/logo.png"
 alt="GOOSE" height="200" border="0" /></p>
-<br>
-
 
 A framework for DNA sequence analysis.
 
