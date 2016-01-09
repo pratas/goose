@@ -47,7 +47,8 @@ int main(int argc, char *argv[]){
     "                                                               \n"
     "  <FILE>        file to filter (last argument).                \n"
     "                                                               \n"
-    "Report bugs to <{pratas,ap}@ua.pt>.                            \n");
+    "Report bugs to <{pratas,ap}@ua.pt>.                            \n",
+    argv[0]);
     return EXIT_SUCCESS;
     }
 
