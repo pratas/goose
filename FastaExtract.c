@@ -13,8 +13,8 @@ int main(int argc, char *argv[]){
   BUF *B;
 
   if(argc < 3){
-    fprintf(stderr, "\nUsage: ./FastaExtract -i <init> -e <end> < input.fasta >" 
-    " out.seq\nFastaExtract extracts a sequences from a FASTA file.\n");
+    fprintf(stderr, "Usage: %s -i <init> -e <end> < input.fasta >" 
+    " out.seq\nIt extracts sequences from a FASTA file.\n", argv[0]);
     return EXIT_SUCCESS;
     }
 
