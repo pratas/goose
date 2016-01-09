@@ -60,10 +60,9 @@ int main(int argc, char *argv[]){
   uint64_t size = MEM_INDEX, nReads = 0;
 
   if(argc > 3 || ArgBin(0, argv, argc, "-h")){
-    fprintf(stderr, "\nUsage: ./FastqClustReads -c <ctx> < input > output\n"
-    "                                                                    \n"
-    "FastqClustReads agroups reads and creates an index file.            \n"
-    "It cluster reads in therms of Seq k-mer Lexicographical order       \n");
+    fprintf(stderr, "Usage: %s -c <ctx> < input > output\n"
+    "It agroups reads and creates an index file.\n"
+    "It cluster reads in therms of Seq k-mer Lexicographical order\n", argv[0]);
     return EXIT_SUCCESS;
     }
   
