@@ -32,7 +32,7 @@ int main(int argc, char *argv[]){
 
   if(argc < 3){
     fprintf(stderr,
-    "Usage: Filter <OPTIONS>... [FILE]                              \n"
+    "Usage: %s <OPTIONS>... [FILE]                                  \n"
     "A tool for filtering numerical sequences.                      \n"
     "The output is sent to stdout.                                  \n"
     "                                                               \n"
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
     "  -p1           print one column,                              \n"
     "  -r            reverse mode.                                  \n"
     "                                                               \n"
-    "  <FILE>       file to filter (last argument).                 \n"
+    "  <FILE>        file to filter (last argument).                \n"
     "                                                               \n"
     "Report bugs to <{pratas,ap}@ua.pt>.                            \n");
     return EXIT_SUCCESS;
