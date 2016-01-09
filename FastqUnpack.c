@@ -19,8 +19,9 @@ int main(int argc, char *argv[]){
   Read *R = CreateRead(65536+GUARD, 65535+GUARD);
 
   if(argc > 3 || ArgBin(0, argv, argc, "-h")){
-    fprintf(stderr, "\nUsage: ./FastqUnpack < input > output\n");
-    fprintf(stderr, " -s use scores as first chars (default: dna sequence)\n");
+    fprintf(stderr, "Usage: %s -s < input > output\n");
+    fprintf(stderr, " -s use scores as first chars (default: dna sequence)\n",
+    argv[0]);
     return EXIT_SUCCESS;
     }
 
