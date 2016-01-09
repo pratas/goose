@@ -10,11 +10,11 @@ int main(int argc, char *argv[]){
   BUF *B;
 
   if(argc != 1){
-    fprintf(stderr, "\nUsage: ./Fastq2MFasta < input.fastq > output.mfasta  \n"
-    "                                                                       \n"
-    "Fastq2MFasta converts a FASTQ file format to a pseudo Multi-FASTA file.\n"
-    "It does NOT align the sequence.                                        \n"
-    "It extracts the sequence and adds each header in a Multi-FASTA format.\n");
+    fprintf(stderr, "Usage: %s < input.fastq > output.mfasta  \n"
+    "It converts a FASTQ file format to a pseudo Multi-FASTA file.\n"
+    "It does NOT align the sequence.\n"
+    "It extracts the sequence and adds each header in a Multi-FASTA format.\n",
+    argv[0]);
     return EXIT_SUCCESS;
     }
 
