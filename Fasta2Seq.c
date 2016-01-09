@@ -10,8 +10,8 @@ int main(int argc, char *argv[]){
   BUF *B;
 
   if(argc != 1){
-    fprintf(stderr, "\nUsage: %s < input.fasta > output.seq\n\n %s converts "
-    "a FASTA or Multi-FASTA file format to a seq.\n", argv[0], argv[0]);
+    fprintf(stderr, "Usage: %s < input.fasta > output.seq\n"
+    "It converts a FASTA or Multi-FASTA file format to a seq.\n", argv[0]);
     return EXIT_SUCCESS;
     }
 
