@@ -9,32 +9,32 @@ CFLAGS = -O3 -Wall $(CPLP) #-DPROGRESS
 #-----------------------------------------------------------------------------
 LIBS   = -lm
 DEPS   = defs.h
-PROGS  = $(BIN)/Extract \
-         $(BIN)/FastaExtract \
-         $(BIN)/Info \
-         $(BIN)/Min \
-         $(BIN)/Minus \
-         $(BIN)/Wsearch \
-         $(BIN)/Reverse \
-         $(BIN)/Filter \
-         $(BIN)/Fastq2Fasta \
-         $(BIN)/Fastq2MFasta \
-         $(BIN)/Fasta2Seq \
-         $(BIN)/Seq2Fasta \
-         $(BIN)/Seq2Fastq \
-         $(BIN)/RandFastaExtraChars \
-         $(BIN)/RandSeqExtraChars \
-         $(BIN)/RandFastqExtraChars \
-         $(BIN)/SearchPHash \
-         $(BIN)/FindNPos \
-         $(BIN)/PermuteSeqByBlocks \
-         $(BIN)/FastqClustReads \
-         $(BIN)/FastqPack \
-         $(BIN)/FastqUnpack \
-         $(BIN)/Period \
-	 $(BIN)/GenRandomDNA \
-         $(BIN)/MutateDNA \
-         $(BIN)/CharToLine
+PROGS  = $(BIN)/goose-extract \
+         $(BIN)/goose-fastaextract \
+         $(BIN)/goose-info \
+         $(BIN)/goose-min \
+         $(BIN)/goose-minus \
+         $(BIN)/goose-wsearch \
+         $(BIN)/goose-reverse \
+         $(BIN)/goose-filter \
+         $(BIN)/goose-fastq2fasta \
+         $(BIN)/goose-fastq2mfasta \
+         $(BIN)/goose-fasta2seq \
+         $(BIN)/goose-seq2fasta \
+         $(BIN)/goose-seq2fastq \
+         $(BIN)/goose-randfastaextrachars \
+         $(BIN)/goose-randseqextrachars \
+         $(BIN)/goose-randfastqextrachars \
+         $(BIN)/goose-searchphash \
+         $(BIN)/goose-findnpos \
+         $(BIN)/goose-permuteseqbyblocks \
+         $(BIN)/goose-fastqclustreads \
+         $(BIN)/goose-fastqpack \
+         $(BIN)/goose-fastqunpack \
+         $(BIN)/goose-period \
+	 $(BIN)/goose-genrandomdna \
+         $(BIN)/goose-mutatedna \
+         $(BIN)/goose-char2line
 OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o #fhash.o
 #-----------------------------------------------------------------------------
