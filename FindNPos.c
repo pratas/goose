@@ -37,9 +37,8 @@ int main(int argc, char *argv[]){
   int undefSegment = 0, base;
 
   if(argc != 1){
-    fprintf(stderr, "\nUsage: ./FindNPos < input.fasta > output.seq     \n"
-    "                                                                   \n"
-    "FindNPos reports the 'N' regions in a sequence or FASTA (seq) file.\n");
+    fprintf(stderr, "Usage: %s < input.fasta > output.seq\n"
+    "It reports the 'N' regions in a sequence or FASTA (seq) file.\n", argv[0]);
     return EXIT_SUCCESS;
     }
 
