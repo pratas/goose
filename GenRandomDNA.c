@@ -11,11 +11,11 @@ int main(int argc, char *argv[]){
   double freqs[4] = {0.25, 0.25, 0.25, 0.25}, cum[4], val, totalFreq;
 
   if(ArgBin(0, argv, argc, "-h")){
-    fprintf(stderr, "\nUsage: ./GenRandomDNA < input > output\n");
-    fprintf(stderr, " Arguments:                             \n");
-    fprintf(stderr, " -s  <seed>,                            \n");
-    fprintf(stderr, " -f  <fa,fc,fg,ft>  (def: uniform),     \n");
-    fprintf(stderr, " -n  <nSymbols>     (def: 100).         \n");
+    fprintf(stderr, "Usage: %s < input > output\n", argv[0]);
+    fprintf(stderr, "Arguments:                         \n");
+    fprintf(stderr, " -s  <seed>,                       \n");
+    fprintf(stderr, " -f  <fa,fc,fg,ft>  (def: uniform),\n");
+    fprintf(stderr, " -n  <nSymbols>     (def: 100).    \n");
     return EXIT_SUCCESS;
     }
 
