@@ -11,10 +11,8 @@ int main(int argc, char *argv[]){
   char c;
 
   if(argc < 9){
-    fprintf(stderr, "USAGE:\n%s -s FIRST_POSITION_NUMBER -l "
-    "LAST_POSITION_NUMBER < inFile > outFile\n"
-    "COMMON USAGE:\n%s -s 1 -l 1000000 < ch3 > ch3_1M\n", 
-    argv[0], argv[0]);
+    fprintf(stderr, "Use: %s -s <position> -l <position> < inFile > outFile\n"
+    "Example: %s -s 1 -l 1000000 < ch3 > ch3_1M\n", argv[0], argv[0]);
     return EXIT_SUCCESS;
     }
 
