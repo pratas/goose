@@ -63,11 +63,9 @@ int main(int argc, char *argv[]){
   Seq  *seq = (Seq *) Calloc(1, sizeof(Seq));
 
   if(ArgBin(0, argv, argc, "-h")){
-    fprintf(stderr, "Usage: PermuteSeqByBlocs [ -bs <bSize> (def 100) ]\n"
-    "                         [ -s  <seed> ]                           \n"
-    "                                                                  \n"
-    "PermuteSeqByBlocs -bs 100 -s 7 < input.fasta > output.fasta       \n"
-    "It works on Seq, FASTA and Multi-FASTA file formats               \n");
+    fprintf(stderr, "Usage: %s -bs <bSize> -s <seed> < IN > OUT\n", argv[0]);
+    fprintf(stderr, "Example: %s -bs 100 -s 7 < input.fasta > output.fasta\n"
+    "It works on Seq, FASTA and Multi-FASTA file formats\n", argv[0]);
     return EXIT_SUCCESS;
     }
 
