@@ -14,7 +14,7 @@ int main(int32_t argc, char *argv[]){
   uint8_t   *buf, *mask, *norm_alp, *alp, sym;
 
   if(argc < 2){
-    fprintf(stderr, "Usage: info [0|1] file\n");
+    fprintf(stderr, "Usage: %s [0|1] file\n", argv[0]);
     return EXIT_SUCCESS;
     }
 
