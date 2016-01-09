@@ -14,7 +14,7 @@ int main(int argc, char *argv[]){
   BUF *B;
 
   if(ArgBin(0, argv, argc, "-h")){
-    fprintf(stderr, "\nUsage: ./MutateDNA < input > output\n");
+    fprintf(stderr, "Usage: %s < input > output\n", argv[0]);
     fprintf(stderr, " Arguments:                          \n");
     fprintf(stderr, " -s  <seed>                          \n");
     fprintf(stderr, " -mr <mutationRate>  (def:0)         \n");
