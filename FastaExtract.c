@@ -9,7 +9,6 @@ int main(int argc, char *argv[]){
   uint32_t n, k, i;
   uint64_t cnt = 0, init = 0, end = 100;
   uint8_t  s, header = 1;
-
   BUF *B;
 
   if(argc < 3){
