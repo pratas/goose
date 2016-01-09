@@ -10,7 +10,7 @@ int main(int argc, char *argv[]){
   uint64_t cnt = 0, init = 0, end = 0;
   char c;
 
-  if(argc < 9){
+  if(argc < 3){
     fprintf(stderr, "Use: %s -s <position> -l <position> < inFile > outFile\n"
     "Example: %s -s 1 -l 1000000 < ch3 > ch3_1M\n", argv[0], argv[0]);
     return EXIT_SUCCESS;
