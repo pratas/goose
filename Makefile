@@ -1,11 +1,11 @@
 #============================================================================#
-#                  GOOSE 2015, IEETA/DETI, UNIVERSITY OF AVEIRO              #
+#               GOOSE 2015-2016, IEETA/DETI, UNIVERSITY OF AVEIRO            #
 #============================================================================#
 BIN    = .
 CC     = gcc
 CPLP   = -fstrict-aliasing -ffast-math -msse2
 #-----------------------------------------------------------------------------
-CFLAGS = -O3 -Wall $(CPLP) #-DPROGRESS
+CFLAGS = -O3 -Wall $(CPLP)
 #-----------------------------------------------------------------------------
 LIBS   = -lm
 DEPS   = defs.h
@@ -36,39 +36,39 @@ PROGS  = $(BIN)/goose-extract \
          $(BIN)/goose-mutatedna \
          $(BIN)/goose-char2line
 OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
-         phash.o #fhash.o
+         phash.o
 #-----------------------------------------------------------------------------
 all:
 	$(MAKE) progs
 progs: $(PROGS)
-$(BIN)/Extract: extract.c $(DEPS) $(OBJS) 
-	$(CC) $(CFLAGS) -o $(BIN)/Extract extract.c $(OBJS) $(LIBS)
-$(BIN)/FastaExtract: FastaExtract.c $(DEPS) $(OBJS) 
-	$(CC) $(CFLAGS) -o $(BIN)/FastaExtract FastaExtract.c $(OBJS) $(LIBS)
-$(BIN)/Info: info.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/Info info.c $(OBJS) $(LIBS)
-$(BIN)/Min: min.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/Min min.c $(OBJS) $(LIBS)
-$(BIN)/Minus: minus.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/Minus minus.c $(OBJS) $(LIBS)
-$(BIN)/Wsearch: wsearch.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/Wsearch wsearch.c $(OBJS) $(LIBS)
-$(BIN)/Reverse: reverse.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/Reverse reverse.c $(OBJS) $(LIBS)
-$(BIN)/Filter: filter.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/Filter filter.c $(OBJS) $(LIBS)
-$(BIN)/Fastq2Fasta: Fastq2Fasta.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/Fastq2Fasta Fastq2Fasta.c $(OBJS) $(LIBS)
-$(BIN)/Fastq2MFasta: Fastq2MFasta.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/Fastq2MFasta Fastq2MFasta.c $(OBJS) $(LIBS)
-$(BIN)/Fasta2Seq: Fasta2Seq.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/Fasta2Seq Fasta2Seq.c $(OBJS) $(LIBS)
-$(BIN)/Seq2Fasta: Seq2Fasta.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/Seq2Fasta Seq2Fasta.c $(OBJS) $(LIBS)
-$(BIN)/Seq2Fastq: Seq2Fastq.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/Seq2Fastq Seq2Fastq.c $(OBJS) $(LIBS)
-$(BIN)/RandFastaExtraChars: RandFastaExtraChars.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/RandFastaExtraChars RandFastaExtraChars.c $(OBJS) $(LIBS)
+$(BIN)/goose-extract: extract.c $(DEPS) $(OBJS) 
+	$(CC) $(CFLAGS) -o $(BIN)/goose-extract extract.c $(OBJS) $(LIBS)
+$(BIN)/goose-fastaextract: FastaExtract.c $(DEPS) $(OBJS) 
+	$(CC) $(CFLAGS) -o $(BIN)/goose-fastaextract FastaExtract.c $(OBJS) $(LIBS)
+$(BIN)/goose-info: info.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-info info.c $(OBJS) $(LIBS)
+$(BIN)/goose-min: min.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-min min.c $(OBJS) $(LIBS)
+$(BIN)/goose-minus: minus.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-minus minus.c $(OBJS) $(LIBS)
+$(BIN)/goose-wsearch: wsearch.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-wsearch wsearch.c $(OBJS) $(LIBS)
+$(BIN)/goose-reverse: reverse.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-reverse reverse.c $(OBJS) $(LIBS)
+$(BIN)/goose-filter: filter.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-filter filter.c $(OBJS) $(LIBS)
+$(BIN)/goose-fastq2fasta: Fastq2Fasta.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-fastq2fasta Fastq2Fasta.c $(OBJS) $(LIBS)
+$(BIN)/goose-fastq2mfasta: Fastq2MFasta.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-fastq2mfasta Fastq2MFasta.c $(OBJS) $(LIBS)
+$(BIN)/goose-fasta2seq: Fasta2Seq.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-fasta2seq Fasta2Seq.c $(OBJS) $(LIBS)
+$(BIN)/goose-seq2fasta: Seq2Fasta.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-seq2fasta Seq2Fasta.c $(OBJS) $(LIBS)
+$(BIN)/goose-seq2fastq: Seq2Fastq.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-seq2fastq Seq2Fastq.c $(OBJS) $(LIBS)
+$(BIN)/goose-randfastaextrachars: RandFastaExtraChars.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-randfastaextrachars RandFastaExtraChars.c $(OBJS) $(LIBS)
 $(BIN)/RandSeqExtraChars: RandSeqExtraChars.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/RandSeqExtraChars RandSeqExtraChars.c $(OBJS) $(LIBS)
 $(BIN)/RandFastqExtraChars: RandFastqExtraChars.c $(DEPS) $(OBJS)
