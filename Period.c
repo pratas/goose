@@ -16,11 +16,10 @@ int main(int argc, char *argv[]){
   FILE     *PLOT = popen("gnuplot -p", "w");
 
   if(argc != 1){
-    fprintf(stderr, "\nUsage: ./Period < input > output\n"
-    "                                                                  \n"
-    "Period calculates the best order depth (using FCMs) of a sequence.\n"
-    "It only works with \"ACGT\", while the rest will be discarded. \n"
-    "The Output is given by log_2(4)*K(x)/|x|)\n");
+    fprintf(stderr, "Usage: %s < input > output\n", argv[0]); 
+    fprintf(stderr, "It calculates the best order depth (using FCMs) of a "
+    "sequence.\nIt only works with \"ACGT\", while the rest will be discarded."
+    "\nThe Output is given by log_2(4)*K(x)/|x|)\n");
     return EXIT_SUCCESS;
     }
 
