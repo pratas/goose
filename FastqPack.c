@@ -28,8 +28,8 @@ int main(int argc, char *argv[]){
   uint32_t i = 0, scores = 0;
 
   if(argc > 3 || ArgBin(0, argv, argc, "-h")){
-    fprintf(stderr, "Usage: %s -s < input > output\n");
-    fprintf(stderr, " -s use scores as first chars (default: dna sequence)\n",
+    fprintf(stderr, "Usage: %s -s < input > output\n"
+    " -s use scores as first chars (default: dna sequence)\n",
     argv[0]);
     return EXIT_SUCCESS;
     }
