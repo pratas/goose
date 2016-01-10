@@ -10,14 +10,13 @@ int main(int argc, char *argv[]){
   BUF *B;
 
   if(argc != 1){
-    fprintf(stderr, "\nUsage: ./Seq2Fasta < input.seq > output.fasta      \n"
-    "                                                                     \n"
-    "Seq2Fasta converts a genomic sequence to pseudo FASTA file format.   \n");
+    fprintf(stderr, "Usage: %s < input.seq > output.fasta\nIt converts a "
+    "genomic sequence to pseudo FASTA file format.\n", argv[0]);
     return EXIT_SUCCESS;
     }
 
   B = CreateBuffer(BUF_SIZE);
-  fprintf(stdout, "> Computed with Seq2Fasta\n");
+  fprintf(stdout, "> Computed with %s\n", argv[0]);
   while((k = fread(B->buf, 1, B->size, stdin)))
     for(i = 0 ; i < k ; ++i){
       putchar(B->buf[i]);
