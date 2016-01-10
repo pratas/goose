@@ -3,7 +3,7 @@
 #include "defs.h"
 
 int main(int argc, char *argv[]){
-  fprintf(stderr, "GOOSE, 2015-2016 [UNIVERSITY OF AVEIRO],"
+  fprintf(stderr, "GOOSE, 2015-2016 UNIVERSITY OF AVEIRO,\n"
   "a framework for DNA sequences manipulation and analysis.\n"
   "Goose programs:\n"
   "  [+] goose-char2line            \n"            
