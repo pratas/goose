@@ -3,9 +3,9 @@
 #include "defs.h"
 
 int main(int argc, char *argv[]){
-  fprintf(stderr, "GOOSE, 2015-2016, IEETA/DETI, UNIVERSITY OF AVEIRO,\n"
-  "a framework for DNA sequences manipulation and analysis.\n"
-  "GOOSE is under GPL v3 license\n"
+  fprintf(stderr, "GOOSE: a framework for DNA sequences manipulation and "
+  "analysis.\n2015-2016, IEETA/DETI, UNIVERSITY OF AVEIRO.\n"
+  "GOOSE is under GPL v3 license.\n"
   "GOOSE programs:\n"
   "  [+] goose-char2line            \n"            
   "  [+] goose-filter               \n"
