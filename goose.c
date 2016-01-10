@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[]){
   fprintf(stderr, "GOOSE: a framework for DNA sequences manipulation and "
-  "analysis.\n2015-2016, IEETA/DETI, UNIVERSITY OF AVEIRO.\n"
+  "analysis.\nIEETA/DETI, UNIVERSITY OF AVEIRO, 2015-2016.\n"
   "GOOSE is under GPL v3 license.\n"
   "GOOSE programs:\n"
   "  [+] goose-char2line            \n"            
