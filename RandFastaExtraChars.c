@@ -21,10 +21,9 @@ int main(int argc, char *argv[]){
   
 
   if(argc != 1){
-    fprintf(stderr, "Usage: %s < input.fasta > output.fasta\n", arg[0]);
-    fprintf(stderr, "It substitues in the DNA sequence the outside ACGT chars "
-    "by random ACGT symbols.\nIt works both in FASTA and Multi-FASTA file "
-    "formats\n");
+    fprintf(stderr, "Usage: %s < input.fasta > output.fasta\nIt substitues in "
+    "the DNA sequence the outside ACGT chars by random ACGT symbols.\nIt works "
+    "both in FASTA and Multi-FASTA file formats\n", argv[0]);
     return EXIT_SUCCESS;
     }
 
