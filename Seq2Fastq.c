@@ -13,9 +13,8 @@ int main(int argc, char *argv[]){
   BUF *B;
 
   if(argc != 1){
-    fprintf(stderr, "\nUsage: ./Seq2Fastq < input.seq > output.fastq   \n"
-    "                                                                  \n"
-    "Seq2Fastq converts a genomic sequence to pseudo FASTQ file format.\n");
+    fprintf(stderr, "Usage: %s < input.seq > output.fastq\nIt converts a "
+    "genomic sequence to pseudo FASTQ file format.\n", argv[0]);
     return EXIT_SUCCESS;
     }
 
