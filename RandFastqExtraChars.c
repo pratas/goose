@@ -18,14 +18,11 @@ int main(int argc, char *argv[]){
   char     *bases = "ACGT";
   BUF *B;
   srand(seed);
-  
 
   if(argc != 1){
-    fprintf(stderr, "\nUsage: ./RandFastqExtraChars < input.fastq > "
-    " output.fastq\n"
-    "                                                                  \n"
-    "RandFastqExtraChars substitues in the DNA sequence the outside ACGT "
-    "chars by random ACGT symbols.\n");
+    fprintf(stderr, "Usage: %s < input.fastq > output.fastq\nIt substitues in "
+    "the DNA sequence the outside ACGT chars by random ACGT symbols.\n", 
+    argv[0]);
     return EXIT_SUCCESS;
     }
 
