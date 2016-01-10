@@ -11,7 +11,7 @@ int main(int argc, char *argv[]){
   uint64_t i, size;
 
   if(argc != 2){
-    fprintf(stderr, "Usage: reverse file\n");
+    fprintf(stderr, "Usage: %s file\n", argv[0]);
     return EXIT_SUCCESS;
     }
 
