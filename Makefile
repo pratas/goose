@@ -9,7 +9,8 @@ CFLAGS = -O3 -Wall $(CPLP)
 #-----------------------------------------------------------------------------
 LIBS   = -lm
 DEPS   = defs.h
-PROGS  = $(BIN)/goose-extract \
+PROGS  = $(BIN)/goose \
+         $(BIN)/goose-extract \
          $(BIN)/goose-fastaextract \
          $(BIN)/goose-info \
          $(BIN)/goose-min \
@@ -41,6 +42,8 @@ OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
 all:
 	$(MAKE) progs
 progs: $(PROGS)
+$(BIN)/goose: goose.c $(DEPS) $(OBJS) 
+	$(CC) $(CFLAGS) -o $(BIN)/goose goose.c $(OBJS) $(LIBS)
 $(BIN)/goose-extract: extract.c $(DEPS) $(OBJS) 
 	$(CC) $(CFLAGS) -o $(BIN)/goose-extract extract.c $(OBJS) $(LIBS)
 $(BIN)/goose-fastaextract: FastaExtract.c $(DEPS) $(OBJS) 
