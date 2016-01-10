@@ -29,9 +29,9 @@ int main(int argc, char *argv[]){
   uint64_t i, k, n, s, baskets;
   
   if(argc != 1){
-    fprintf(stderr, "Usage: %s < input.seq > output.param\nSearchPHash search "
-    "for the best two primes that approximate a hash family function ((p1*seed "
-    "+ p2) %%#Sequence) on a sequence.\n", argv[0]);
+    fprintf(stderr, "Usage: %s < input.seq > output.param\nIt search for the "
+    "best two primes that approximate a hash family function ((p1*seed + p2) "
+    "%%#Sequence) on a sequence.\n", argv[0]);
     return EXIT_SUCCESS;
     }
 
