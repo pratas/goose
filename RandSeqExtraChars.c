@@ -21,11 +21,9 @@ int main(int argc, char *argv[]){
   
 
   if(argc != 1){
-    fprintf(stderr, "\nUsage: ./RandSeqExtraChars < input.seq > output.seq  \n"
-    "                                                                       \n"
-    "RandSeqExtraChars substitues in the DNA sequence the outside ACGT chars\n" 
-    "by random ACGT symbols.\n"
-    "It works in Sequence domain.\n");
+    fprintf(stderr, "Usage: %s < input.seq > output.seq\nIt substitues in the "
+    "DNA sequence the outside ACGT chars\nby random ACGT symbols.\nIt works in "
+    "Sequence domain.\n", argv[0]);
     return EXIT_SUCCESS;
     }
 
