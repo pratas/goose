@@ -35,6 +35,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-period \
 	 $(BIN)/goose-genrandomdna \
          $(BIN)/goose-mutatedna \
+         $(BIN)/goose-mutatefastq \
          $(BIN)/goose-char2line
 OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o
@@ -94,6 +95,8 @@ $(BIN)/goose-genrandomdna: GenRandomDNA.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-genrandomdna GenRandomDNA.c $(OBJS) $(LIBS)
 $(BIN)/goose-mutatedna: MutateDNA.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-mutatedna MutateDNA.c $(OBJS) $(LIBS)
+$(BIN)/goose-mutatefastq: MutateFastq.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-mutatefastq MutateFastq.c $(OBJS) $(LIBS)
 $(BIN)/goose-char2line: Char2Line.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-char2line Char2Line.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
