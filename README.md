@@ -6,7 +6,7 @@ A framework for DNA sequence manipulation and analysis.
 To install on Linux:
 <pre>
 git clone https://github.com/pratas/goose.git
-cd goose/
+cd goose/src/
 make
 </pre>
 
