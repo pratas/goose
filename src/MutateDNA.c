@@ -17,9 +17,9 @@ int main(int argc, char *argv[]){
     fprintf(stderr, "Usage: %s < input > output\n", argv[0]);
     fprintf(stderr, " Arguments:                    \n");
     fprintf(stderr, " -s  <seed>                    \n");
-    fprintf(stderr, " -mr <mutationRate>  (def:0)   \n");
-    fprintf(stderr, " -dr <deletionRate>  (def:0)   \n");
-    fprintf(stderr, " -ir <insertionRate> (def:0)   \n");
+    fprintf(stderr, " -mr <mutationRate>  (def:0.0) \n");
+    fprintf(stderr, " -dr <deletionRate>  (def:0.0) \n");
+    fprintf(stderr, " -ir <insertionRate> (def:0.0) \n");
     fprintf(stderr, " -a5 (use ACGTN alphabet)      \n");
     fprintf(stderr, "It works on sequence domain.   \n");
     return EXIT_SUCCESS;
