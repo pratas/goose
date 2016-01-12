@@ -11,6 +11,7 @@ int main(int argc, char *argv[]){
   uint32_t k, i;
   int s, r, seed = 0, nSymbols = 4;
   double mutationRate = 0, deletionRate = 0, insertionRate = 0;
+  PARSER *PA = CreateParser();
   char *bases = "ACGT";
   BUF *B;
 
@@ -34,13 +35,21 @@ int main(int argc, char *argv[]){
     nSymbols = 5;
     }
 
+  FileType(PA, stdin);
+  if(PA->type != 2){
+    fprintf(stderr, "ERROR: This is not a FASTQ file!\n");
+    exit(1);
+    }
+
   srand(seed);
   B = CreateBuffer(BUF_SIZE);
   while((k = fread(B->buf, 1, B->size, stdin)))
     for(i = 0 ; i < k ; ++i){
-
-      // TODO: PARSE FASTQ
-
+      if(ParseSym(PA, (sym = readBuf[idxPos])) == -1){
+        putchar(B->buf[i]);
+        continue;
+        }
+       
       s = B->buf[i];
       if(rand() / (RAND_MAX + 1.0) < mutationRate){
         while((r = bases[rand() % nSymbols]) == s)
@@ -55,5 +64,6 @@ int main(int argc, char *argv[]){
       putchar(s);
       }
   RemoveBuffer(B);
+  RemoveParser(PA);
   return 0;
   }
