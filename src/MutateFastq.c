@@ -5,6 +5,7 @@
 #include "defs.h"
 #include "args.h"
 #include "misc.h"
+#include "parser.h"
 
 int main(int argc, char *argv[]){
   uint32_t k, i;
@@ -41,7 +42,7 @@ int main(int argc, char *argv[]){
       // TODO: PARSE FASTQ
 
       s = B->buf[i];
-      if(random() / (RAND_MAX + 1.0) < mutationRate){
+      if(rand() / (RAND_MAX + 1.0) < mutationRate){
         while((r = bases[rand() % nSymbols]) == s)
           ;
         putchar(r);

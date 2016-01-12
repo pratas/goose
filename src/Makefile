@@ -38,7 +38,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-mutatefastq \
          $(BIN)/goose-char2line
 OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
-         phash.o
+         phash.o parser.o
 #-----------------------------------------------------------------------------
 all:
 	$(MAKE) progs
@@ -119,6 +119,8 @@ phash.o: phash.c phash.h $(DEPS)
 	$(CC) -c $(CFLAGS) phash.c
 fcm.o: fcm.c fcm.h $(DEPS)
 	$(CC) -c $(CFLAGS) fcm.c
+parsero: parser.c parser.h $(DEPS)
+	$(CC) -c $(CFLAGS) parser.c
 clean: 
 	/bin/rm -f *.o
 cleanall:
