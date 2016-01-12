@@ -38,7 +38,7 @@ int main(int argc, char *argv[]){
   while((k = fread(B->buf, 1, B->size, stdin)))
     for(i = 0 ; i < k ; ++i){
       s = B->buf[i];
-      if(random() / (RAND_MAX + 1.0) < mutationRate){
+      if(rand() / (RAND_MAX + 1.0) < mutationRate){
         while((r = bases[rand() % nSymbols]) == s)
           ;
         putchar(r);
