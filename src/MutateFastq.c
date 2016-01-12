@@ -45,12 +45,11 @@ int main(int argc, char *argv[]){
   B = CreateBuffer(BUF_SIZE);
   while((k = fread(B->buf, 1, B->size, stdin)))
     for(i = 0 ; i < k ; ++i){
-      if(ParseSym(PA, (sym = readBuf[idxPos])) == -1){
-        putchar(B->buf[i]);
+      if(ParseSym(PA, (s = B->buf[i])) == -1){
+        putchar(s);
         continue;
         }
        
-      s = B->buf[i];
       if(rand() / (RAND_MAX + 1.0) < mutationRate){
         while((r = bases[rand() % nSymbols]) == s)
           ;
