@@ -41,18 +41,14 @@ zcat $INITALS-X$CHR > $INITALS$CHR;
 echo "$INITALS CX filtered";
 
 CHR=31;
-FIELD="UN";
-ZPATH="$ONWAY$FIELD.fa.gz";
-downloadEach "$WGETOP" "$ZPATH" "$CHR" "$INITALS";
+downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Capra_hircus/Assembled_chromosomes/seq/chi_ref_CHIR_1.0_unplaced.fa.gz" "$CHR" "$INITALS";
 zcat $INITALS-X$CHR > $INITALS$CHR;
-echo "$INITALS UN filtered";
+echo "$INITALS UNPLACED filtered";
 
 CHR=32;
-FIELD="MT";
-ZPATH="$ONWAY$FIELD.fa.gz";
-downloadEach "$WGETOP" "$ZPATH" "$CHR" "$INITALS";
+downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Capra_hircus/Assembled_chromosomes/seq/chi_ref_CHIR_1.0_chrMT.fa.gz" "$CHR" "$INITALS";
 zcat $INITALS-X$CHR > $INITALS$CHR;
-echo "$INITALS MT filtered";
+echo "$INITALS MITOCONDRIAL filtered";
 
 rm *CHIR-* -f
 echo "Done!"

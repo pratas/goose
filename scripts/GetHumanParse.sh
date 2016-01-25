@@ -57,7 +57,7 @@ downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Homo_sapiens/Assemble
 zcat $INITALS-X$CHR > $INITALS$CHR;
 echo "$INITALS UNPLACED filtered";
 
-CHR=27
+CHR=27;
 downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Homo_sapiens/Assembled_chromosomes/seq/hs_ref_GRCh38.p2_chrMT.fa.gz" "$CHR" "$INITALS";
 zcat $INITALS-X$CHR > $INITALS$CHR;
 echo "$INITALS MITOCONDRIAL filtered";
