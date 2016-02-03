@@ -38,7 +38,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-mutatefastq \
          $(BIN)/goose-mutatefasta \
          $(BIN)/goose-char2line \
-         $(BIN)/goose-splitReads
+         $(BIN)/goose-splitreads
 OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o
 #-----------------------------------------------------------------------------
@@ -103,8 +103,8 @@ $(BIN)/goose-mutatefasta: MutateFasta.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-mutatefasta MutateFasta.c $(OBJS) $(LIBS)
 $(BIN)/goose-char2line: Char2Line.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-char2line Char2Line.c $(OBJS) $(LIBS)
-$(BIN)/goose-splitReads: SplitReads.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/goose-splitReads SplitReads.c $(OBJS) $(LIBS)
+$(BIN)/goose-splitreads: SplitReads.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-splitreads SplitReads.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
