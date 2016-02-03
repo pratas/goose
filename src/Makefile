@@ -1,5 +1,5 @@
 #============================================================================#
-#               GOOSE 2015-2016, IEETA/DETI, UNIVERSITY OF AVEIRO            #
+#               GOOSE 2013-2016, IEETA/DETI, UNIVERSITY OF AVEIRO            #
 #============================================================================#
 BIN    = .
 CC     = gcc
@@ -37,7 +37,8 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-mutatedna \
          $(BIN)/goose-mutatefastq \
          $(BIN)/goose-mutatefasta \
-         $(BIN)/goose-char2line
+         $(BIN)/goose-char2line \
+         $(BIN)/goose-splitReads
 OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o
 #-----------------------------------------------------------------------------
@@ -102,6 +103,8 @@ $(BIN)/goose-mutatefasta: MutateFasta.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-mutatefasta MutateFasta.c $(OBJS) $(LIBS)
 $(BIN)/goose-char2line: Char2Line.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-char2line Char2Line.c $(OBJS) $(LIBS)
+$(BIN)/goose-splitReads: SplitReads.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-splitReads SplitReads.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
