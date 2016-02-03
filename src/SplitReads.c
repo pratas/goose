@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
           fclose(OUT);
         char name[500];
         sprintf(name, "out%u.fa", idxHeader);
-        fprintf(stderr, "Splitting to file:%s\n", name);
+        fprintf(stderr, "%u : Splitting to file:%s\n", idxHeader, name);
         OUT = Fopen(name, "w");
         }
       fprintf(OUT, "%c", s);
