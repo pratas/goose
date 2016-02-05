@@ -23,7 +23,7 @@ int main(int argc, char *argv[]){
       fprintf(stdout, ">%s\n", argv[n+1]);
       goto XPS;
       }
-  fprintf(stdout, "> Computed with %s\n", argv[0]);
+  fprintf(stdout, ">Computed_with_%s\n", argv[0]);
    
   XPS:
   B = CreateBuffer(BUF_SIZE);
