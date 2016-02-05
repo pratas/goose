@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
 
   for(n = 1 ; n < argc ; ++n)
     if(strcmp(argv[n], "-n") == 0){
-      fprintf(stdout, "> %s\n", argv[n+1]);
+      fprintf(stdout, ">%s\n", argv[n+1]);
       goto XPS;
       }
   fprintf(stdout, "> Computed with %s\n", argv[0]);
