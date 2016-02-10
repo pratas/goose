@@ -6,4 +6,4 @@ while IFS="," read col1 col2 col3
   do
   value=`echo "($value+(($col2-$col1)*$col3))" | bc -l`;
   done < "XTMP-GLOBAL";
-echo "`echo "scale=4;($value / $size)" | bc -l;`";
+echo "`echo "scale=8;($value / $size)" | bc -l;`";
