@@ -14,6 +14,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-fastaextract \
          $(BIN)/goose-info \
          $(BIN)/goose-min \
+         $(BIN)/goose-max \
          $(BIN)/goose-minus \
          $(BIN)/goose-wsearch \
          $(BIN)/goose-reverse \
@@ -55,6 +56,8 @@ $(BIN)/goose-info: info.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-info info.c $(OBJS) $(LIBS)
 $(BIN)/goose-min: min.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-min min.c $(OBJS) $(LIBS)
+$(BIN)/goose-max: max.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-max max.c $(OBJS) $(LIBS)
 $(BIN)/goose-minus: minus.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-minus minus.c $(OBJS) $(LIBS)
 $(BIN)/goose-wsearch: wsearch.c $(DEPS) $(OBJS)
