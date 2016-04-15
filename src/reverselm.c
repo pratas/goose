@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
   i = 0; 
   while(i++ < size){
     fseeko(IN, -i, SEEK_END);
-    printf("%c",fgetc(IN));
+    printf("%c", fgetc(IN));
     }
   printf("\n");
   fclose(IN);
