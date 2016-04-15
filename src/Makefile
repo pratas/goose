@@ -16,6 +16,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-min \
          $(BIN)/goose-max \
          $(BIN)/goose-minus \
+         $(BIN)/goose-sum \
          $(BIN)/goose-wsearch \
          $(BIN)/goose-reverse \
          $(BIN)/goose-reverselm \
@@ -61,6 +62,8 @@ $(BIN)/goose-max: max.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-max max.c $(OBJS) $(LIBS)
 $(BIN)/goose-minus: minus.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-minus minus.c $(OBJS) $(LIBS)
+$(BIN)/goose-sum: sum.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-sum sum.c $(OBJS) $(LIBS)
 $(BIN)/goose-wsearch: wsearch.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-wsearch wsearch.c $(OBJS) $(LIBS)
 $(BIN)/goose-reverse: reverse.c $(DEPS) $(OBJS)

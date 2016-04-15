@@ -36,6 +36,7 @@ int main(int argc, char *argv[]){
   fprintf(stderr, "   [+] goose-searchphash\n");
   fprintf(stderr, "   [+] goose-seq2fasta\n");
   fprintf(stderr, "   [+] goose-seq2fastq\n");
+  fprintf(stderr, "   [+] goose-sum\n");
   fprintf(stderr, "   [+] goose-splitreads\n");
   fprintf(stderr, "   [+] goose-splitReads\n");
   fprintf(stderr, "   [+] goose-wsearch\n");
