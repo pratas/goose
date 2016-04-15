@@ -3,7 +3,7 @@
 #include "defs.h"
 
 int main(int argc, char *argv[]){
-  fprintf(stderr, " GOOSE v%u.%u, UNIVERSITY OF AVEIRO, 2013-2016\n",
+  fprintf(stderr, "\n GOOSE v%u.%u, UNIVERSITY OF AVEIRO, 2013-2016\n",
   VERSION, RELEASE);
   fprintf(stderr, " A framework for DNA analysis and manipulation\n\n");
   fprintf(stderr, " Programs:\n");
@@ -39,6 +39,7 @@ int main(int argc, char *argv[]){
   fprintf(stderr, "   [+] goose-splitreads\n");
   fprintf(stderr, "   [+] goose-splitReads\n");
   fprintf(stderr, "   [+] goose-wsearch\n");
+  fprintf(stderr, "\n");
   return EXIT_SUCCESS;
   }
 
