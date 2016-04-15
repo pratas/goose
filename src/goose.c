@@ -3,9 +3,9 @@
 #include "defs.h"
 
 int main(int argc, char *argv[]){
-  fprintf(stderr, "\n GOOSE v%u.%u, UNIVERSITY OF AVEIRO, 2013-2016\n",
+  fprintf(stderr, "\n GOOSE FRAMEWORK v%u.%u, UNIVERSITY OF AVEIRO, 2013-2016\n",
   VERSION, RELEASE);
-  fprintf(stderr, " A framework for DNA analysis and manipulation\n\n");
+  fprintf(stderr, " A framework for DNA sequence analysis and manipulation\n\n");
   fprintf(stderr, " Programs:\n");
   fprintf(stderr, "   [+] goose-char2line\n");
   fprintf(stderr, "   [+] goose-extract\n");
