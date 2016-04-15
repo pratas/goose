@@ -18,6 +18,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-minus \
          $(BIN)/goose-wsearch \
          $(BIN)/goose-reverse \
+         $(BIN)/goose-reverselm \
          $(BIN)/goose-filter \
          $(BIN)/goose-fastq2fasta \
          $(BIN)/goose-fastq2mfasta \
@@ -64,6 +65,8 @@ $(BIN)/goose-wsearch: wsearch.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-wsearch wsearch.c $(OBJS) $(LIBS)
 $(BIN)/goose-reverse: reverse.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-reverse reverse.c $(OBJS) $(LIBS)
+$(BIN)/goose-reverselm: reverselm.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-reverselm reverselm.c $(OBJS) $(LIBS)
 $(BIN)/goose-filter: filter.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-filter filter.c $(OBJS) $(LIBS)
 $(BIN)/goose-fastq2fasta: Fastq2Fasta.c $(DEPS) $(OBJS)
