@@ -22,7 +22,6 @@ int main(int argc, char *argv[]){
     fseeko(IN, -i, SEEK_END);
     printf("%c", fgetc(IN));
     }
-  printf("\n");
   fclose(IN);
 
   return EXIT_SUCCESS;
