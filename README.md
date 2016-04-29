@@ -47,6 +47,6 @@ Included C programs:
   [+] goose-wsearch
 </pre>
 
-Moreover, there are many scripts to Download sequences, shuffle, etc.
+Moreover, there are many scripts to download sequences, shuffle, etc.
 
 
