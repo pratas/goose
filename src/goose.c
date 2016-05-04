@@ -26,6 +26,7 @@ int main(int argc, char *argv[]){
   fprintf(stderr, "   [+] goose-mutatedna\n");
   fprintf(stderr, "   [+] goose-mutatefasta\n");
   fprintf(stderr, "   [+] goose-mutatefastq\n");
+  fprintf(stderr, "   [+] goose-newlineonnewx\n");
   fprintf(stderr, "   [+] goose-period\n");
   fprintf(stderr, "   [+] goose-permuteseqbyblocks\n");
   fprintf(stderr, "   [+] goose-randfastaextrachars\n");

@@ -13,6 +13,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-extract \
          $(BIN)/goose-fastaextract \
          $(BIN)/goose-info \
+         $(BIN)/goose-newlineonnewx \
          $(BIN)/goose-min \
          $(BIN)/goose-max \
          $(BIN)/goose-minus \
@@ -56,6 +57,8 @@ $(BIN)/goose-fastaextract: FastaExtract.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastaextract FastaExtract.c $(OBJS) $(LIBS)
 $(BIN)/goose-info: info.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-info info.c $(OBJS) $(LIBS)
+$(BIN)/goose-newlineonnewx: newLine4NewValue.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-newlineonnewx newLine4NewValue.c $(OBJS) $(LIBS)
 $(BIN)/goose-min: min.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-min min.c $(OBJS) $(LIBS)
 $(BIN)/goose-max: max.c $(DEPS) $(OBJS)
