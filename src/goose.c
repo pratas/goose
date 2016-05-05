@@ -15,6 +15,7 @@ int main(int argc, char *argv[]){
   fprintf(stderr, "   [+] goose-fastq2mfasta\n");
   fprintf(stderr, "   [+] goose-fastqclustreads\n");
   fprintf(stderr, "   [+] goose-fastqpack\n");
+  fprintf(stderr, "   [+] goose-fastqsimulation\n");
   fprintf(stderr, "   [+] goose-fastqunpack\n");
   fprintf(stderr, "   [+] goose-filter\n");
   fprintf(stderr, "   [+] goose-findnpos\n");
