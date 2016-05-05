@@ -20,6 +20,7 @@ Included C programs:
   [+] goose-fastq2mfasta
   [+] goose-fastqclustreads
   [+] goose-fastqpack
+  [+] goose-fastqsimulation
   [+] goose-fastqunpack
   [+] goose-filter
   [+] goose-findnpos
@@ -31,6 +32,7 @@ Included C programs:
   [+] goose-mutatedna
   [+] goose-mutatefasta
   [+] goose-mutatefastq
+  [+] goose-newlineonnewx
   [+] goose-period
   [+] goose-permuteseqbyblocks
   [+] goose-randfastaextrachars
