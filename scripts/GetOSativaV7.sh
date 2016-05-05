@@ -6,6 +6,7 @@ VPATH7="annotation_dbs/pseudomolecules/version_7.0/"
 VER2="7";
 # =============================================================================
 # VERSION 7
+echo "Downloading RICE V$VER2";
 wget $WGETOP $SPATH/$VPATH7/chr01.dir/Chr1.seq  -O OS$VER2-1.fa
 wget $WGETOP $SPATH/$VPATH7/chr02.dir/Chr2.seq  -O OS$VER2-2.fa
 wget $WGETOP $SPATH/$VPATH7/chr03.dir/Chr3.seq  -O OS$VER2-3.fa
