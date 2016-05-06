@@ -5,6 +5,7 @@
 #include "dna.h"
 #include "misc.h"
 #include "mem.h"
+#include "buffer.h"
 
 int main(int argc, char *argv[]){
   uint32_t k, i, order = 1, max = 20;

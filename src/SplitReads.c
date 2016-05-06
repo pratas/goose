@@ -3,6 +3,7 @@
 #include "defs.h"
 #include "misc.h"
 #include "mem.h"
+#include "buffer.h"
 
 int main(int argc, char *argv[]){
   uint32_t k, i;

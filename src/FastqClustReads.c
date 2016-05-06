@@ -7,6 +7,7 @@
 #include "dna.h"
 #include "args.h"
 #include "csmodel.h"
+#include "buffer.h"
 
 #define DEF_CMORDER 8
 #define MIN_CMORDER 1

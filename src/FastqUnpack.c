@@ -7,6 +7,7 @@
 #include "mem.h"
 #include "reads.h"
 #include "args.h"
+#include "buffer.h"
 
 #define ESCAPE 127
 

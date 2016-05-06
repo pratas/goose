@@ -5,6 +5,7 @@
 #include "misc.h"
 #include "args.h"
 #include "mem.h"
+#include "buffer.h"
 
 #define BREAKER 100
 

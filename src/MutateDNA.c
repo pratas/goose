@@ -5,6 +5,7 @@
 #include "defs.h"
 #include "args.h"
 #include "misc.h"
+#include "buffer.h"
 
 int main(int argc, char *argv[]){
   uint32_t k, i;

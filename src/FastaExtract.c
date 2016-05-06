@@ -4,6 +4,7 @@
 #include <string.h>
 #include "defs.h"
 #include "misc.h"
+#include "buffer.h"
 
 int main(int argc, char *argv[]){
   uint32_t n, k, i;

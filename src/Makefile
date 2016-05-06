@@ -14,6 +14,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-extract \
          $(BIN)/goose-fastaextract \
          $(BIN)/goose-info \
+         $(BIN)/goose-count \
          $(BIN)/goose-newlineonnewx \
          $(BIN)/goose-min \
          $(BIN)/goose-max \
@@ -46,7 +47,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-splitreads \
          $(BIN)/goose-fastqsimulation
 OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
-         phash.o parser.o xsmisc.o xsmsg.o s454.o
+         phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o
 #-----------------------------------------------------------------------------
 all:
 	$(MAKE) progs
@@ -59,6 +60,8 @@ $(BIN)/goose-fastaextract: FastaExtract.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastaextract FastaExtract.c $(OBJS) $(LIBS)
 $(BIN)/goose-info: info.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-info info.c $(OBJS) $(LIBS)
+$(BIN)/goose-count: count.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-count count.c $(OBJS) $(LIBS)
 $(BIN)/goose-newlineonnewx: newLine4NewValue.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-newlineonnewx newLine4NewValue.c $(OBJS) $(LIBS)
 $(BIN)/goose-min: min.c $(DEPS) $(OBJS)
@@ -141,7 +144,7 @@ phash.o: phash.c phash.h $(DEPS)
 	$(CC) -c $(CFLAGS) phash.c
 fcm.o: fcm.c fcm.h $(DEPS)
 	$(CC) -c $(CFLAGS) fcm.c
-parsero: parser.c parser.h $(DEPS)
+parser.o: parser.c parser.h $(DEPS)
 	$(CC) -c $(CFLAGS) parser.c
 s454.o: s454.c s454.h $(DEPSXS)
 	$(CC) -c $(CFLAGS) s454.c
@@ -149,6 +152,9 @@ xsmsg.o: xsmsg.c xsmsg.h $(DEPSXS)
 	$(CC) -c $(CFLAGS) xsmsg.c
 xsmisc.o: xsmisc.c xsmisc.h $(DEPSXS)
 	$(CC) -c $(CFLAGS) xsmisc.c
+buffer.o: buffer.c buffer.h $(DEPS)
+	$(CC) -c $(CFLAGS) buffer.c
+
 clean: 
 	/bin/rm -f *.o
 cleanall:

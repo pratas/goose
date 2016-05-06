@@ -6,6 +6,7 @@
 #include "args.h"
 #include "misc.h"
 #include "parser.h"
+#include "buffer.h"
 
 int main(int argc, char *argv[]){
   uint32_t k, i;

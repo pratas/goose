@@ -3,6 +3,7 @@
 #include "defs.h"
 #include "misc.h"
 #include "mem.h"
+#include "buffer.h"
 
 static void RandIfExtra(uint8_t s, char *b){
   if(s == 'A' || s == 'C' || s == 'G' || s == 'T'){

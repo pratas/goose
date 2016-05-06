@@ -3,6 +3,7 @@
 #include "defs.h"
 #include "misc.h"
 #include "mem.h"
+#include "buffer.h"
 
 #define BREAKER 100
 

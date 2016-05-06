@@ -3,6 +3,7 @@
 
 #include "defs.h"
 #include "misc.h"
+#include "buffer.h"
 
 #define MAX_ALPHA ((1<<(sizeof(char)*8))-1)
 
