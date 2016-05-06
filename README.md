@@ -13,6 +13,7 @@ make
 Included C programs:
 <pre>
   [+] goose-char2line
+  [+] goose-count
   [+] goose-extract
   [+] goose-fasta2seq
   [+] goose-fastaextract

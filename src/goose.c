@@ -8,6 +8,7 @@ int main(int argc, char *argv[]){
   fprintf(stderr, " A framework for DNA sequence analysis and manipulation\n\n");
   fprintf(stderr, " Programs:\n");
   fprintf(stderr, "   [+] goose-char2line\n");
+  fprintf(stderr, "   [+] goose-count\n");
   fprintf(stderr, "   [+] goose-extract\n");
   fprintf(stderr, "   [+] goose-fasta2seq\n");
   fprintf(stderr, "   [+] goose-fastaextract\n");
