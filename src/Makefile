@@ -43,6 +43,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-mutatedna \
          $(BIN)/goose-mutatefastq \
          $(BIN)/goose-mutatefasta \
+         $(BIN)/goose-renamehumanheaders \
          $(BIN)/goose-char2line \
          $(BIN)/goose-splitreads \
          $(BIN)/goose-fastqsimulation
@@ -118,6 +119,8 @@ $(BIN)/goose-mutatefastq: MutateFastq.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-mutatefastq MutateFastq.c $(OBJS) $(LIBS)
 $(BIN)/goose-mutatefasta: MutateFasta.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-mutatefasta MutateFasta.c $(OBJS) $(LIBS)
+$(BIN)/goose-renamehumanheaders: RenameMFasta.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-renamehumanheaders RenameMFasta.c $(OBJS) $(LIBS)
 $(BIN)/goose-char2line: Char2Line.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-char2line Char2Line.c $(OBJS) $(LIBS)
 $(BIN)/goose-splitreads: SplitReads.c $(DEPS) $(OBJS)
