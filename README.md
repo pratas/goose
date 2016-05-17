@@ -39,6 +39,7 @@ Included C programs:
   [+] goose-randfastaextrachars
   [+] goose-randfastqextrachars
   [+] goose-randseqextrachars
+  [+] goose-renamehumanheaders
   [+] goose-reverse
   [+] goose-reverselm
   [+] goose-searchphash
