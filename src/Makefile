@@ -38,6 +38,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-fastqclustreads \
          $(BIN)/goose-fastqpack \
          $(BIN)/goose-fastqunpack \
+         $(BIN)/goose-extractreadbypattern \
          $(BIN)/goose-period \
 	 $(BIN)/goose-genrandomdna \
          $(BIN)/goose-mutatedna \
@@ -109,6 +110,8 @@ $(BIN)/goose-fastqpack: FastqPack.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqpack FastqPack.c $(OBJS) $(LIBS)
 $(BIN)/goose-fastqunpack: FastqUnpack.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqunpack FastqUnpack.c $(OBJS) $(LIBS)
+$(BIN)/goose-extractreadbypattern: ExtractFastaReadByIdPattern.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-extractreadbypattern ExtractFastaReadByIdPattern.c $(OBJS) $(LIBS)
 $(BIN)/goose-period: Period.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-period Period.c $(OBJS) $(LIBS)
 $(BIN)/goose-genrandomdna: GenRandomDNA.c $(DEPS) $(OBJS)
