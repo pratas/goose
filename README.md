@@ -15,6 +15,7 @@ Included C programs:
   [+] goose-char2line
   [+] goose-count
   [+] goose-extract
+  [+] goose-extractreadbypattern
   [+] goose-fasta2seq
   [+] goose-fastaextract
   [+] goose-fastq2fasta
