@@ -29,6 +29,7 @@ Included C programs:
   [+] goose-genrandomdna
   [+] goose-info
   [+] goose-max
+  [+] goose-mfmotifcoords
   [+] goose-min
   [+] goose-minus
   [+] goose-mutatedna
