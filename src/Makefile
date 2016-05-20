@@ -16,6 +16,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-info \
          $(BIN)/goose-count \
          $(BIN)/goose-newlineonnewx \
+         $(BIN)/goose-mfmotifcoords \
          $(BIN)/goose-min \
          $(BIN)/goose-max \
          $(BIN)/goose-minus \
@@ -66,6 +67,8 @@ $(BIN)/goose-count: count.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-count count.c $(OBJS) $(LIBS)
 $(BIN)/goose-newlineonnewx: newLine4NewValue.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-newlineonnewx newLine4NewValue.c $(OBJS) $(LIBS)
+$(BIN)/goose-mfmotifcoords: ExtractMFPatternCoords.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-mfmotifcoords ExtractMFPatternCoords.c $(OBJS) $(LIBS)
 $(BIN)/goose-min: min.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-min min.c $(OBJS) $(LIBS)
 $(BIN)/goose-max: max.c $(DEPS) $(OBJS)
