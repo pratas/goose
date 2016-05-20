@@ -10,6 +10,7 @@ int main(int argc, char *argv[]){
   fprintf(stderr, "   [+] goose-char2line\n");
   fprintf(stderr, "   [+] goose-count\n");
   fprintf(stderr, "   [+] goose-extract\n");
+  fprintf(stderr, "   [+] goose-extractreadbypattern\n");
   fprintf(stderr, "   [+] goose-fasta2seq\n");
   fprintf(stderr, "   [+] goose-fastaextract\n");
   fprintf(stderr, "   [+] goose-fastq2fasta\n");
@@ -23,6 +24,7 @@ int main(int argc, char *argv[]){
   fprintf(stderr, "   [+] goose-genrandomdna\n");
   fprintf(stderr, "   [+] goose-info\n");
   fprintf(stderr, "   [+] goose-max\n");
+  fprintf(stderr, "   [+] goose-mfmotifcoords\n");
   fprintf(stderr, "   [+] goose-min\n");
   fprintf(stderr, "   [+] goose-minus\n");
   fprintf(stderr, "   [+] goose-mutatedna\n");
