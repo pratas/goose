@@ -1,7 +1,7 @@
 <p align="center"><img src="imgs/logo.png"
 alt="GOOSE" height="200" border="0" /></p>
 
-A framework for DNA sequence manipulation and analysis.
+A framework for DNA data manipulation and analysis.
 
 To install on Linux:
 <pre>
@@ -54,6 +54,7 @@ Included C programs:
 </pre>
 
 GOOSE provide pipes support for easy integration with current pipelines.
+
 Moreover, there are many scripts to download sequences, shuffle, etc.
 
 
