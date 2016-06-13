@@ -19,6 +19,15 @@ int32_t main(int argc, char *argv[]){
   uint32_t filtered;
   int sym;
 
+  if(argc != 1){
+    fprintf(stderr, "Usage: %s < input.fa > output.fa\n"
+    "It extracts unique reads from NCBI by appearing order.\n"
+    "It is STRONGLY advised to run first: \n"
+    "  cat db.fa | tr ' ' '_' > input.fa\n",
+    argv[0]);
+    return EXIT_SUCCESS;
+    }
+
   SLABELS *SL = CreateSLabels();
   // tested at: https://regex101.com/
   char *regexString = ".*\\|.*\\|.*\\|_([a-z A-Z]*_[a-z A-Z]*)";
