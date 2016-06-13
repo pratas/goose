@@ -48,9 +48,10 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-renamehumanheaders \
          $(BIN)/goose-char2line \
          $(BIN)/goose-splitreads \
-         $(BIN)/goose-fastqsimulation
+         $(BIN)/goose-fastqsimulation \
+         $(BIN)/goose-getunique
 OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
-         phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o
+         phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o
 #-----------------------------------------------------------------------------
 all:
 	$(MAKE) progs
@@ -133,6 +134,8 @@ $(BIN)/goose-splitreads: SplitReads.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-splitreads SplitReads.c $(OBJS) $(LIBS)
 $(BIN)/goose-fastqsimulation: ReadSimulator.c $(DEPSXS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqsimulation ReadSimulator.c $(OBJS) $(LIBS)
+$(BIN)/goose-getunique: GetUnique.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-getunique GetUnique.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
@@ -163,6 +166,8 @@ xsmisc.o: xsmisc.c xsmisc.h $(DEPSXS)
 	$(CC) -c $(CFLAGS) xsmisc.c
 buffer.o: buffer.c buffer.h $(DEPS)
 	$(CC) -c $(CFLAGS) buffer.c
+labels.o: labels.c labels.h $(DEPS)
+	$(CC) -c $(CFLAGS) labels.c
 
 clean: 
 	/bin/rm -f *.o

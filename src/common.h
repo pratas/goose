@@ -12,6 +12,7 @@ INF;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+int32_t     Strcasecmp       (const char *, const char *);
 double      BoundDouble      (double, double, double);
 int         FileExists       (const char *);
 uint8_t     DNASymToNum      (uint8_t  );

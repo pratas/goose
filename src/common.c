@@ -3,9 +3,19 @@
 #include <string.h>
 #include <math.h>
 #include <assert.h>
+#include <ctype.h>
 #include "defs.h"
 #include "mem.h"
 #include "common.h"
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+int32_t Strcasecmp(const char *a, const char *b){
+  for(;; ++a, ++b) {
+    int32_t c = tolower(*a)-tolower(*b);
+    if(c != 0 || !*a) return c;
+    }
+  }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
