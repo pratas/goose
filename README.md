@@ -27,6 +27,7 @@ Included C programs:
   [+] goose-filter
   [+] goose-findnpos
   [+] goose-genrandomdna
+  [+] goose-getunique
   [+] goose-info
   [+] goose-max
   [+] goose-mfmotifcoords
