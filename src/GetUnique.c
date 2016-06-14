@@ -68,7 +68,7 @@ int32_t main(int argc, char *argv[]){
         }
       ++nSeq;
 
-      fprintf(stdout, "%s", fname);
+      fprintf(stdout, ">%s", fname);
       while(((sym = fgetc(stdin)) != EOF)){
         if(sym == '>')
           goto HD;
