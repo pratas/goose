@@ -27,6 +27,8 @@ Included C programs:
   [+] goose-fastqunpack
   [+] goose-filter
   [+] goose-findnpos
+  [+] goose-geco
+  [+] goose-gede
   [+] goose-genrandomdna
   [+] goose-getunique
   [+] goose-info
