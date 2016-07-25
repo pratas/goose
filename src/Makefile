@@ -11,6 +11,7 @@ LIBS   = -lm
 DEPS   = defs.h
 DEPSXS = xsdefs.h xsinit.h
 DEPSCMAP = defs-cmap.h param-cmap.h
+DEPSGECO = defs-geco.h
 PROGS  = $(BIN)/goose \
          $(BIN)/goose-extract \
          $(BIN)/goose-fastaextract \
@@ -51,10 +52,14 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-splitreads \
          $(BIN)/goose-fastqsimulation \
          $(BIN)/goose-getunique \
-         $(BIN)/goose-comparativemap
-OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
+         $(BIN)/goose-comparativemap \
+         $(BIN)/goose-geco \
+         $(BIN)/goose-gede
+OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
 OBJSCMAP = common-cmap.o mem-cmap.o msg-cmap.o paint-cmap.o time-cmap.o
+OBJSGECO = arith_aux-geco.o arith-geco.o bitio-geco.o buffer-geco.o \
+         common-geco.o context-geco.o mem-geco.o levels-geco.o msg-geco.o
 #-----------------------------------------------------------------------------
 all:
 	$(MAKE) progs
@@ -141,6 +146,10 @@ $(BIN)/goose-getunique: GetUnique.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-getunique GetUnique.c $(OBJS) $(LIBS)
 $(BIN)/goose-comparativemap: ComparativeMap.c $(DEPSCMAP) $(OBJSCMAP)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-comparativemap ComparativeMap.c $(OBJSCMAP) $(LIBS)
+$(BIN)/goose-geco: geco.c $(DEPSGECO) $(OBJSGECO)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-geco geco.c $(OBJSGECO) $(LIBS)
+$(BIN)/goose-gede: gede.c $(DEPSGECO) $(OBJSGECO)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-gede gede.c $(OBJSGECO) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
@@ -184,6 +193,25 @@ paint-cmap.o: paint-cmap.c paint-cmap.h $(DEPSCMAP)
 	$(CC) -c $(CFLAGS) paint-cmap.c
 time-cmap.o: time-cmap.c time-cmap.h $(DEPSCMAP)
 	$(CC) -c $(CFLAGS) time-cmap.c
+#
+common-geco.o: common-geco.c common-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) common-geco.c
+arith_aux-geco.o: arith_aux-geco.c arith_aux-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) arith_aux-geco.c
+arith-geco.o: arith-geco.c arith-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) arith-geco.c
+bitio-geco.o: bitio-geco.c bitio-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) bitio-geco.c
+msg-geco.o: msg-geco.c msg-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) msg-geco.c
+mem-geco.o: mem-geco.c mem-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) mem-geco.c
+context-geco.o: context-geco.c context-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) context-geco.c
+levels-geco.o: levels-geco.c levels-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) levels-geco.c
+buffer-geco.o: buffer-geco.c buffer-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) buffer-geco.c
 #
 clean: 
 	/bin/rm -f *.o
