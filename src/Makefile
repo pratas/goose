@@ -10,6 +10,7 @@ CFLAGS = -O3 -Wall $(CPLP)
 LIBS   = -lm
 DEPS   = defs.h
 DEPSXS = xsdefs.h xsinit.h
+DEPSCMAP = defs-cmap.h param-cmap.h
 PROGS  = $(BIN)/goose \
          $(BIN)/goose-extract \
          $(BIN)/goose-fastaextract \
@@ -49,9 +50,11 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-char2line \
          $(BIN)/goose-splitreads \
          $(BIN)/goose-fastqsimulation \
-         $(BIN)/goose-getunique
+         $(BIN)/goose-getunique \
+         $(BIN)/goose-comparativemap
 OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
-         phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o
+         phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
+OBJSCMAP = common-cmap.o mem-cmap.o msg-cmap.o paint-cmap.o time-cmap.o
 #-----------------------------------------------------------------------------
 all:
 	$(MAKE) progs
@@ -136,6 +139,8 @@ $(BIN)/goose-fastqsimulation: ReadSimulator.c $(DEPSXS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqsimulation ReadSimulator.c $(OBJS) $(LIBS)
 $(BIN)/goose-getunique: GetUnique.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-getunique GetUnique.c $(OBJS) $(LIBS)
+$(BIN)/goose-comparativemap: ComparativeMap.c $(DEPSCMAP) $(OBJSCMAP)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-comparativemap ComparativeMap.c $(OBJSCMAP) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
@@ -168,7 +173,18 @@ buffer.o: buffer.c buffer.h $(DEPS)
 	$(CC) -c $(CFLAGS) buffer.c
 labels.o: labels.c labels.h $(DEPS)
 	$(CC) -c $(CFLAGS) labels.c
-
+#
+common-cmap.o: common-cmap.c common-cmap.h $(DEPSCMAP)
+	$(CC) -c $(CFLAGS) common-cmap.c
+mem-cmap.o: mem-cmap.c mem-cmap.h $(DEPSCMAP)
+	$(CC) -c $(CFLAGS) mem-cmap.c
+msg-cmap.o: msg-cmap.c msg-cmap.h $(DEPSCMAP)
+	$(CC) -c $(CFLAGS) msg-cmap.c
+paint-cmap.o: paint-cmap.c paint-cmap.h $(DEPSCMAP)
+	$(CC) -c $(CFLAGS) paint-cmap.c
+time-cmap.o: time-cmap.c time-cmap.h $(DEPSCMAP)
+	$(CC) -c $(CFLAGS) time-cmap.c
+#
 clean: 
 	/bin/rm -f *.o
 cleanall:
