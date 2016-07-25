@@ -13,6 +13,7 @@ make
 Included C programs:
 <pre>
   [+] goose-char2line
+  [+] goose-comparativemap
   [+] goose-count
   [+] goose-extract
   [+] goose-extractreadbypattern
