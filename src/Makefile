@@ -54,7 +54,8 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-getunique \
          $(BIN)/goose-comparativemap \
          $(BIN)/goose-geco \
-         $(BIN)/goose-gede
+         $(BIN)/goose-gede \
+         $(BIN)/goose-segment
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
 OBJSCMAP = common-cmap.o mem-cmap.o msg-cmap.o paint-cmap.o time-cmap.o
@@ -150,6 +151,8 @@ $(BIN)/goose-geco: geco.c $(DEPSGECO) $(OBJSGECO)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-geco geco.c $(OBJSGECO) $(LIBS)
 $(BIN)/goose-gede: gede.c $(DEPSGECO) $(OBJSGECO)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-gede gede.c $(OBJSGECO) $(LIBS)
+$(BIN)/goose-segment: Segment.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-segment Segment.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
