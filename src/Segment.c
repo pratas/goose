@@ -14,7 +14,7 @@ int main(int argc, char *argv[]){
     exit(1);
     }
   
-  threshold    = atof(argv[argc-2]);
+  threshold    = atof(argv[1]);
   initPosition = 0;
   lastPosition = 0;
   if(fscanf(stdin, "%llu\t%lf", &pos, &val) == 2)
