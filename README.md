@@ -1,7 +1,7 @@
 <p align="center"><img src="imgs/logo.png"
 alt="GOOSE" height="200" border="0" /></p>
 
-A framework for DNA data manipulation and analysis.
+A framework for DNA sequence manipulation and analysis.
 
 To install on Linux:
 <pre>
@@ -49,6 +49,7 @@ Included C programs:
   [+] goose-reverse
   [+] goose-reverselm
   [+] goose-searchphash
+  [+] goose-segment
   [+] goose-seq2fasta
   [+] goose-seq2fastq
   [+] goose-sum
