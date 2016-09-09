@@ -16,7 +16,7 @@ function ProgMemoryStop {
   }
 ProgMemoryStart "$1" &
 MEMPID=$!
-$1 " $2 "
+$1 $2
 printf "Maximum memory (bytes): "
 ProgMemoryStop $MEMPID;
 rm -f mem_ps_234552;
