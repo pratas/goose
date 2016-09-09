@@ -13,7 +13,7 @@ CSMODEL;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 CSMODEL         *CreateCSModel    (uint32_t, uint32_t);
-inline uint64_t GetCSIdx          (uint8_t *, CSMODEL *);
+uint64_t        GetCSIdx          (uint8_t *, CSMODEL *);
 void            DeleteCSModel     (CSMODEL *);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
