@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define _GNU_SOURCE
 #include <string.h>
 #include <ctype.h>
 #include "labels.h"
