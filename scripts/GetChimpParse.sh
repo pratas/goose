@@ -3,7 +3,7 @@
 INITALS="PT";
 MAX=22;
 WGETOP=" --trust-server-names -q ";
-ONWAY="ftp://ftp.ncbi.nlm.nih.gov/genomes/Pan_troglodytes/Assembled_chromosomes/seq/ptr_ref_Pan_troglodytes-2.1.4_chr"
+ONWAY="ftp://ftp.ncbi.nlm.nih.gov/genomes/Pan_troglodytes/Assembled_chromosomes/seq/ptr_ref_Pan_tro_3.0_chr"
 #-----------------------------------------------------------------------------
 function downloadEach
   {
@@ -61,17 +61,17 @@ zcat $INITALS-X$CHR > $INITALS$CHR;
 echo "$INITALS CY filtered";
 
 CHR=25;
-downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Pan_troglodytes/Assembled_chromosomes/seq/ptr_ref_Pan_troglodytes-2.1.4_unlocalized.fa.gz" "$CHR" "$INITALS";
+downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Pan_troglodytes/Assembled_chromosomes/seq/ptr_ref_Pan_tro_3.0_unlocalized.fa.gz" "$CHR" "$INITALS";
 zcat $INITALS-X$CHR > $INITALS$CHR;
 echo "$INITALS UNLOCALIZED filtered";
 
 CHR=26;
-downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Pan_troglodytes/Assembled_chromosomes/seq/ptr_ref_Pan_troglodytes-2.1.4_unplaced.fa.gz" "$CHR" "$INITALS";
+downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Pan_troglodytes/Assembled_chromosomes/seq/ptr_ref_Pan_tro_3.0_unplaced.fa.gz" "$CHR" "$INITALS";
 zcat $INITALS-X$CHR > $INITALS$CHR;
 echo "$INITALS UNPLACED filtered";
 
 CHR=27;
-downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Pan_troglodytes/Assembled_chromosomes/seq/ptr_ref_Pan_troglodytes-2.1.4_chrMT.fa.gz" "$CHR" "$INITALS";
+downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Pan_troglodytes/Assembled_chromosomes/seq/ptr_ref_Pan_tro_3.0_chrX.fa.gz" "$CHR" "$INITALS";
 zcat $INITALS-X$CHR > $INITALS$CHR;
 echo "$INITALS MITOCONDRIA filtered";
 
