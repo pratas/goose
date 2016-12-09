@@ -14,6 +14,7 @@ int main(int argc, char *argv[]){
   fprintf(stderr, "  [+] goose-extractreadbypattern\n");
   fprintf(stderr, "  [+] goose-fasta2seq\n");
   fprintf(stderr, "  [+] goose-fastaextract\n");
+  fprintf(stderr, "  [+] goose-fastainfo\n");
   fprintf(stderr, "  [+] goose-fastq2fasta\n");
   fprintf(stderr, "  [+] goose-fastq2mfasta\n");
   fprintf(stderr, "  [+] goose-fastqclustreads\n");
