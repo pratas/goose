@@ -27,14 +27,13 @@ int main(int argc, char *argv[]){
       s = B->buf[i];
       if(s == '>'){ 
         header = 1; 
-        cum_n_bases += i_bases;
-
-        if(i_bases > max_n_bases)
-          max_n_bases = i_bases;        
-
-        if(i_bases < min_n_bases)
-          min_n_bases = i_bases;        
-
+        if(i_bases != 0){
+          cum_n_bases += i_bases;
+          if(i_bases > max_n_bases)
+            max_n_bases = i_bases;        
+          if(i_bases < min_n_bases)
+            min_n_bases = i_bases;        
+          }
         ++n_reads;
         i_bases = 0;
         continue; 
