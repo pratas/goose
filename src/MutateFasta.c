@@ -47,9 +47,18 @@ int main(int argc, char *argv[]){
   B = CreateBuffer(BUF_SIZE);
   while((k = fread(B->buf, 1, B->size, stdin)))
     for(i = 0 ; i < k ; ++i){
-      if(ParseSym(PA, (s = B->buf[i])) == -1){
-        putchar(s);
-        continue;
+
+      if(nSymbols == 4){
+        if(ParseSym(PA, (s = B->buf[i])) == -1){
+          putchar(s);
+          continue;
+          }
+        }
+      else{
+        if(ParseSymN(PA, (s = B->buf[i])) == -1){
+          putchar(s);
+          continue;
+          }
         }
        
       if(rand() / (RAND_MAX + 1.0) < mutationRate){

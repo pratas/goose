@@ -49,6 +49,27 @@ int FBasesPol(int b){
   return -1;
   }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// FILTER BASES 6 POLITICS SPECIFIC TO CONSIDER N's
+//
+int FBasesPolN(int b){
+  switch(b){
+    case 'A': return 'A';
+    case 'C': return 'C';
+    case 'G': return 'G';
+    case 'T': return 'T';
+    case 'U': return 'T';
+    case 'a': return 'A';
+    case 'c': return 'C';
+    case 'g': return 'G';
+    case 't': return 'T';
+    case 'n': return 'N';
+    case 'N': return 'N';
+    default: return -1;
+    }
+  return -1;
+  }
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // PARSE SYM
 //
