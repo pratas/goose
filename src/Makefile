@@ -56,7 +56,8 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-geco \
          $(BIN)/goose-gede \
          $(BIN)/goose-segment \
-         $(BIN)/goose-fastainfo
+         $(BIN)/goose-fastainfo \
+         $(BIN)/goose-real2binthreshold
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
 OBJSCMAP = common-cmap.o mem-cmap.o msg-cmap.o paint-cmap.o time-cmap.o
@@ -156,6 +157,8 @@ $(BIN)/goose-segment: Segment.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-segment Segment.c $(OBJS) $(LIBS)
 $(BIN)/goose-fastainfo: FastaInfo.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastainfo FastaInfo.c $(OBJS) $(LIBS)
+$(BIN)/goose-real2binthreshold: Real2BinWT.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-real2binthreshold Real2BinWT.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
