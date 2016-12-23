@@ -3,6 +3,8 @@
 # USAGE: . PaintRegions.sh CACAGAGTTTAACCTTTCTTTTCATAGAGCAGTTAGGAAACA
 #
 #==============================================================================
+echo "$1" > REFERENCE;
+#==============================================================================
 GET_GOOSE=1;
 GET_CHESTER=1;
 GET_GECO=1;
@@ -48,7 +50,6 @@ fi
 if [[ "$DWD_SEQS" -eq "1" ]]; then
   rm -f hs_ref_GRCh38.p7_chr1.fa.gz hs_ref_GRCh38.p7_chr1.fa
   NCBIC="ftp://ftp.ncbi.nlm.nih.gov/genomes/H_sapiens/Assembled_chromosomes";
-  echo "$1" > REFERENCE;
   wget $NCBIC/seq/hs_ref_GRCh38.p7_chr1.fa.gz
   gunzip hs_ref_GRCh38.p7_chr1.fa.gz
   cat hs_ref_GRCh38.p7_chr1.fa | grep -v ">" | tr -d -c "ACGTN" \
@@ -57,17 +58,17 @@ fi
 #==============================================================================
 # RUN_GECO
 if [[ "$RUN_GECO" -eq "1" ]]; then
-  ./GeCo -v -e -c 5 -rm 18:100:1:0/0 -r REFERENCE TARGET;
+  ./GeCo -v -c 5 -e -rm 18:500:1:3/50 -r REFERENCE TARGET;
 fi
 #==============================================================================
 # FILTER
 if [[ "$FILTER" -eq "1" ]]; then
-  ./goose-real2binthreshold 1.5 < TARGET.iae > TARGET.bin
-  ./CHESTER-filter -v -t 0.9 TARGET.bin
+  ./goose-real2binthreshold 1.5 < TARGET.iae | tr -d -c "01" > TARGET.bin
+  ./CHESTER-filter -v -w 10 -u 5 -t 0.5 TARGET.bin
 fi
 #==============================================================================
 # PAINT
 if [[ "$PAINT" -eq "1" ]]; then
-  ./CHESTER-visual -e 1 TARGET.bin.seg
+  ./CHESTER-visual -e 50000 TARGET.bin.seg
 fi
 #==============================================================================
