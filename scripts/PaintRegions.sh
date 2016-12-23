@@ -3,11 +3,11 @@
 # USAGE: . PaintRegions.sh CACAGAGTTTAACCTTTCTTTTCATAGAGCAGTTAGGAAACA
 #
 #==============================================================================
-GET_GOOSE=0;
-GET_CHESTER=0;
-GET_GECO=0;
-DWD_SEQS=0;
-RUN_GECO=0;
+GET_GOOSE=1;
+GET_CHESTER=1;
+GET_GECO=1;
+DWD_SEQS=1;
+RUN_GECO=1;
 FILTER=1;
 PAINT=1;
 #==============================================================================
