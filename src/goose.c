@@ -41,6 +41,7 @@ int main(int argc, char *argv[]){
   fprintf(stderr, "  [+] goose-randfastaextrachars\n");
   fprintf(stderr, "  [+] goose-randfastqextrachars\n");
   fprintf(stderr, "  [+] goose-randseqextrachars\n");
+  fprintf(stderr, "  [+] goose-reducematrixbythreshold\n");
   fprintf(stderr, "  [+] goose-renamehumanheaders\n");
   fprintf(stderr, "  [+] goose-reverse\n");
   fprintf(stderr, "  [+] goose-reverselm\n");
