@@ -27,7 +27,7 @@ function downloadEach
 echo "Downloading and filtering $INITALS sequences ..."
 for((x=1 ; x <= $MAX ; ++x)); 
   do
-  if [ $x -ne "1" ] && [ $x -eq "7" ] && [ $x -eq "22" ] ;
+  if [ $x -ne "1" ] && [ $x -ne "7" ] && [ $x -ne "22" ] ;
     then
     ZPATH="$ONWAY$x.fa.gz";
     downloadEach "$WGETOP" "$ZPATH" "$x" "$INITALS";
