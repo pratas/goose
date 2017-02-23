@@ -1,18 +1,18 @@
 #!/bin/bash
 #=============================================================================
 INITALS="GB";
-MAX=26;
+MAX=25;
 WGETOP=" --trust-server-names -q ";
 ONWAY="ftp://ftp.ncbi.nlm.nih.gov/genomes/Nomascus_leucogenys/Assembled_chromosomes/seq/nle_ref_Nleu_3.0_chr"
 #-----------------------------------------------------------------------------
 function downloadEach
   {
   PATTERN="unexpected";
-  for((;;)); 
+  for((;;));
     do
     sleep 2;
     xtmp="`wget $1 $2 -O $4-X$3`"
-    if [[ "$xtmp" == *"$PATTERN"* ]];  
+    if [[ "$xtmp" == *"$PATTERN"* ]];
       then
       echo "Unexpected EOF found, re-downloading C$3 ...";
       continue;
@@ -25,7 +25,7 @@ function downloadEach
   }
 
 echo "Downloading and filtering $INITALS sequences ..."
-for((x=1 ; x <= $MAX ; ++x)); 
+for((x=1 ; x <= $MAX ; ++x));
   do
   if [ $x -ne "1" ] && [ $x -ne "7" ] && [ $x -ne "22" ] ;
     then
@@ -52,11 +52,9 @@ zcat $INITALS-X22a > $INITALS"22";
 echo "$INITALS C22a filtered";
 
 CHR=26;
-FIELD="X";
-ZPATH="$ONWAY$FIELD.fa.gz";
-downloadEach "$WGETOP" "$ZPATH" "$CHR" "$INITALS";
+downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Nomascus_leucogenys/Assembled_chromosomes/seq/nle_ref_Nleu_3.0_chrX.fa.gz" "$CHR" "$INITALS";
 zcat $INITALS-X$CHR > $INITALS$CHR;
-echo "$INITALS CX filtered";
+echo "$INITALS X filtered";
 
 CHR=27;
 downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Nomascus_leucogenys/Assembled_chromosomes/seq/nle_ref_Nleu_3.0_unplaced.fa.gz" "$CHR" "$INITALS";
