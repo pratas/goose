@@ -128,9 +128,13 @@ int main(int argc, char *argv[]){
     char *tmp = strdup(line);
     char **fields = NULL;
     int c = Split(tmp, '\t', &fields);
-    for(n = 0 ; n < c ; ++n){
+    
+    if(matrix[id_lines][0] == 1)
+      fprintf(stdout, "%s", fields[0]);
+
+    for(n = 1 ; n < c ; ++n){
       if(matrix[id_lines][n] == 1){
-        fprintf(stdout, "%s\t", fields[n]);
+        fprintf(stdout, "\t%s", fields[n]);
         }
       }
     free(tmp);
