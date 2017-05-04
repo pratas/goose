@@ -28,9 +28,8 @@ int main(int argc, char *argv[]){
   int n, k, nEntries, position, M, drop, wType;
   double value, *w;
   Entry *entries = NULL;
-  FILE *F = NULL;
 
-  if(argc < 3){
+  if(argc < 2){
     fprintf(stderr,
     "Usage: %s <OPTIONS>... [FILE]                                  \n"
     "A tool for filtering numerical sequences.                      \n"
@@ -45,8 +44,6 @@ int main(int argc, char *argv[]){
     "  -p1           print one column,                              \n"
     "  -r            reverse mode.                                  \n"
     "                                                               \n"
-    "  <FILE>        file to filter (last argument).                \n"
-    "                                                               \n"
     "Report bugs to <{pratas,ap}@ua.pt>.                            \n",
     argv[0]);
     return EXIT_SUCCESS;
@@ -59,11 +56,9 @@ int main(int argc, char *argv[]){
   p1      =           ArgBin(0,          p, argc, "-p1");
   reverse =           ArgBin(0,          p, argc, "-r");
 
-  F = Fopen(argv[argc-1], "r");
- 
   nEntries = 0;
   if(oneCol == 1){
-    while(fscanf(F, "%lf", &value) == 1){
+    while(fscanf(stdin, "%lf", &value) == 1){
       entries = (Entry *) Realloc(entries, (nEntries+1) * sizeof(Entry), 
       sizeof(Entry));
       entries[nEntries].position = nEntries;
@@ -72,7 +67,7 @@ int main(int argc, char *argv[]){
       }
     }
   else{
-    while(fscanf(F, "%d%lf", &position, &value) == 2){
+    while(fscanf(stdin, "%d%lf", &position, &value) == 2){
       entries = (Entry *) Realloc(entries, (nEntries+1) * sizeof(Entry),
       sizeof(Entry));
       entries[nEntries].position = position;
@@ -81,7 +76,6 @@ int main(int argc, char *argv[]){
       }
     }
 
-  fclose(F);
   fprintf(stderr, "Got %d entries from file\n", nEntries);
 
   w = (double *) Malloc((2*M+1) * sizeof(double));
