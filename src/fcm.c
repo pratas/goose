@@ -93,7 +93,7 @@ FCM *Create4DnaFCM(uint32_t c, uint32_t a, uint8_t i, uint8_t n){
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // COMPUTE SPECIFIC 4 SYMBOL FCM PROBABILITIES
 //
-inline void Compute4DnaFCM(FCM *M){
+void Compute4DnaFCM(FCM *M){
   HCC *h;
   ACC *a;
   if(M->mode == HASH_TABLE){
@@ -119,14 +119,14 @@ uint32_t CompProbs(FCM *M, uint32_t s){
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // REVERSE COMPLEMENT INDEX BASED ON PAST SYMBOLS FOR FCM WITH 4 SYMBOLS
 //
-inline void GetIdx4DnaRev(uint8_t *p, FCM *M){
+void GetIdx4DnaRev(uint8_t *p, FCM *M){
   M->idxRev = (M->idxRev>>2)+Comp(*p)*M->mult;
   }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // INDEX CALC BASED ON PAST SYMBOLS FOR FCM WITH 4 SYMBOLS
 //
-inline void GetIdx4Dna(uint8_t *p, FCM *M){
+void GetIdx4Dna(uint8_t *p, FCM *M){
   M->idx = ((M->idx-*(p-M->ctx)*M->mult)<<2)+*p;
   }
 

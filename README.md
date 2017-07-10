@@ -1,7 +1,7 @@
 <p align="center"><img src="imgs/logo.png"
 alt="GOOSE" height="200" border="0" /></p>
 
-A framework for DNA sequence manipulation and analysis.
+A framework for DNA sequence analysis and manipulation.
 
 To install on Linux:
 <pre>
@@ -13,6 +13,7 @@ make
 Included C programs:
 <pre>
   [+] goose-char2line
+  [+] goose-comparativemap
   [+] goose-count
   [+] goose-extract
   [+] goose-extractreadbypattern
@@ -26,7 +27,10 @@ Included C programs:
   [+] goose-fastqunpack
   [+] goose-filter
   [+] goose-findnpos
+  [+] goose-geco
+  [+] goose-gede
   [+] goose-genrandomdna
+  [+] goose-getunique
   [+] goose-info
   [+] goose-max
   [+] goose-mfmotifcoords
@@ -45,6 +49,7 @@ Included C programs:
   [+] goose-reverse
   [+] goose-reverselm
   [+] goose-searchphash
+  [+] goose-segment
   [+] goose-seq2fasta
   [+] goose-seq2fastq
   [+] goose-sum
@@ -52,6 +57,8 @@ Included C programs:
   [+] goose-splitReads
   [+] goose-wsearch
 </pre>
+
+GOOSE provide pipes support for easy integration with current pipelines.
 
 Moreover, there are many scripts to download sequences, shuffle, etc.
 

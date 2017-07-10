@@ -44,10 +44,10 @@ void        Reset4DnaModel  (FCM *);
 void        Free4DnaModel   (FCM *);
 void        Update4DnaFCM   (FCM *, uint32_t, uint8_t);
 FCM         *Create4DnaFCM  (uint32_t, uint32_t, uint8_t, uint8_t);
-inline void Compute4DnaFCM  (FCM *);
+void        Compute4DnaFCM  (FCM *);
 uint32_t    CompProbs       (FCM *, uint32_t);
-inline void GetIdx4DnaRev   (uint8_t *, FCM *);
-inline void GetIdx4Dna      (uint8_t *, FCM *);
+void        GetIdx4DnaRev   (uint8_t *, FCM *);
+void        GetIdx4Dna      (uint8_t *, FCM *);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

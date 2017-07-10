@@ -23,7 +23,7 @@
 void LoadReference(char *fn){
   FILE     *F = Fopen(fn, "r");
   uint64_t nBases = 0, info[6] = {0, 0, 0, 0, 0, 0};
-  char     type[3][20] = {"DNA", "FASTA", "FASTQ"};
+  char     type[4][20] = {"DNA", "FASTA", "FASTQ", "UNKNOWN"};
   PARSER   *PA = CreateParser();
   uint8_t  sym, *buf;
   FileType(PA, F);

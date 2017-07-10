@@ -3,9 +3,19 @@
 #include <string.h>
 #include <math.h>
 #include <assert.h>
+#include <ctype.h>
 #include "defs.h"
 #include "mem.h"
 #include "common.h"
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+int32_t Strcasecmp(const char *a, const char *b){
+  for(;; ++a, ++b) {
+    int32_t c = tolower(*a)-tolower(*b);
+    if(c != 0 || !*a) return c;
+    }
+  }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -187,7 +197,7 @@ uint8_t GetCompNum(uint8_t symbol)
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-inline void CalcProgress(uint64_t size, uint64_t i)
+void CalcProgress(uint64_t size, uint64_t i)
   {
   if(i % (size / 100) == 0 && size > 1000)
     fprintf(stderr, "Progress:%3d %%\r", (uint8_t) (i / (size / 100)));

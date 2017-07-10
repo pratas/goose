@@ -12,6 +12,7 @@ INF;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+int32_t     Strcasecmp       (const char *, const char *);
 double      BoundDouble      (double, double, double);
 int         FileExists       (const char *);
 uint8_t     DNASymToNum      (uint8_t  );
@@ -24,7 +25,7 @@ uint64_t    NDNASymInFasta   (FILE *);
 uint64_t    NBytesInFile     (FILE *);
 uint64_t    FopenBytesInFile (const char *);
 void        TestReadFile     (char *);
-inline void CalcProgress     (uint64_t , uint64_t);
+void        CalcProgress     (uint64_t , uint64_t);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

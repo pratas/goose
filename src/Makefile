@@ -3,13 +3,15 @@
 #============================================================================#
 BIN    = .
 CC     = gcc
-CPLP   = -fstrict-aliasing -ffast-math -msse2
+CPLP   = -fstrict-aliasing -ffast-math -msse2 #fgnu89-inline 
 #-----------------------------------------------------------------------------
 CFLAGS = -O3 -Wall $(CPLP)
 #-----------------------------------------------------------------------------
 LIBS   = -lm
 DEPS   = defs.h
 DEPSXS = xsdefs.h xsinit.h
+DEPSCMAP = defs-cmap.h param-cmap.h
+DEPSGECO = defs-geco.h
 PROGS  = $(BIN)/goose \
          $(BIN)/goose-extract \
          $(BIN)/goose-fastaextract \
@@ -48,9 +50,20 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-renamehumanheaders \
          $(BIN)/goose-char2line \
          $(BIN)/goose-splitreads \
-         $(BIN)/goose-fastqsimulation
-OBJS   = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
-         phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o
+         $(BIN)/goose-fastqsimulation \
+         $(BIN)/goose-getunique \
+         $(BIN)/goose-comparativemap \
+         $(BIN)/goose-geco \
+         $(BIN)/goose-gede \
+         $(BIN)/goose-segment \
+         $(BIN)/goose-fastainfo \
+         $(BIN)/goose-real2binthreshold \
+         $(BIN)/goose-reducematrixbythreshold
+OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
+         phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
+OBJSCMAP = common-cmap.o mem-cmap.o msg-cmap.o paint-cmap.o time-cmap.o
+OBJSGECO = arith_aux-geco.o arith-geco.o bitio-geco.o buffer-geco.o \
+         common-geco.o context-geco.o mem-geco.o levels-geco.o msg-geco.o
 #-----------------------------------------------------------------------------
 all:
 	$(MAKE) progs
@@ -133,6 +146,22 @@ $(BIN)/goose-splitreads: SplitReads.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-splitreads SplitReads.c $(OBJS) $(LIBS)
 $(BIN)/goose-fastqsimulation: ReadSimulator.c $(DEPSXS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqsimulation ReadSimulator.c $(OBJS) $(LIBS)
+$(BIN)/goose-getunique: GetUnique.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-getunique GetUnique.c $(OBJS) $(LIBS)
+$(BIN)/goose-comparativemap: ComparativeMap.c $(DEPSCMAP) $(OBJSCMAP)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-comparativemap ComparativeMap.c $(OBJSCMAP) $(LIBS)
+$(BIN)/goose-geco: geco.c $(DEPSGECO) $(OBJSGECO)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-geco geco.c $(OBJSGECO) $(LIBS)
+$(BIN)/goose-gede: gede.c $(DEPSGECO) $(OBJSGECO)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-gede gede.c $(OBJSGECO) $(LIBS)
+$(BIN)/goose-segment: Segment.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-segment Segment.c $(OBJS) $(LIBS)
+$(BIN)/goose-fastainfo: FastaInfo.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-fastainfo FastaInfo.c $(OBJS) $(LIBS)
+$(BIN)/goose-real2binthreshold: Real2BinWT.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-real2binthreshold Real2BinWT.c $(OBJS) $(LIBS)
+$(BIN)/goose-reducematrixbythreshold: reduceMatrixByThreshold.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-reducematrixbythreshold reduceMatrixByThreshold.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
@@ -163,7 +192,39 @@ xsmisc.o: xsmisc.c xsmisc.h $(DEPSXS)
 	$(CC) -c $(CFLAGS) xsmisc.c
 buffer.o: buffer.c buffer.h $(DEPS)
 	$(CC) -c $(CFLAGS) buffer.c
-
+labels.o: labels.c labels.h $(DEPS)
+	$(CC) -c $(CFLAGS) labels.c
+#
+common-cmap.o: common-cmap.c common-cmap.h $(DEPSCMAP)
+	$(CC) -c $(CFLAGS) common-cmap.c
+mem-cmap.o: mem-cmap.c mem-cmap.h $(DEPSCMAP)
+	$(CC) -c $(CFLAGS) mem-cmap.c
+msg-cmap.o: msg-cmap.c msg-cmap.h $(DEPSCMAP)
+	$(CC) -c $(CFLAGS) msg-cmap.c
+paint-cmap.o: paint-cmap.c paint-cmap.h $(DEPSCMAP)
+	$(CC) -c $(CFLAGS) paint-cmap.c
+time-cmap.o: time-cmap.c time-cmap.h $(DEPSCMAP)
+	$(CC) -c $(CFLAGS) time-cmap.c
+#
+common-geco.o: common-geco.c common-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) common-geco.c
+arith_aux-geco.o: arith_aux-geco.c arith_aux-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) arith_aux-geco.c
+arith-geco.o: arith-geco.c arith-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) arith-geco.c
+bitio-geco.o: bitio-geco.c bitio-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) bitio-geco.c
+msg-geco.o: msg-geco.c msg-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) msg-geco.c
+mem-geco.o: mem-geco.c mem-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) mem-geco.c
+context-geco.o: context-geco.c context-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) context-geco.c
+levels-geco.o: levels-geco.c levels-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) levels-geco.c
+buffer-geco.o: buffer-geco.c buffer-geco.h $(DEPSGECO)
+	$(CC) -c $(CFLAGS) buffer-geco.c
+#
 clean: 
 	/bin/rm -f *.o
 cleanall:

@@ -22,7 +22,7 @@ CSMODEL *CreateCSModel(uint32_t ctx, uint32_t nSym){
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-inline uint64_t GetCSIdx(uint8_t *buf, CSMODEL *M){
+uint64_t GetCSIdx(uint8_t *buf, CSMODEL *M){
   uint32_t n;
   uint64_t idx = 0;
   for(n = 1 ; n <= M->ctx ; ++n)
