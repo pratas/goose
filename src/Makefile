@@ -1,5 +1,5 @@
 #============================================================================#
-#               GOOSE 2013-2016, IEETA/DETI, UNIVERSITY OF AVEIRO            #
+#               GOOSE 2013-2017, IEETA/DETI, UNIVERSITY OF AVEIRO            #
 #============================================================================#
 BIN    = .
 CC     = gcc
@@ -58,7 +58,8 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-segment \
          $(BIN)/goose-fastainfo \
          $(BIN)/goose-real2binthreshold \
-         $(BIN)/goose-reducematrixbythreshold
+         $(BIN)/goose-reducematrixbythreshold \
+         $(BIN)/goose-fastqtrimm
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
 OBJSCMAP = common-cmap.o mem-cmap.o msg-cmap.o paint-cmap.o time-cmap.o
@@ -161,7 +162,9 @@ $(BIN)/goose-fastainfo: FastaInfo.c $(DEPS) $(OBJS)
 $(BIN)/goose-real2binthreshold: Real2BinWT.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-real2binthreshold Real2BinWT.c $(OBJS) $(LIBS)
 $(BIN)/goose-reducematrixbythreshold: reduceMatrixByThreshold.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/goose-reducematrixbythreshold reduceMatrixByThreshold.c $(OBJS) $(LIBS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqtrimm FastqTrimm.c $(OBJS) $(LIBS)
+$(BIN)/goose-fastqtrimm: reduceMatrixByThreshold.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqtrimm FastqTrimm.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
