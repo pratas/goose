@@ -23,10 +23,12 @@ void PrintArgs(char *name){
 
   fprintf(stderr, "Usage: %s [OPTIONS] < input > output             \n"
                   "                                                 \n"
+                  "  -n <int>       Maximum number of \"N\" in read,\n"
+                  "  -m <int>       Minimum size of the read,       \n"
+                  "  -a <int>       Discard read below average QS,  \n"
                   "                                                 \n"
-                  "                                                 \n"
-                  "                                                 \n"
-                  "                                                 \n"
+                  "  -k <int>       Window size (sw) to filter QS,  \n"
+                  "  -w <int>       Minimum average QS with k-sw.   \n"
                   "                                                 \n",
   name);
   }
@@ -39,16 +41,16 @@ int main(int argc, char *argv[]){
   uint32_t seqSize = 0, totalQS = 0, N = 0, x, n;
   uint64_t okReads = 0, totalReads = 0;
 
-  if(argc > 3 || ArgBin(0, argv, argc, "-h")){
+  if(ArgBin(0, argv, argc, "-h") || ArgBin(0, argv, argc, "?")){
     PrintArgs(argv[0]);
     return EXIT_SUCCESS;
     }
   
-  int max_n         = 0;
-  int k             = 5;
-  int min_avg_qs    = 25;
-  int min_QS_window = 25;
-  int min_read_size = 35;
+  int max_n         = ArgNum(0,  argv, argc, "-n", 0, 9999999);
+  int k             = ArgNum(5,  argv, argc, "-k", 0, 9999999);
+  int min_QS_window = ArgNum(25, argv, argc, "-w", 0, 9999999);
+  int min_avg_qs    = ArgNum(25, argv, argc, "-a", 0, 9999999);
+  int min_read_size = ArgNum(35, argv, argc, "-m", 0, 9999999);
  
   // LOAD PARAMETERS
  
