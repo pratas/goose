@@ -64,7 +64,7 @@ Included programs:
   [+] goose-wsearch
 </pre>
 
-GOOSE provide pipes support for easy integration with current pipelines.
+GOOSE provides pipes support for easy integration with current pipelines.
 
 Moreover, there are many scripts to download sequences, shuffle, etc.
 
