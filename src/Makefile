@@ -60,7 +60,9 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-real2binthreshold \
          $(BIN)/goose-reducematrixbythreshold \
          $(BIN)/goose-fastqtrimm \
-         $(BIN)/goose-fastqexcluden
+         $(BIN)/goose-fastqexcluden \
+         $(BIN)/goose-fastqmaximumreadsize \
+         $(BIN)/goose-fastqminimumreadsize 
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
 OBJSCMAP = common-cmap.o mem-cmap.o msg-cmap.o paint-cmap.o time-cmap.o
@@ -168,6 +170,10 @@ $(BIN)/goose-fastqtrimm: reduceMatrixByThreshold.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqtrimm FastqTrimm.c $(OBJS) $(LIBS)
 $(BIN)/goose-fastqexcluden: FastqExcludeN.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqexcluden FastqExcludeN.c $(OBJS) $(LIBS)
+$(BIN)/goose-fastqmaximumreadsize: FastqMaximumReadSize.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqmaximumreadsize FastqMaximumReadSize.c $(OBJS) $(LIBS)
+$(BIN)/goose-fastqminimumreadsize: FastqMinimumReadSize.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqminimumreadsize FastqMinimumReadSize.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
