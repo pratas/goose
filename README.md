@@ -1,7 +1,8 @@
 <p align="center"><img src="imgs/logo.png"
 alt="GOOSE" height="200" border="0" /></p>
 
-A framework for DNA sequence analysis and manipulation.
+<p align="center">A framework for DNA sequence analysis and manipulation.</p>
+<br>
 
 To install on Linux:
 <pre>
