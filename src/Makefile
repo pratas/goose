@@ -64,7 +64,9 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-fastqmaximumreadsize \
          $(BIN)/goose-fastqminimumreadsize \
          $(BIN)/goose-fastqminimumqualityscore \
-         $(BIN)/goose-fastqminimumlocalqualityscoresingleend
+       	 $(BIN)/goose-fastqminimumlocalqualityscoreforward \
+         $(BIN)/goose-fastqminimumlocalqualityscorereverse
+
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
 OBJSCMAP = common-cmap.o mem-cmap.o msg-cmap.o paint-cmap.o time-cmap.o
@@ -178,8 +180,10 @@ $(BIN)/goose-fastqminimumreadsize: FastqMinimumReadSize.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqminimumreadsize FastqMinimumReadSize.c $(OBJS) $(LIBS)
 $(BIN)/goose-fastqminimumqualityscore: FastqMinimumQualityScore.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqminimumqualityscore FastqMinimumQualityScore.c $(OBJS) $(LIBS)
-$(BIN)/goose-fastqminimumlocalqualityscoresingleend: FastqMinimumLocalQualityScoreSingleEnd.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqminimumlocalqualityscoresingleend FastqMinimumLocalQualityScoreSingleEnd.c $(OBJS) $(LIBS)
+$(BIN)/goose-fastqminimumlocalqualityscoreforward: FastqMinimumLocalQualityScoreForward.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqminimumlocalqualityscoreforward FastqMinimumLocalQualityScoreForward.c $(OBJS) $(LIBS)
+$(BIN)/goose-fastqminimumlocalqualityscorereverse: FastqMinimumLocalQualityScoreReverse.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqminimumlocalqualityscorereverse FastqMinimumLocalQualityScoreReverse.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
