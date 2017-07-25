@@ -13,13 +13,12 @@ void PrintArgs(char *name){
   // SE - SINGLE ENDED FASTQ
   // PE - PAIRED ENDED FASTQ : FORWARD READ vs REVERSE READ
   // 
+  //
+  // TODO:
+  //
   // PAIRED ENDED FILE -> INVERT FOR
   // 
   // REMOVE ADAPTORS
-
-  // kmer QS
-  // Ns
-  // min_size
 
   fprintf(stderr, "Usage: %s [OPTIONS] < input > output             \n"
                   "                                                 \n"
