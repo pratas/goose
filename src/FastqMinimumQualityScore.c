@@ -12,7 +12,7 @@ void PrintArgs(char *name){
   fprintf(stderr, "Usage: %s [VALUE] < input > output                  \n"
                   "                                                    \n"
                   "Discard read with average quality-score below value.\n"
-                  "Value 25 or 30 is commonly used.                    \n"
+                  "Value 25 or 30 is commonly used.                    \n",
   name);
   }
 
@@ -35,7 +35,6 @@ int main(int argc, char *argv[]){
 
     seqSize = strlen((char *) Read->bases) - 1;
     totalQS = 0;
-    N       = 0;
 
     for(x = 0 ; x < seqSize ; ++x){
       totalQS += ((int) Read->scores[x]) - 33; // PHRED +33
