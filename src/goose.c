@@ -3,7 +3,7 @@
 #include "defs.h"
 
 int main(int argc, char *argv[]){
-  fprintf(stderr, "\n GOOSE FRAMEWORK v%u.%u, UNIVERSITY OF AVEIRO, 2013-2016\n",
+  fprintf(stderr, "\n GOOSE FRAMEWORK v%u.%u, UNIVERSITY OF AVEIRO, 2013-2018\n",
   VERSION, RELEASE);
   fprintf(stderr, " A framework for DNA sequences analysis and manipulation\n\n");
   fprintf(stderr, " Programs:\n");

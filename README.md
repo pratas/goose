@@ -12,50 +12,53 @@ make
 
 Included C programs:
 <pre>
-  [+] goose-char2line
-  [+] goose-comparativemap
-  [+] goose-count
-  [+] goose-extract
-  [+] goose-extractreadbypattern
-  [+] goose-fasta2seq
-  [+] goose-fastaextract
-  [+] goose-fastq2fasta
-  [+] goose-fastq2mfasta
-  [+] goose-fastqclustreads
-  [+] goose-fastqpack
-  [+] goose-fastqsimulation
-  [+] goose-fastqunpack
-  [+] goose-filter
-  [+] goose-findnpos
-  [+] goose-geco
-  [+] goose-gede
-  [+] goose-genrandomdna
-  [+] goose-getunique
-  [+] goose-info
-  [+] goose-max
-  [+] goose-mfmotifcoords
-  [+] goose-min
-  [+] goose-minus
-  [+] goose-mutatedna
-  [+] goose-mutatefasta
-  [+] goose-mutatefastq
-  [+] goose-newlineonnewx
-  [+] goose-period
-  [+] goose-permuteseqbyblocks
-  [+] goose-randfastaextrachars
-  [+] goose-randfastqextrachars
-  [+] goose-randseqextrachars
-  [+] goose-renamehumanheaders
-  [+] goose-reverse
+  [+] goose-char2line             
+  [+] goose-fastqclustreads  
+  [+] goose-genrandomdna   
+  [+] goose-newlineonnewx            
   [+] goose-reverselm
+  [+] goose-comparativemap        
+  [+] goose-fastqexcluden    
+  [+] goose-getunique      
+  [+] goose-period                   
   [+] goose-searchphash
+  [+] goose-count                 
+  [+] goose-fastqpack        
+  [+] goose-info           
+  [+] goose-permuteseqbyblocks       
   [+] goose-segment
+  [+] goose-extract               
+  [+] goose-fastqsimulation  
+  [+] goose-max            
+  [+] goose-randfastaextrachars      
   [+] goose-seq2fasta
+  [+] goose-extractreadbypattern  
+  [+] goose-fastqtrimm       
+  [+] goose-mfmotifcoords  
+  [+] goose-randfastqextrachars      
   [+] goose-seq2fastq
-  [+] goose-sum
+  [+] goose-fasta2seq             
+  [+] goose-fastqunpack      
+  [+] goose-min            
+  [+] goose-randseqextrachars        
   [+] goose-splitreads
-  [+] goose-splitReads
+  [+] goose-fastaextract          
+  [+] goose-filter           
+  [+] goose-minus          
+  [+] goose-real2binthreshold        
+  [+] goose-sum
+  [+] goose-fastainfo             
+  [+] goose-findnpos         
+  [+] goose-mutatedna      
+  [+] goose-reducematrixbythreshold  
   [+] goose-wsearch
+  [+] goose-fastq2fasta           
+  [+] goose-geco             
+  [+] goose-mutatefasta    
+  [+] goose-renamehumanheaders
+  [+] goose-fastq2mfasta          
+  [+] goose-gede             
+  [+] goose-mutatefastq
 </pre>
 
 GOOSE provide pipes support for easy integration with current pipelines.
