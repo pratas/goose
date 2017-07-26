@@ -76,7 +76,7 @@ int main(int argc, char *argv[]){
     }
 
   fprintf(stderr, "Total reads    : %"PRIu64"\n", totalReads);
-  fprintf(stderr, "Filtered reads : %"PRIu64"\n", cutted);
+  fprintf(stderr, "Trimmed reads  : %"PRIu64"\n", cutted);
 
   FreeRead(Read);
   return EXIT_SUCCESS;
