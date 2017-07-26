@@ -36,8 +36,8 @@ int main(int argc, char *argv[]){
   while(GetRead(stdin, Read)){
 
     seqSize = strlen((char *) Read->bases) - 1;
-    totalQS = 0;
 
+    totalQS = 0;
     for(x = 0 ; x < seqSize ; ++x){
       totalQS += ((int) Read->scores[x]) - 33; // PHRED +33
       }
