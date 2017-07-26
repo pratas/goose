@@ -108,6 +108,37 @@ Version 1.7.17
 
 \tableofcontents
 
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+Recent advances in {DNA} sequencing have revolutionized the field of genomics,
+making it possible for research groups to generate large amounts of sequenced
+data, very rapidly and at substantially lower cost. Its storage have been
+made using specific file formats, such as FASTQ and FASTA. Therefore, its
+analysis and manipulation is crucial \cite{Buermans-2014a}. Several
+frameworks for analysis and manipulation emerged, namely GALAXY
+\cite{Giardine-2005a}, GATK \cite{DePristo-2011a}, HTSeq
+\cite{Anders-2014a}, MEGA \cite{Kumar-2016a}, among others.
+In the majority, these frameworks require licenses and do not provide
+a low level access to the information, since they are commonly approached
+by scripting or interfaces.
+
+We present GOOSE, a (free) novel toolkit for analyzing and manipulating
+SEQ (``ACGTN''), FASTA or FASTQ formats, with many complementary tools,
+for Linux-based systems, built for fast processing.
+GOOSE supports pipes for easy integration. It includes tools for information 
+display, randomizing, edition, conversion, extraction, searching,
+calculation and visualization. GOOSE is prepared to deal high
+very large datasets, typically GB and TB sizes. For this dimension of data
+fast access and flexibility is crucial, which are some of the qualities of
+GOOSE. 
+
+The toolkit is a command line version, using the prefix ``goose-'' 
+followed by the suffix with the respective name of the program.
+GOOSE is implemented in C language and it is freely available, under GPLv3, 
+at \url{https://pratas.github.io/goose}.
+
+
 \chapter*{FASTQ tools}
 \addcontentsline{toc}{chapter}{FASTQ tools}
 
