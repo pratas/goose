@@ -11,10 +11,10 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 void PrintArgs(char *name){
-  fprintf(stderr, "Usage: %s [NUMBER] < input > output                    \n"
-                  "                                                       \n"
-                  "Discard reads blow the minimum number of \"N\" symbols.\n"
-                  "                                                       \n",
+  fprintf(stderr, "Usage: %s [NUMBER] < input > output                     \n"
+                  "                                                        \n"
+                  "Discard reads below the minimum number of \"N\" symbols.\n"
+                  "                                                        \n",
   name);
   }
 
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
   uint32_t seqSize = 0, N = 0, x, n;
   uint64_t okReads = 0, totalReads = 0;
 
-  if(ArgBin(0, argv, argc, "-h") || ArgBin(0, argv, argc, "?")){
+  if(argc < 2 || ArgBin(0, argv, argc, "-h") || ArgBin(0, argv, argc, "?")){
     PrintArgs(argv[0]);
     return EXIT_SUCCESS;
     }
