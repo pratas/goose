@@ -24,12 +24,13 @@ Included programs:
   [+] goose-fastq2fasta
   [+] goose-fastq2mfasta
   [+] goose-fastqclustreads
-  [+] goose-fastqexcluden
-  [+] goose-fastqmaximumreadsize
-  [+] goose-fastqminimumlocalqualityscoreforward
-  [+] goose-fastqminimumlocalqualityscorereverse
-  [+] goose-fastqminimumqualityscore
-  [+] goose-fastqminimumreadsize
+  [+] goose-FastqExcludeN
+  [+] goose-FastqMaximumReadSize
+  [+] goose-FastqMinimumLocalQualityScoreForward
+  [+] goose-FastqMinimumLocalQualityScoreReverse
+  [+] goose-FastqMinimumQualityScore
+  [+] goose-FastqMinimumReadSize
+  [+] goose-FastqTrimm
   [+] goose-fastqpack
   [+] goose-fastqsimulation
   [+] goose-fastqtrimm

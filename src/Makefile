@@ -59,13 +59,13 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-fastainfo \
          $(BIN)/goose-real2binthreshold \
          $(BIN)/goose-reducematrixbythreshold \
-         $(BIN)/goose-fastqtrimm \
-         $(BIN)/goose-fastqexcluden \
-         $(BIN)/goose-fastqmaximumreadsize \
-         $(BIN)/goose-fastqminimumreadsize \
-         $(BIN)/goose-fastqminimumqualityscore \
-       	 $(BIN)/goose-fastqminimumlocalqualityscoreforward \
-         $(BIN)/goose-fastqminimumlocalqualityscorereverse
+         $(BIN)/goose-FastqTrimm \
+         $(BIN)/goose-FastqExcludeN \
+         $(BIN)/goose-FastqMaximumReadSize \
+         $(BIN)/goose-FastqMinimumReadSize \
+         $(BIN)/goose-FastqMinimumQualityScore \
+       	 $(BIN)/goose-FastqMinimumLocalQualityScoreForward \
+         $(BIN)/goose-FastqMinimumLocalQualityScoreReverse
 
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
@@ -170,20 +170,20 @@ $(BIN)/goose-real2binthreshold: Real2BinWT.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-real2binthreshold Real2BinWT.c $(OBJS) $(LIBS)
 $(BIN)/goose-reducematrixbythreshold: reduceMatrixByThreshold.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqtrimm FastqTrimm.c $(OBJS) $(LIBS)
-$(BIN)/goose-fastqtrimm: reduceMatrixByThreshold.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqtrimm FastqTrimm.c $(OBJS) $(LIBS)
-$(BIN)/goose-fastqexcluden: FastqExcludeN.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqexcluden FastqExcludeN.c $(OBJS) $(LIBS)
-$(BIN)/goose-fastqmaximumreadsize: FastqMaximumReadSize.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqmaximumreadsize FastqMaximumReadSize.c $(OBJS) $(LIBS)
-$(BIN)/goose-fastqminimumreadsize: FastqMinimumReadSize.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqminimumreadsize FastqMinimumReadSize.c $(OBJS) $(LIBS)
-$(BIN)/goose-fastqminimumqualityscore: FastqMinimumQualityScore.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqminimumqualityscore FastqMinimumQualityScore.c $(OBJS) $(LIBS)
-$(BIN)/goose-fastqminimumlocalqualityscoreforward: FastqMinimumLocalQualityScoreForward.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqminimumlocalqualityscoreforward FastqMinimumLocalQualityScoreForward.c $(OBJS) $(LIBS)
-$(BIN)/goose-fastqminimumlocalqualityscorereverse: FastqMinimumLocalQualityScoreReverse.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqminimumlocalqualityscorereverse FastqMinimumLocalQualityScoreReverse.c $(OBJS) $(LIBS)
+$(BIN)/goose-FastqTrimm: reduceMatrixByThreshold.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqTrimm FastqTrimm.c $(OBJS) $(LIBS)
+$(BIN)/goose-FastqExcludeN: FastqExcludeN.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqExcludeN FastqExcludeN.c $(OBJS) $(LIBS)
+$(BIN)/goose-FastqMaximumReadSize: FastqMaximumReadSize.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqMaximumReadSize FastqMaximumReadSize.c $(OBJS) $(LIBS)
+$(BIN)/goose-FastqMinimumReadSize: FastqMinimumReadSize.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqMinimumReadSize FastqMinimumReadSize.c $(OBJS) $(LIBS)
+$(BIN)/goose-FastqMinimumQualityScore: FastqMinimumQualityScore.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqMinimumQualityScore FastqMinimumQualityScore.c $(OBJS) $(LIBS)
+$(BIN)/goose-FastqMinimumLocalQualityScoreForward: FastqMinimumLocalQualityScoreForward.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqMinimumLocalQualityScoreForward FastqMinimumLocalQualityScoreForward.c $(OBJS) $(LIBS)
+$(BIN)/goose-FastqMinimumLocalQualityScoreReverse: FastqMinimumLocalQualityScoreReverse.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqMinimumLocalQualityScoreReverse FastqMinimumLocalQualityScoreReverse.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
