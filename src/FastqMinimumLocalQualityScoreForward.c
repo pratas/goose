@@ -51,14 +51,17 @@ int main(int argc, char *argv[]){
           tmp_QS += ((int) Read->scores[x + n]) - min_QS;
           }
 
-        if((tmp_QS / k) < min_QS_window){
+        if(((double) tmp_QS / k) < (double) min_QS_window){
           break;
           ++cutted;
           }
+
         }
       }
 
     ++totalReads;
+
+    if(x < k) continue;
 
     // PRINT READ
     fprintf(stdout, "@");
