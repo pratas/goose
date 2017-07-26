@@ -31,22 +31,24 @@ int main(int argc, char *argv[]){
     return EXIT_SUCCESS;
     }
   
-  int min_read_size = atoi(argv[2]);
+  int min_read_size = atoi(argv[1]);
  
   while(GetRead(stdin, Read)){
 
     seqSize = strlen((char *) Read->bases) - 1;
+    ++totalReads;
 
     // EVALUATE TO DISCARD:
     if(seqSize < min_read_size) continue;
 
     // PRINT READ
+    fprintf(stdout, "@");
     for(n = 0 ; n < strlen((char *) Read->header1) ; ++n)
       fprintf(stdout, "%c", Read->header1[n]);
-    for(n = 0 ; n <= seqSize ; ++n)
+    for(n = 0 ; n < seqSize ; ++n)
       fprintf(stdout, "%c", Read->bases[n]);
     fprintf(stdout, "\n+\n");
-    for(n = 0 ; n <= seqSize ; ++n)
+    for(n = 0 ; n < seqSize ; ++n)
       fprintf(stdout, "%c", Read->scores[n]);
     fprintf(stdout, "\n");
 

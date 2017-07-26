@@ -50,6 +50,7 @@ int main(int argc, char *argv[]){
     if(N > max_n) continue;
 
     // PRINT READ
+    fprintf(stdout, "@");
     for(n = 0 ; n < strlen((char *) Read->header1) ; ++n)
       fprintf(stdout, "%c", Read->header1[n]);
     for(n = 0 ; n < x ; ++n)
