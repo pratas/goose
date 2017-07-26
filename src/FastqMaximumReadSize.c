@@ -36,7 +36,7 @@ int main(int argc, char *argv[]){
   while(GetRead(stdin, Read)){
 
     seqSize = strlen((char *) Read->bases) - 1;
-    ++totReads;
+    ++totalReads;
 
     // EVALUATE TO DISCARD:
     if(seqSize > min_read_size) continue;
