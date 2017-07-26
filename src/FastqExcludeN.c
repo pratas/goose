@@ -11,7 +11,8 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 void PrintArgs(char *name){
-  fprintf(stderr, "Usage: %s [NUMBER] < input > output                     \n"
+  fprintf(stderr, "                                                        \n"
+                  "Usage: %s [NUMBER] < input > output                     \n"
                   "                                                        \n"
                   "Discard reads below the minimum number of \"N\" symbols.\n"
                   "                                                        \n",
