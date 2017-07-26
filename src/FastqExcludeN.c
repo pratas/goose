@@ -15,6 +15,7 @@ void PrintArgs(char *name){
                   "Usage: %s [NUMBER] < input > output                     \n"
                   "                                                        \n"
                   "Discard reads below the minimum number of \"N\" symbols.\n"
+                  "If present, it will erase the second header (after +).  \n"
                   "                                                        \n",
   name);
   }
