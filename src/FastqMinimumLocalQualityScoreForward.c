@@ -52,8 +52,8 @@ int main(int argc, char *argv[]){
           }
 
         if(((double) tmp_QS / k) < (double) min_QS_window){
-          break;
           ++cutted;
+          break;
           }
 
         }
