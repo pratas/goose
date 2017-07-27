@@ -10,7 +10,8 @@
 
 void PrintArgs(char *name){
   // REVERSE CHAIN
-  fprintf(stderr, "Usage: %s [OPTIONS] < input > output               \n"
+  fprintf(stderr, "                                                   \n"
+                  "Usage: %s [OPTIONS] < input > output               \n"
                   "                                                   \n"
                   "  -k <int>       Window size (sw) to filter QS,    \n"
                   "  -w <int>       Minimum average QS with k-sw.     \n"
@@ -29,7 +30,7 @@ int main(int argc, char *argv[]){
   int32_t seqSize = 0, x, n;
   uint64_t cutted = 0, totalReads = 0;
 
-  if(ArgBin(0, argv, argc, "-h") || ArgBin(0, argv, argc, "?")){
+  if(argc < 2 || ArgBin(0, argv, argc, "-h") || ArgBin(0, argv, argc, "?")){
     PrintArgs(argv[0]);
     return EXIT_SUCCESS;
     }
@@ -51,15 +52,18 @@ int main(int argc, char *argv[]){
           }
 
         if((tmp_QS / k) < min_QS_window){
-          break;
           ++cutted;
+          break;
           }
         }
       }
 
     ++totalReads;
 
+    if(x > seqSize - k) continue;
+
     // PRINT READ
+    fprintf(stdout, "@");
     for(n = 0 ; n < strlen((char *) Read->header1) ; ++n)
       fprintf(stdout, "%c", Read->header1[n]);
     for(n = x ; n < seqSize ; ++n)
@@ -71,7 +75,7 @@ int main(int argc, char *argv[]){
     }
 
   fprintf(stderr, "Total reads    : %"PRIu64"\n", totalReads);
-  fprintf(stderr, "Filtered reads : %"PRIu64"\n", cutted);
+  fprintf(stderr, "Trimmed reads  : %"PRIu64"\n", cutted);
 
   FreeRead(Read);
   return EXIT_SUCCESS;
