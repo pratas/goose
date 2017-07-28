@@ -39,14 +39,14 @@ int main(int argc, char *argv[]){
   int min_QS_window = ArgNum(25, argv, argc, "-w", 0, 9999999);
   int min_QS        = ArgNum(33, argv, argc, "-m", 0, 9999999);
 
-  fprintf(stderr, "Minimum QS: %d", min_QS);
+  fprintf(stderr, "Minimum QS     : %d\n", min_QS);
  
   while(GetRead(stdin, Read)){
 
     seqSize = strlen((char *) Read->bases) - 1;
 
     for(x = 0 ; x < seqSize ; ++x){
-      if(x < seqSize - k){
+      if(x <= seqSize - k){
 
         int tmp_QS = 0;
         for(n = 0 ; n < k ; ++n){
