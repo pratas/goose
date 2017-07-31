@@ -41,20 +41,22 @@ int main(int argc, char *argv[]){
 
   fprintf(stderr, "Minimum QS: %d\n", min_QS);
  
+  uint32_t position = 0;
   while(GetRead(stdin, Read)){
 
     seqSize = strlen((char *) Read->bases) - 1;
 
-    for(x = seqSize-1 ; x >= 0 ; x--){
+    for(x = seqSize ; x >= 0 ; x--){
       if(x >= k){
 
         int tmp_QS = 0;
         for(n = 0 ; n < k ; ++n){
-          tmp_QS += ((int) Read->scores[x - n]) - min_QS;
+          tmp_QS += ((int) Read->scores[x - 1 - n]) - min_QS;
           }
 
         if(((double) tmp_QS / k) < (double) min_QS_window){
           ++cutted;
+          position = x;
           break;
           }
         }
@@ -68,10 +70,10 @@ int main(int argc, char *argv[]){
     fprintf(stdout, "@");
     for(n = 0 ; n < strlen((char *) Read->header1) ; ++n)
       fprintf(stdout, "%c", Read->header1[n]);
-    for(n = x ; n < seqSize ; ++n)
+    for(n = position ; n < seqSize ; ++n)
       fprintf(stdout, "%c", Read->bases[n]);
     fprintf(stdout, "\n+\n");
-    for(n = x ; n < seqSize ; ++n)
+    for(n = position ; n < seqSize ; ++n)
       fprintf(stdout, "%c", Read->scores[n]);
     fprintf(stdout, "\n");
     }
