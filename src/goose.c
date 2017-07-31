@@ -6,7 +6,7 @@ int main(int argc, char *argv[]){
   fprintf(stdout, "\n  GOOSE TOOLKIT v%u.%u, UNIVERSITY OF AVEIRO, 2013-2018\n",
   VERSION, RELEASE);
   fprintf(stdout, "  A toolkit for DNA sequences analysis and manipulation\n\n");
-  fprintf(stdout, "  Programs:\n");
+  fprintf(stdout, "  Sub-programs:\n\n");
   fprintf(stdout, 
   "  goose-char2line\n"
   "  goose-comparativemap\n"
@@ -19,20 +19,14 @@ int main(int argc, char *argv[]){
   "  goose-fastq2fasta\n"
   "  goose-fastq2mfasta\n"
   "  goose-fastqclustreads\n"
-  "  goose-fastqexcluden\n"
   "  goose-FastqExcludeN\n"
-  "  goose-fastqmaximumreadsize\n"
   "  goose-FastqMaximumReadSize\n"
   "  goose-FastqMinimumLocalQualityScoreForward\n"
   "  goose-FastqMinimumLocalQualityScoreReverse\n"
-  "  goose-fastqminimumlocalqualityscoresingleend\n"
-  "  goose-fastqminimumqualityscore\n"
   "  goose-FastqMinimumQualityScore\n"
-  "  goose-fastqminimumreadsize\n"
   "  goose-FastqMinimumReadSize\n"
   "  goose-fastqpack\n"
   "  goose-fastqsimulation\n"
-  "  goose-fastqtrimm\n"
   "  goose-FastqTrimm\n"
   "  goose-fastqunpack\n"
   "  goose-filter\n"
