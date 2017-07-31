@@ -12,7 +12,7 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 typedef struct{
-  uint8_t  **names;
+  char     **names;
   uint32_t maxH;
   uint32_t maxV;
   uint32_t idx;

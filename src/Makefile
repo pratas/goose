@@ -169,8 +169,8 @@ $(BIN)/goose-fastainfo: FastaInfo.c $(DEPS) $(OBJS)
 $(BIN)/goose-real2binthreshold: Real2BinWT.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-real2binthreshold Real2BinWT.c $(OBJS) $(LIBS)
 $(BIN)/goose-reducematrixbythreshold: reduceMatrixByThreshold.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/goose-fastqtrimm FastqTrimm.c $(OBJS) $(LIBS)
-$(BIN)/goose-FastqTrimm: reduceMatrixByThreshold.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-reducematrixbythreshold reduceMatrixByThreshold.c $(OBJS) $(LIBS)
+$(BIN)/goose-FastqTrimm: FastqTrimm.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqTrimm FastqTrimm.c $(OBJS) $(LIBS)
 $(BIN)/goose-FastqExcludeN: FastqExcludeN.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqExcludeN FastqExcludeN.c $(OBJS) $(LIBS)
@@ -246,9 +246,9 @@ levels-geco.o: levels-geco.c levels-geco.h $(DEPSGECO)
 	$(CC) -c $(CFLAGS) levels-geco.c
 buffer-geco.o: buffer-geco.c buffer-geco.h $(DEPSGECO)
 	$(CC) -c $(CFLAGS) buffer-geco.c
-#
+##############################################################################
 clean: 
 	/bin/rm -f *.o
 cleanall:
 	/bin/rm -f *.o $(PROGS)
-#-----------------------------------------------------------------------------
+##############################################################################

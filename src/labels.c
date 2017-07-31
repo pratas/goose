@@ -14,9 +14,9 @@ SLABELS *CreateSLabels(void){
   SL->idx     = 0;
   SL->maxV    = SLCACHE;
   SL->maxH    = SLMAXSTR;
-  SL->names   = (uint8_t **) Calloc(SL->maxV, sizeof(uint8_t *));
+  SL->names   = (char **) Calloc(SL->maxV, sizeof(char *));
   for(n = 0 ; n < SL->maxV ; ++n)
-    SL->names[n] = (uint8_t *) Calloc(SL->maxH+1, sizeof(uint8_t));
+    SL->names[n] = (char *) Calloc(SL->maxH+1, sizeof(char));
   return SL;
   }
 
@@ -40,10 +40,10 @@ void UpdateSLabels(SLABELS *SL){
   uint32_t n;
   if(SL->idx == SL->maxV){
     SL->maxV += SLCACHE;
-    SL->names = (uint8_t **) 
-    Realloc(SL->names, SL->maxV * sizeof(uint8_t *), 0);
+    SL->names = (char **) 
+    Realloc(SL->names, SL->maxV * sizeof(char *), 0);
     for(n = SL->idx ; n < SL->maxV ; ++n)
-      SL->names[n] = (uint8_t *) Calloc(SL->maxH+1, sizeof(uint8_t));
+      SL->names[n] = (char *) Calloc(SL->maxH+1, sizeof(char));
     }
   }
 

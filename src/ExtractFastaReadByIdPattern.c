@@ -48,7 +48,7 @@ int main(int argc, char *argv[]){
         else{
           header = 0; 
           hName[idxH+1] = '\0';
-          if(strcasestr(hName, argv[argc-1]) != NULL){
+          if(strcasestr(hName,(char *) argv[argc-1]) != NULL){
             fprintf(stdout, "%s\n", hName);
             write = 1;
             }

@@ -20,7 +20,7 @@ void Usage(char *f){
   printf("Usage: %s <threshold> < stdin > stdout\n", f);
   }
 
-int Split(const char *str, char c, char ***arr){
+int Split(char *str, char c, char ***arr){
   int count = 1, token_len = 1, i = 0;
   char *p, *t;
 
