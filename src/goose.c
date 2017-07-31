@@ -3,57 +3,71 @@
 #include "defs.h"
 
 int main(int argc, char *argv[]){
-  fprintf(stderr, "\n GOOSE FRAMEWORK v%u.%u, UNIVERSITY OF AVEIRO, 2013-2018\n",
+  fprintf(stdout, "\n  GOOSE TOOLKIT v%u.%u, UNIVERSITY OF AVEIRO, 2013-2018\n",
   VERSION, RELEASE);
-  fprintf(stderr, " A framework for DNA sequences analysis and manipulation\n\n");
-  fprintf(stderr, " Programs:\n");
-  fprintf(stderr, "  [+] goose-char2line\n");
-  fprintf(stderr, "  [+] goose-comparativemap\n");
-  fprintf(stderr, "  [+] goose-count\n");
-  fprintf(stderr, "  [+] goose-extract\n");
-  fprintf(stderr, "  [+] goose-extractreadbypattern\n");
-  fprintf(stderr, "  [+] goose-fasta2seq\n");
-  fprintf(stderr, "  [+] goose-fastaextract\n");
-  fprintf(stderr, "  [+] goose-fastainfo\n");
-  fprintf(stderr, "  [+] goose-fastq2fasta\n");
-  fprintf(stderr, "  [+] goose-fastq2mfasta\n");
-  fprintf(stderr, "  [+] goose-fastqclustreads\n");
-  fprintf(stderr, "  [+] goose-fastqpack\n");
-  fprintf(stderr, "  [+] goose-fastqsimulation\n");
-  fprintf(stderr, "  [+] goose-fastqunpack\n");
-  fprintf(stderr, "  [+] goose-filter\n");
-  fprintf(stderr, "  [+] goose-findnpos\n");
-  fprintf(stderr, "  [+] goose-geco\n");
-  fprintf(stderr, "  [+] goose-gede\n");
-  fprintf(stderr, "  [+] goose-genrandomdna\n");
-  fprintf(stderr, "  [+] goose-getunique\n");
-  fprintf(stderr, "  [+] goose-info\n");
-  fprintf(stderr, "  [+] goose-max\n");
-  fprintf(stderr, "  [+] goose-mfmotifcoords\n");
-  fprintf(stderr, "  [+] goose-min\n");
-  fprintf(stderr, "  [+] goose-minus\n");
-  fprintf(stderr, "  [+] goose-mutatedna\n");
-  fprintf(stderr, "  [+] goose-mutatefasta\n");
-  fprintf(stderr, "  [+] goose-mutatefastq\n");
-  fprintf(stderr, "  [+] goose-newlineonnewx\n");
-  fprintf(stderr, "  [+] goose-period\n");
-  fprintf(stderr, "  [+] goose-permuteseqbyblocks\n");
-  fprintf(stderr, "  [+] goose-randfastaextrachars\n");
-  fprintf(stderr, "  [+] goose-randfastqextrachars\n");
-  fprintf(stderr, "  [+] goose-randseqextrachars\n");
-  fprintf(stderr, "  [+] goose-reducematrixbythreshold\n");
-  fprintf(stderr, "  [+] goose-renamehumanheaders\n");
-  fprintf(stderr, "  [+] goose-reverse\n");
-  fprintf(stderr, "  [+] goose-reverselm\n");
-  fprintf(stderr, "  [+] goose-searchphash\n");
-  fprintf(stderr, "  [+] goose-segment\n");
-  fprintf(stderr, "  [+] goose-seq2fasta\n");
-  fprintf(stderr, "  [+] goose-seq2fastq\n");
-  fprintf(stderr, "  [+] goose-sum\n");
-  fprintf(stderr, "  [+] goose-splitreads\n");
-  fprintf(stderr, "  [+] goose-splitReads\n");
-  fprintf(stderr, "  [+] goose-wsearch\n");
-  fprintf(stderr, "\n");
+  fprintf(stdout, "  A toolkit for DNA sequences analysis and manipulation\n\n");
+  fprintf(stdout, "  Programs:\n");
+  fprintf(stdout, 
+  "  goose-char2line\n"
+  "  goose-comparativemap\n"
+  "  goose-count\n"
+  "  goose-extract\n"
+  "  goose-extractreadbypattern\n"
+  "  goose-fasta2seq\n"
+  "  goose-fastaextract\n"
+  "  goose-fastainfo\n"
+  "  goose-fastq2fasta\n"
+  "  goose-fastq2mfasta\n"
+  "  goose-fastqclustreads\n"
+  "  goose-fastqexcluden\n"
+  "  goose-FastqExcludeN\n"
+  "  goose-fastqmaximumreadsize\n"
+  "  goose-FastqMaximumReadSize\n"
+  "  goose-FastqMinimumLocalQualityScoreForward\n"
+  "  goose-FastqMinimumLocalQualityScoreReverse\n"
+  "  goose-fastqminimumlocalqualityscoresingleend\n"
+  "  goose-fastqminimumqualityscore\n"
+  "  goose-FastqMinimumQualityScore\n"
+  "  goose-fastqminimumreadsize\n"
+  "  goose-FastqMinimumReadSize\n"
+  "  goose-fastqpack\n"
+  "  goose-fastqsimulation\n"
+  "  goose-fastqtrimm\n"
+  "  goose-FastqTrimm\n"
+  "  goose-fastqunpack\n"
+  "  goose-filter\n"
+  "  goose-findnpos\n"
+  "  goose-geco\n"
+  "  goose-gede\n"
+  "  goose-genrandomdna\n"
+  "  goose-getunique\n"
+  "  goose-info\n"
+  "  goose-max\n"
+  "  goose-mfmotifcoords\n"
+  "  goose-min\n"
+  "  goose-minus\n"
+  "  goose-mutatedna\n"
+  "  goose-mutatefasta\n"
+  "  goose-mutatefastq\n"
+  "  goose-newlineonnewx\n"
+  "  goose-period\n"
+  "  goose-permuteseqbyblocks\n"
+  "  goose-randfastaextrachars\n"
+  "  goose-randfastqextrachars\n"
+  "  goose-randseqextrachars\n"
+  "  goose-real2binthreshold\n"
+  "  goose-reducematrixbythreshold\n"
+  "  goose-renamehumanheaders\n"
+  "  goose-reverse\n"
+  "  goose-reverselm\n"
+  "  goose-searchphash\n"
+  "  goose-segment\n"
+  "  goose-seq2fasta\n"
+  "  goose-seq2fastq\n"
+  "  goose-splitreads\n"
+  "  goose-sum\n"
+  "  goose-wsearch\n");
+  fprintf(stdout, "\n");
   return EXIT_SUCCESS;
   }
 
