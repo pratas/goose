@@ -25,6 +25,7 @@ Included programs:
   [+] goose-fastq2mfasta
   [+] goose-fastqclustreads
   [+] goose-FastqExcludeN
+  [+] goose-FastqInfo
   [+] goose-FastqMaximumReadSize
   [+] goose-FastqMinimumLocalQualityScoreForward
   [+] goose-FastqMinimumLocalQualityScoreReverse
