@@ -83,28 +83,20 @@ void FreeRead(Read *R){
 // GET READ
 //
 Read *GetRead(FILE *F, Read *R){
-  int n, c; // = fgetc(F);
+  int n, c = fgetc(F);
 
-/*
-  if(c == EOF) return NULL;
+  if(c == EOF) 
+    return NULL;
   if(c != '@'){
     fprintf(stderr, "Error: failed to get the initial '@' char (%d)!\n", c);
     exit(1);
     }
-*/
 
   if(!fgets((char *)R->header1, R->headerMaxSize, F)) UEOF();
   if(!fgets((char *)R->bases,   R->readMaxSize,   F)) UEOF();
   if(!fgets((char *)R->header2, R->headerMaxSize, F)) UEOF();
   if(!fgets((char *)R->scores,  R->readMaxSize,   F)) UEOF();
 
-  if(R->header1[0] == EOF) 
-    return NULL;
-  else if(R->header1[0] != '@'){
-    fprintf(stderr, "Error: failed to get the initial '@' char (%d)!\n", c);
-    exit(1);
-    }
-    
   if(R->solidData){
     n = 1;
     while(R->bases[n] != '\n'){
