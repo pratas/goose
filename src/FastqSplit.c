@@ -47,8 +47,8 @@ int main(int argc, char *argv[]){
         ++reverse;   
       break;
       default:
-        fprintf(stderr, "Error: Unknown file type!\n");
-        exit(1);
+        fprintf(stderr, "Error: Unknown file type (%d)!\n",
+        (int) Read->header1[strlen((char *) Read->header1)-2]);
       }
 
     ++total;
