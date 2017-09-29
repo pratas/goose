@@ -66,7 +66,8 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-FastqMinimumQualityScore \
        	 $(BIN)/goose-FastqMinimumLocalQualityScoreForward \
          $(BIN)/goose-FastqMinimumLocalQualityScoreReverse \
-         $(BIN)/goose-FastqInfo 
+         $(BIN)/goose-FastqInfo \
+         $(BIN)/goose-FastqSplit 
 
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
@@ -187,6 +188,8 @@ $(BIN)/goose-FastqMinimumLocalQualityScoreReverse: FastqMinimumLocalQualityScore
 	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqMinimumLocalQualityScoreReverse FastqMinimumLocalQualityScoreReverse.c $(OBJS) $(LIBS)
 $(BIN)/goose-FastqInfo: FastqInfo.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqInfo FastqInfo.c $(OBJS) $(LIBS)
+$(BIN)/goose-FastqSplit: FastqSplit.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqSplit FastqSplit.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)

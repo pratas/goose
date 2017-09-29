@@ -112,10 +112,10 @@ Read *GetRead(FILE *F, Read *R){
 // PRINT READ
 //
 void PrintRead(Read *R, FILE *F){
-  fprintf(F, "%s\n", Read->header1);
-  fprintf(F, "%s\n", Read->bases);
-  fprintf(F, "%s\n", Read->header2);
-  fprintf(F, "%s\n", Read->scores);
+  fprintf(F, "%s\n", R->header1);
+  fprintf(F, "%s\n", R->bases);
+  fprintf(F, "%s\n", R->header2);
+  fprintf(F, "%s\n", R->scores);
   }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

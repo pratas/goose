@@ -31,6 +31,7 @@ Included programs:
   [+] goose-FastqMinimumLocalQualityScoreReverse
   [+] goose-FastqMinimumQualityScore
   [+] goose-FastqMinimumReadSize
+  [+] goose-FastqSplit
   [+] goose-FastqTrimm
   [+] goose-fastqpack
   [+] goose-fastqsimulation
