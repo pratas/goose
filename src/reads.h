@@ -14,11 +14,11 @@ typedef struct{
   uint8_t    *bases;
   uint8_t    *header2;
   uint8_t    *scores;
-  uint32_t   headerMaxSize;
-  uint32_t   readMaxSize;
-  uint32_t   solidData;
-  uint32_t   header2Present;
-  uint32_t   skipNs;
+  uint64_t   headerMaxSize;
+  uint64_t   readMaxSize;
+  uint64_t   solidData;
+  uint64_t   header2Present;
+  uint64_t   skipNs;
   uint8_t    lowestScore;
   }
 Read;
@@ -27,7 +27,7 @@ Read;
 
 uint8_t  PseudoDna2Solid  (uint8_t);
 uint8_t  Solid2PseudoDna  (uint8_t);
-Read     *CreateRead      (uint32_t, uint32_t);
+Read     *CreateRead      (uint64_t, uint64_t);
 void     FreeRead         (Read *);
 Read     *GetRead         (FILE *, Read *);
 

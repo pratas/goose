@@ -47,14 +47,14 @@ static void UEOF(void){
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // CREATE READ
 //
-Read *CreateRead(uint32_t HMax, uint32_t RMax){
-  Read *R          = (Read *)    Calloc(1,                  sizeof(Read));
-  R->header1       = (uint8_t *) Calloc(HMax + READ_LGUARD, sizeof(uint8_t));
-  R->header2       = (uint8_t *) Calloc(HMax + READ_LGUARD, sizeof(uint8_t));
-  R->bases         = (uint8_t *) Calloc(RMax + READ_LGUARD, sizeof(uint8_t));
-  R->scores        = (uint8_t *) Calloc(RMax + READ_LGUARD, sizeof(uint8_t));
-  R->headerMaxSize = HMax;
-  R->readMaxSize   = RMax;
+Read *CreateRead(uint64_t HMax, uint64_t RMax){
+  Read *R           = (Read *)    Calloc(1,                  sizeof(Read));
+  R->header1        = (uint8_t *) Calloc(HMax + READ_LGUARD, sizeof(uint8_t));
+  R->header2        = (uint8_t *) Calloc(HMax + READ_LGUARD, sizeof(uint8_t));
+  R->bases          = (uint8_t *) Calloc(RMax + READ_LGUARD, sizeof(uint8_t));
+  R->scores         = (uint8_t *) Calloc(RMax + READ_LGUARD, sizeof(uint8_t));
+  R->headerMaxSize  = HMax;
+  R->readMaxSize    = RMax;
   R->header1       += READ_LGUARD;
   R->header2       += READ_LGUARD;
   R->bases         += READ_LGUARD;
