@@ -87,7 +87,7 @@ Read *GetRead(FILE *F, Read *R){
 
   if(c == EOF) return NULL;
   if(c != '@'){
-    fprintf(stderr, "Error: failed to get the initial '@' character\n");
+    fprintf(stderr, "Error: failed to get the initial '@' char (%d)!\n", c);
     exit(1);
     }
 
