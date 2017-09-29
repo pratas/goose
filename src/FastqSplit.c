@@ -17,7 +17,7 @@ void PrintArgs(char *name){
                   "                                                      \n"
                   "Example: ./%s HN_r1.fq HN_r2.fq < HN.fq               \n"
                   "                                                      \n",
-  name);
+  name, name);
   }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
