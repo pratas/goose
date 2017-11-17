@@ -49,7 +49,6 @@ int main(int argc, char *argv[]){
   B = CreateBuffer(BUF_SIZE);
   while((k = fread(B->buf, 1, B->size, stdin)))
     for(i = 0 ; i < k ; ++i){
-      putchar(B->buf[i]);
       c = B->buf[i];
       switch(c){
         case 'A': fprintf(stdout, "GCA"); break;
