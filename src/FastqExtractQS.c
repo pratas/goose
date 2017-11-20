@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
   uint32_t seqSize = 0, n;
   uint64_t totalReads = 0, totalQS = 0;
 
-  if(argc < 2 || ArgBin(0, argv, argc, "-h") || ArgBin(0, argv, argc, "?")){
+  if(argc < 1 || argc > 2 || ArgBin(0, argv, argc, "-h") || ArgBin(0, argv, argc, "?")){
     PrintArgs(argv[0]);
     return EXIT_SUCCESS;
     }
