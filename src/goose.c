@@ -8,6 +8,7 @@ int main(int argc, char *argv[]){
   fprintf(stdout, "  A toolkit for DNA sequences analysis and manipulation\n\n");
   fprintf(stdout, "  Sub-programs:\n\n");
   fprintf(stdout, 
+  "  goose-AminoAcidToGroup\n"
   "  goose-char2line\n"
   "  goose-comparativemap\n"
   "  goose-count\n"

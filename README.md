@@ -13,6 +13,7 @@ make
 
 Included programs:
 <pre>
+  [+] goose-AminoAcidToGroup
   [+] goose-char2line
   [+] goose-comparativemap
   [+] goose-count
