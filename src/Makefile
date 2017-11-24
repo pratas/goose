@@ -69,7 +69,8 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-FastqInfo \
          $(BIN)/goose-FastqSplit \
          $(BIN)/goose-ProteinToPseudoDNA \
-         $(BIN)/goose-FastqExtractQualityScores
+         $(BIN)/goose-FastqExtractQualityScores \
+         $(BIN)/goose-AminoAcidToGroup
 
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
@@ -196,6 +197,8 @@ $(BIN)/goose-ProteinToPseudoDNA: ProteinToPseudoDNA.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-ProteinToPseudoDNA ProteinToPseudoDNA.c $(OBJS) $(LIBS)
 $(BIN)/goose-FastqExtractQualityScores: FastqExtractQS.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqExtractQualityScores FastqExtractQS.c $(OBJS) $(LIBS)
+$(BIN)/goose-AminoAcidToGroup: AminoAcidToGroup.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-AminoAcidToGroup AminoAcidToGroup.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
