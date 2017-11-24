@@ -67,6 +67,7 @@ Included programs:
   [+] goose-segment
   [+] goose-seq2fasta
   [+] goose-seq2fastq
+  [+] goose-SequenceToGroupSequence
   [+] goose-splitreads
   [+] goose-sum
   [+] goose-wsearch

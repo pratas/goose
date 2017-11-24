@@ -34,6 +34,17 @@ void LoadAlphabet(ALPHA *A, BUF *B){
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+void PrintAlphabet(ALPHA *A){
+  int x;
+  fprintf(stderr, "Alphabet size    : %u\n", A->nSym);
+  fprintf(stderr, "Alphabet         : \n");
+  for(x = 0 ; x < A->nSym ; ++x){
+    fprintf(stderr, "%3d : %c\n", (int) A->symbolic[x], (int) A->symbolic[x]);
+    }
+  }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 void DeleteAlphabet(ALPHA *A){
   Free(A->symbolic, MAX_ALPHA * sizeof(char));
   Free(A->numeric,  MAX_ALPHA * sizeof(char));

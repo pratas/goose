@@ -63,6 +63,7 @@ int main(int argc, char *argv[]){
   "  goose-segment\n"
   "  goose-seq2fasta\n"
   "  goose-seq2fastq\n"
+  "  goose-SequenceToGroupSequence\n"
   "  goose-splitreads\n"
   "  goose-sum\n"
   "  goose-wsearch\n");

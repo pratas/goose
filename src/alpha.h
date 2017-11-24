@@ -19,6 +19,7 @@ ALPHA;
 
 ALPHA   *CreateAlphabet  (void);
 void    LoadAlphabet     (ALPHA *, BUF *);
+void    PrintAlphabet    (ALPHA *);
 void    DeleteAlphabet   (ALPHA *);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

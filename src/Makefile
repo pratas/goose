@@ -70,7 +70,9 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-FastqSplit \
          $(BIN)/goose-ProteinToPseudoDNA \
          $(BIN)/goose-FastqExtractQualityScores \
-         $(BIN)/goose-AminoAcidToGroup
+         $(BIN)/goose-AminoAcidToGroup \
+         $(BIN)/goose-SequenceToGroupSequence \
+         $(BIN)/goose-BruteForceString 
 
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
@@ -199,6 +201,10 @@ $(BIN)/goose-FastqExtractQualityScores: FastqExtractQS.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqExtractQualityScores FastqExtractQS.c $(OBJS) $(LIBS)
 $(BIN)/goose-AminoAcidToGroup: AminoAcidToGroup.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-AminoAcidToGroup AminoAcidToGroup.c $(OBJS) $(LIBS)
+$(BIN)/goose-SequenceToGroupSequence: SequenceToGroupSequence.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-SequenceToGroupSequence SequenceToGroupSequence.c $(OBJS) $(LIBS)
+$(BIN)/goose-BruteForceString: BruteForceString.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-BruteForceString BruteForceString.c $(OBJS) $(LIBS)
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
