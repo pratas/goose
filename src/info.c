@@ -55,10 +55,10 @@ int main(int32_t argc, char *argv[]){
   printf("Symbol distribution:\n");
   for(n = 0 ; n < nSym ; ++n)
     if(atoi(argv[argc-1]) == 0)
-      norm_alp[n] == 10 ? printf("\\n : %"PRIu64"\n", counts[norm_alp[n]]) : 
-      printf("%-2c : %"PRIu64"\n", norm_alp[n], counts[norm_alp[n]]);
+      norm_alp[n] == 10 ? printf("\\n : %"PRIu64"\t%.8g\n", counts[norm_alp[n]], (double) counts[norm_alp[n]]/nBytes*100) : 
+      printf("%-2c : %"PRIu64"\t%.8g\n", norm_alp[n], counts[norm_alp[n]], (double) counts[norm_alp[n]]/nBytes*100);
     else
-      printf("%-2d : %"PRIu64"\n", norm_alp[n], counts[norm_alp[n]]);
+      printf("%-2d : %"PRIu64"\t%.8g\n", norm_alp[n], counts[norm_alp[n]], (double) counts[norm_alp[n]]/nBytes*100);
 
   Free(buf,      BUFFER_SIZE  * sizeof(uint8_t ));
   Free(alp,      MAX_ALPHABET * sizeof(uint8_t ));
