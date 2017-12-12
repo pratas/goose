@@ -17,7 +17,7 @@ int main(int argc, char *argv[]){
       }
 
   if(argc == 0 || argc > 1){
-    fprintf(stderr, "Usage: %s < in.prot > out.dna\n"
+    fprintf(stderr, "Usage: %s < in.prot > out.group\n"
     "It converts a amino acid sequence to a group sequence.\n"
     "Table:\n"
     "Prot\tGroup\n"

@@ -108,8 +108,12 @@ Version 1.7.17
 
 \tableofcontents
 
-\chapter*{Introduction}
-\addcontentsline{toc}{chapter}{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{1. Introduction}
+\addcontentsline{toc}{chapter}{1. Introduction}
+\label{intro}
 
 Recent advances in {DNA} sequencing have revolutionized the field of genomics,
 making it possible for research groups to generate large amounts of sequenced
@@ -139,44 +143,176 @@ GOOSE is implemented in C language and it is freely available, under GPLv3,
 at \url{https://pratas.github.io/goose}.
 
 
-\chapter*{FASTQ tools}
-\addcontentsline{toc}{chapter}{FASTQ tools}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{2. FASTQ tools}
+\addcontentsline{toc}{chapter}{2. FASTQ tools}
+\label{fastq}
 
-\begin{itemize}
-\item goose-fastq2fasta
-\item goose-fastq2mfasta
-\item goose-fastqclustreads
-\item goose-FastqExcludeN
-\item goose-FastqInfo
-\item goose-FastqMaximumReadSize
-\item goose-FastqMinimumLocalQualityScoreForward
-\item goose-FastqMinimumLocalQualityScoreReverse
-\item goose-fastqminimumlocalqualityscoresingleend
-\item goose-fastqminimumqualityscore
-\item goose-FastqMinimumQualityScore
-\item goose-fastqminimumreadsize
-\item goose-FastqMinimumReadSize
-\item goose-fastqpack
-\item goose-fastqsimulation
-\item goose-fastqtrimm
-\item goose-FastqTrimm
-\item goose-fastqunpack
-\item goose-mutatefastq
-\item goose-randfastqextrachars
-\item goose-seq2fastq
-\end{itemize}
+Current available tools for FASTQ format analysis and manipulation include:
+\begin{enumerate}
 
-
-\chapter*{FASTA tools}
-\addcontentsline{toc}{chapter}{FASTA tools}
+\item \textbf{goose-fastq2fasta}
+\item \textbf{goose-fastq2mfasta}
+\item \textbf{goose-fastqclustreads}
+\item \textbf{goose-FastqExcludeN}
+\item \textbf{goose-FastqExtractQualityScores}
+\item \textbf{goose-FastqInfo}
+\item \textbf{goose-FastqMaximumReadSize}
+\item \textbf{goose-FastqMinimumLocalQualityScoreForward}
+\item \textbf{goose-FastqMinimumLocalQualityScoreReverse}
+\item \textbf{goose-FastqMinimumQualityScore}
+\item \textbf{goose-FastqMinimumReadSize}
 
 
 
-\chapter*{SEQ tools}
-\addcontentsline{toc}{chapter}{SEQ tools}
 
-\chapter*{General purpose tools}
-\addcontentsline{toc}{chapter}{General purpose tools}
+
+
+\item \textbf{goose-count}
+\item \textbf{goose-extract}
+\item \textbf{goose-extractreadbypattern}
+
+
+
+\item \textbf{goose-fastqpack}
+\item \textbf{goose-fastqsimulation}
+\item \textbf{goose-FastqSplit}
+\item \textbf{goose-FastqTrimm}
+\item \textbf{goose-fastqunpack}
+\item \textbf{goose-filter}
+\item \textbf{goose-findnpos}
+
+\item \textbf{goose-genrandomdna}
+\item \textbf{goose-getunique}
+\item \textbf{goose-info}
+\item \textbf{goose-mfmotifcoords}
+
+\item \textbf{goose-mutatedna}
+\item \textbf{goose-mutatefasta}
+\item \textbf{goose-mutatefastq}
+\item \textbf{goose-newlineonnewx}
+\item \textbf{goose-period}
+\item \textbf{goose-permuteseqbyblocks}
+
+\item \textbf{goose-randfastaextrachars}
+\item \textbf{goose-randfastqextrachars}
+\item \textbf{goose-randseqextrachars}
+\item \textbf{goose-real2binthreshold}
+\item \textbf{goose-reducematrixbythreshold}
+\item \textbf{goose-renamehumanheaders}
+\item \textbf{goose-reverse}
+\item \textbf{goose-reverselm}
+\item \textbf{goose-searchphash}
+\item \textbf{goose-segment}
+\item \textbf{goose-seq2fasta}
+\item \textbf{goose-seq2fastq}
+\item \textbf{goose-SequenceToGroupSequence}
+\item \textbf{goose-splitreads}
+
+\item \textbf{goose-wsearch}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{3. FASTA tools}
+\addcontentsline{toc}{chapter}{3. FASTA tools}
+\label{fasta}
+
+\begin{enumerate}
+\item \textbf{goose-fasta2seq}
+\item \textbf{goose-fastaextract}
+\item \textbf{goose-fastainfo}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{4. Sequence tools}
+\addcontentsline{toc}{chapter}{4. Sequence tools}
+\label{seq}
+
+Current available sequence tools for analysis and manipulation include:
+\begin{enumerate}
+\item \textbf{goose-AminoAcidToGroup}
+\item \textbf{goose-ProteinToPseudoDNA}
+\item \textbf{goose-geco}
+\item \textbf{goose-gede}
+\end{enumerate}
+
+\section*{4.1 Program goose-AminoAcidToGroup}
+\addcontentsline{toc}{section}{4.1~~~Program goose-AminoAcidToGroup}
+
+The goose-AminoAcidToGroup converts an amino acid sequence to a group sequence.
+In the following subsections, we explain the input and output paramters.
+
+\subsection*{Input parameters}
+\addcontentsline{toc}{subsection}{4.1.1~~~Input parameters}
+
+The goose-AminoAcidToGroup program needs two streams for the computation,
+namely the input and output standard. The input stream is an amino acid sequence.
+The attribution is given according to:
+\begin{lstlisting}
+Usage: ./goose-AminoAcidToGroup < in.prot > out.group
+It converts a amino acid sequence to a group sequence.
+Table:
+Prot	Group
+R	P
+H	P  Amino acids with electric charged side chains: POSITIVE
+K	P
+-	-
+D	N
+E	N  Amino acids with electric charged side chains: NEGATIVE
+-	-
+S	U
+T	U
+N	U  Amino acids with electric UNCHARGED side chains
+Q	U
+-	-
+C	S
+U	S
+G	S  Special cases
+P	S
+-	-
+A	H
+V	H
+I	H
+L	H
+M	H  Amino acids with hydrophobic side chains
+F	H
+Y	H
+W	H
+-	-
+*	*  Others
+X	X  Unknown
+\end{lstlisting}
+It can be used to group amino acids by properties, such as electric charge (positive
+and negative), uncharged side chains, hydrophobic side chains and special cases.
+
+\subsection*{Output}
+\addcontentsline{toc}{subsection}{4.1.2~~~Output}
+
+The output of the goose-AminoAcidToGroup program is a group sequence.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{5. General purpose tools}
+\addcontentsline{toc}{chapter}{5. General purpose tools}
+\label{seq}
+
+\begin{enumerate}
+\item \textbf{goose-comparativemap}: visualisation of comparative maps. It builds a image given specific patterns between two sequences.
+\item \textbf{goose-BruteForceString}: it generates, line by line, multiple combinations of strings up to a certain size.
+\item \textbf{goose-char2line}: it transforms each char into a char in each line.
+\item \textbf{goose-sum}: it adds the second column value to the first column value.
+\item \textbf{goose-min}: it finds the minimum value between two column values.
+\item \textbf{goose-minus}: it substracts the second column value to the first column value.
+\item \textbf{goose-max}: it finds the mmaximum value between two column values.
+\end{enumerate}
 
 
 
