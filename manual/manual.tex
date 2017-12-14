@@ -120,28 +120,45 @@ making it possible for research groups to generate large amounts of sequenced
 data, very rapidly and at substantially lower cost. Its storage have been
 made using specific file formats, such as FASTQ and FASTA. Therefore, its
 analysis and manipulation is crucial \cite{Buermans-2014a}. Several
-frameworks for analysis and manipulation emerged, namely GALAXY
-\cite{Giardine-2005a}, GATK \cite{DePristo-2011a}, HTSeq
-\cite{Anders-2014a}, MEGA \cite{Kumar-2016a}, among others.
+frameworks for analysis and manipulation emerged, namely \texttt{GALAXY}
+\cite{Giardine-2005a}, \texttt{GATK} \cite{DePristo-2011a}, \texttt{HTSeq}
+\cite{Anders-2014a}, \texttt{MEGA} \cite{Kumar-2016a}, among others.
 In the majority, these frameworks require licenses and do not provide
 a low level access to the information, since they are commonly approached
 by scripting or interfaces.
 
-We present GOOSE, a (free) novel toolkit for analyzing and manipulating
-SEQ (``ACGTN''), FASTA or FASTQ formats, with many complementary tools,
-for Linux-based systems, built for fast processing.
-GOOSE supports pipes for easy integration. It includes tools for information 
-display, randomizing, edition, conversion, extraction, searching,
-calculation and visualization. GOOSE is prepared to deal high
-very large datasets, typically GB and TB sizes. For this dimension of data
-fast access and flexibility is crucial, which are some of the qualities of
-GOOSE. 
+We describe \texttt{GOOSE}, a (free) novel toolkit for analyzing and manipulating
+FASTA-FASTQ formats and sequences (DNA, amino acids, text), with many 
+complementary tools. The toolkit is for Linux-based systems, built for fast 
+processing. \texttt{GOOSE} supports pipes for easy integration. It includes tools 
+for information display, randomizing, edition, conversion, extraction, 
+searching, calculation and visualization. \texttt{GOOSE} is prepared to deal with
+very large datasets, typically in the scale Gigabytes or Terabytes. 
 
 The toolkit is a command line version, using the prefix ``goose-'' 
 followed by the suffix with the respective name of the program.
-GOOSE is implemented in C language and it is freely available, under GPLv3, 
-at \url{https://pratas.github.io/goose}.
+\texttt{GOOSE} is implemented in \texttt{C} language and it is available, 
+under GPLv3, at:
+\begin{lstlisting}
+https://pratas.github.io/goose
+\end{lstlisting}
 
+\section*{1.1 Installation}
+\addcontentsline{toc}{section}{1.1~~~Installation}
+
+For \texttt{GOOSE} installation, run:
+\begin{lstlisting}
+git clone https://github.com/pratas/goose.git
+cd goose/src/
+make
+\end{lstlisting}
+
+\section*{1.2 License}
+\addcontentsline{toc}{section}{1.2~~~License}
+
+The license is \textbf{GPLv3}. In resume, everyone is permitted to copy and 
+distribute verbatim copies of this license document, but changing it is not 
+allowed. For details on the license, consult: \url{http://www.gnu.org/licenses/gpl-3.0.html}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -153,65 +170,59 @@ at \url{https://pratas.github.io/goose}.
 Current available tools for FASTQ format analysis and manipulation include:
 \begin{enumerate}
 
-\item \textbf{goose-fastq2fasta}
-\item \textbf{goose-fastq2mfasta}
-\item \textbf{goose-fastqclustreads}
-\item \textbf{goose-FastqExcludeN}
-\item \textbf{goose-FastqExtractQualityScores}
-\item \textbf{goose-FastqInfo}
-\item \textbf{goose-FastqMaximumReadSize}
-\item \textbf{goose-FastqMinimumLocalQualityScoreForward}
-\item \textbf{goose-FastqMinimumLocalQualityScoreReverse}
-\item \textbf{goose-FastqMinimumQualityScore}
-\item \textbf{goose-FastqMinimumReadSize}
+\item \texttt{goose-fastq2fasta}
+\item \texttt{goose-fastq2mfasta}
+\item \texttt{goose-fastqclustreads}
+\item \texttt{goose-FastqExcludeN}
+\item \texttt{goose-FastqExtractQualityScores}
+\item \texttt{goose-FastqInfo}
+\item \texttt{goose-FastqMaximumReadSize}
+\item \texttt{goose-FastqMinimumLocalQualityScoreForward}
+\item \texttt{goose-FastqMinimumLocalQualityScoreReverse}
+\item \texttt{goose-FastqMinimumQualityScore}
+\item \texttt{goose-FastqMinimumReadSize}
+
+\item \texttt{goose-count}
+\item \texttt{goose-extractreadbypattern}
 
 
 
+\item \texttt{goose-fastqpack}
+\item \texttt{goose-fastqsimulation}
+\item \texttt{goose-FastqSplit}
+\item \texttt{goose-FastqTrimm}
+\item \texttt{goose-fastqunpack}
+\item \texttt{goose-filter}
+\item \texttt{goose-findnpos}
+
+\item \texttt{goose-genrandomdna}
+\item \texttt{goose-getunique}
+\item \texttt{goose-info}
+\item \texttt{goose-mfmotifcoords}
 
 
 
-\item \textbf{goose-count}
-\item \textbf{goose-extract}
-\item \textbf{goose-extractreadbypattern}
+\item \texttt{goose-mutatefastq}
+\item \texttt{goose-newlineonnewx}
+\item \texttt{goose-period}
+\item \texttt{goose-permuteseqbyblocks}
 
 
+\item \texttt{goose-randfastqextrachars}
 
-\item \textbf{goose-fastqpack}
-\item \textbf{goose-fastqsimulation}
-\item \textbf{goose-FastqSplit}
-\item \textbf{goose-FastqTrimm}
-\item \textbf{goose-fastqunpack}
-\item \textbf{goose-filter}
-\item \textbf{goose-findnpos}
+\item \texttt{goose-real2binthreshold}
+\item \texttt{goose-reducematrixbythreshold}
+\item \texttt{goose-renamehumanheaders}
 
-\item \textbf{goose-genrandomdna}
-\item \textbf{goose-getunique}
-\item \textbf{goose-info}
-\item \textbf{goose-mfmotifcoords}
 
-\item \textbf{goose-mutatedna}
-\item \textbf{goose-mutatefasta}
-\item \textbf{goose-mutatefastq}
-\item \textbf{goose-newlineonnewx}
-\item \textbf{goose-period}
-\item \textbf{goose-permuteseqbyblocks}
+\item \texttt{goose-searchphash}
 
-\item \textbf{goose-randfastaextrachars}
-\item \textbf{goose-randfastqextrachars}
-\item \textbf{goose-randseqextrachars}
-\item \textbf{goose-real2binthreshold}
-\item \textbf{goose-reducematrixbythreshold}
-\item \textbf{goose-renamehumanheaders}
-\item \textbf{goose-reverse}
-\item \textbf{goose-reverselm}
-\item \textbf{goose-searchphash}
-\item \textbf{goose-segment}
-\item \textbf{goose-seq2fasta}
-\item \textbf{goose-seq2fastq}
-\item \textbf{goose-SequenceToGroupSequence}
-\item \textbf{goose-splitreads}
+\item \texttt{goose-seq2fasta}
+\item \texttt{goose-seq2fastq}
+\item \texttt{goose-SequenceToGroupSequence}
+\item \texttt{goose-splitreads}
 
-\item \textbf{goose-wsearch}
+\item \texttt{goose-wsearch}
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -222,36 +233,47 @@ Current available tools for FASTQ format analysis and manipulation include:
 \label{fasta}
 
 \begin{enumerate}
-\item \textbf{goose-fasta2seq}
-\item \textbf{goose-fastaextract}
-\item \textbf{goose-fastainfo}
+\item \texttt{goose-fasta2seq}
+\item \texttt{goose-fastaextract}
+\item \texttt{goose-fastainfo}
+\item \texttt{goose-mutatefasta}
+\item \texttt{goose-randfastaextrachars}
+\item \texttt{goose-geco}
+\item \texttt{goose-gede}
+\item \texttt{goose-mutatedna}
+\item \texttt{goose-randseqextrachars}
+\item \texttt{goose-reverse}: it reverses the order of a sequence.
+\item \texttt{goose-reverselm}: it reverses the order of a large sequence. Low memory usage for large files.
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter*{4. Sequence tools}
+\chapter*{4. Amino acid sequence tools}
 \addcontentsline{toc}{chapter}{4. Sequence tools}
 \label{seq}
 
-Current available sequence tools for analysis and manipulation include:
+Current available amino acid sequence tools, for analysis and manipulation, are:
 \begin{enumerate}
-\item \textbf{goose-AminoAcidToGroup}
-\item \textbf{goose-ProteinToPseudoDNA}
-\item \textbf{goose-geco}
-\item \textbf{goose-gede}
+\item \texttt{goose-AminoAcidToGroup}
+\item \texttt{goose-ProteinToPseudoDNA}
 \end{enumerate}
 
 \section*{4.1 Program goose-AminoAcidToGroup}
 \addcontentsline{toc}{section}{4.1~~~Program goose-AminoAcidToGroup}
 
-The goose-AminoAcidToGroup converts an amino acid sequence to a group sequence.
+The \texttt{goose-AminoAcidToGroup} converts an amino acid sequence to a group 
+sequence.\\
+For help type:
+\begin{lstlisting}
+./goose-AminoAcidToGroup -h
+\end{lstlisting}
 In the following subsections, we explain the input and output paramters.
 
 \subsection*{Input parameters}
 \addcontentsline{toc}{subsection}{4.1.1~~~Input parameters}
 
-The goose-AminoAcidToGroup program needs two streams for the computation,
+The \texttt{goose-AminoAcidToGroup} program needs two streams for the computation,
 namely the input and output standard. The input stream is an amino acid sequence.
 The attribution is given according to:
 \begin{lstlisting}
@@ -290,11 +312,92 @@ X	X  Unknown
 \end{lstlisting}
 It can be used to group amino acids by properties, such as electric charge (positive
 and negative), uncharged side chains, hydrophobic side chains and special cases.
+An example on such an input file is:
+\begin{lstlisting}
+IPFLLKKQFALADKLVLSKLRQLLGGRIKMMPCGGAKLEPAIGLFFHAIGINIKLGYGMTETTATVSCWHDFQFNPNSIG
+TLMPKAEVKIGENNEILVRGGMVMKGYYKKPEETAQAFTEDGFLKTGDAGEFDEQGNLFITDRIKELMKTSNGKYIAPQY
+IESKIGKDKFIEQIAIIADAKKYVSALIVPCFDSLEEYAKQLNIKYHDRLELLKNSDILKMFE
+\end{lstlisting}
 
 \subsection*{Output}
 \addcontentsline{toc}{subsection}{4.1.2~~~Output}
 
-The output of the goose-AminoAcidToGroup program is a group sequence.
+The output of the \texttt{goose-AminoAcidToGroup} program is a group sequence.\\
+An example, for the input, is:
+\begin{lstlisting}
+HSHHHPPUHHHHNPHHHUPHPUHHSSPHPHHSSSSHPHNSHHSHHHPHHSHUHPHSHSHUNUUHUHUSHPNHUHUSUUHS
+UHHSPHNHPHSNUUNHHHPSSHHHPSHHPPSNNUHUHHUNNSHHPUSNHSNHNNUSUHHHUNPHPNHHPUUUSPHHHSUH
+HNUPHSPNPHHNUHHHHHNHPPHHUHHHHSSHNUHNNHHPUHUHPHPNPHNHHPUUNHHPHHN
+\end{lstlisting}
+
+\section*{4.2 Program goose-ProteinToPseudoDNA}
+\addcontentsline{toc}{section}{4.2~~~Program goose-ProteinToPseudoDNA}
+
+The \texttt{goose-ProteinToPseudoDNA} converts an amino acid (protein) sequence to a pseudo DNA sequence.\\
+For help type:
+\begin{lstlisting}
+./goose-ProteinToPseudoDNA -h
+\end{lstlisting}
+In the following subsections, we explain the input and output paramters.
+
+\subsection*{Input parameters}
+\addcontentsline{toc}{subsection}{4.2.1~~~Input parameters}
+
+The \texttt{goose-ProteinToPseudoDNA} program needs two streams for the computation,
+namely the input and output standard. The input stream is an amino acid sequence.
+The attribution is given according to:
+\begin{lstlisting}
+Usage: ./goose-ProteinToPseudoDNA < in.prot > out.dna
+It converts a protein sequence to a pseudo DNA sequence.
+Table:
+Prot  DNA
+A	  GCA
+C	  TGC
+D	  GAC
+E	  GAG
+F	  TTT
+G	  GGC
+H	  CAT
+I	  ATC
+K	  AAA
+L	  CTG
+M	  ATG
+N	  AAC
+P	  CCG
+Q	  CAG
+R	  CGT
+S     TCT
+T	  ACG
+V	  GTA
+W	  TGG
+Y	  TAC
+*	  TAG
+X	  GGG
+\end{lstlisting}
+It can be used to generate pseudo-DNA with characteristics passed by amino acid (protein) sequences. An example on such an input file is:
+\begin{lstlisting}
+IPFLLKKQFALADKLVLSKLRQLLGGRIKMMPCGGAKLEPAIGLFFHAIGINIKLGYGMTETTATVSCWHDFQFNPNSIG
+TLMPKAEVKIGENNEILVRGGMVMKGYYKKPEETAQAFTEDGFLKTGDAGEFDEQGNLFITDRIKELMKTSNGKYIAPQY
+IESKIGKDKFIEQIAIIADAKKYVSALIVPCFDSLEEYAKQLNIKYHDRLELLKNSDILKMFE
+\end{lstlisting}
+
+\subsection*{Output}
+\addcontentsline{toc}{subsection}{4.2.2~~~Output}
+
+The output of the \texttt{goose-ProteinToPseudoDNA} program is a DNA sequence.\\
+An example, for the input, is:
+\begin{lstlisting}
+ATCCCGTTTCTGCTGAAAAAACAGTTTGCACTGGCAGACAAACTGGTACTGTCTAAACTGCGTCAGCTGCTGGGCGGCCG
+TATCAAAATGATGCCGTGCGGCGGCGCAAAACTGGAGCCGGCAATCGGCCTGTTTTTTCATGCAATCGGCATCAACATCA
+AACTGGGCTACGGCATGACGGAGACGACGGCAACGGTATCTTGCTGGCATGACTTTCAGTTTAACCCGAACTCTATCGGC
+ACGCTGATGCCGAAAGCAGAGGTAAAAATCGGCGAGAACAACGAGATCCTGGTACGTGGCGGCATGGTAATGAAAGGCTA
+CTACAAAAAACCGGAGGAGACGGCACAGGCATTTACGGAGGACGGCTTTCTGAAAACGGGCGACGCAGGCGAGTTTGACG
+AGCAGGGCAACCTGTTTATCACGGACCGTATCAAAGAGCTGATGAAAACGTCTAACGGCAAATACATCGCACCGCAGTAC
+ATCGAGTCTAAAATCGGCAAAGACAAATTTATCGAGCAGATCGCAATCATCGCAGACGCAAAAAAATACGTATCTGCACT
+GATCGTACCGTGCTTTGACTCTCTGGAGGAGTACGCAAAACAGCTGAACATCAAATACCATGACCGTCTGGAGCTGCTGA
+AAAACTCTGACATCCTGAAAATGTTTGAG
+\end{lstlisting}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -305,164 +408,20 @@ The output of the goose-AminoAcidToGroup program is a group sequence.
 \label{seq}
 
 \begin{enumerate}
-\item \textbf{goose-comparativemap}: visualisation of comparative maps. It builds a image given specific patterns between two sequences.
-\item \textbf{goose-BruteForceString}: it generates, line by line, multiple combinations of strings up to a certain size.
-\item \textbf{goose-char2line}: it transforms each char into a char in each line.
-\item \textbf{goose-sum}: it adds the second column value to the first column value.
-\item \textbf{goose-min}: it finds the minimum value between two column values.
-\item \textbf{goose-minus}: it substracts the second column value to the first column value.
-\item \textbf{goose-max}: it finds the mmaximum value between two column values.
+\item \texttt{goose-comparativemap}: visualisation of comparative maps. It builds a image given specific patterns between two sequences.
+\item \texttt{goose-BruteForceString}: it generates, line by line, multiple combinations of strings up to a certain size.
+\item \texttt{goose-char2line}: it transforms each char into a char in each line.
+\item \texttt{goose-sum}: it adds the second column value to the first column value.
+\item \texttt{goose-min}: it finds the minimum value between two column values.
+\item \texttt{goose-minus}: it substracts the second column value to the first column value.
+\item \texttt{goose-max}: it finds the mmaximum value between two column values.
+\item \texttt{goose-extract}: it extracts a subsequence of a sequence by coordinates.
+\item \texttt{goose-segment}: it segments a sequence given a certain threshold.
 \end{enumerate}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter*{Note 11: Software availability \& characteristics}
-\addcontentsline{toc}{chapter}{Note 11: Software availability \& characteristics}
-\label{C-SOFTWARE}
 
-~\\
-~\\
-All source code for the FALCON is available at:
-\begin{itemize}
-\begin{sloppypar}
-\item \url{https://github.com/pratas/falcon}.
-\end{sloppypar}
-\end{itemize}
-~\\
-FALCON includes the following programs (See Note~2 for a common pipeline using 
-the programs):
-\begin{enumerate}
-\begin{sloppypar}
-\item \textbf{FALCON} - infers metagenomic composition;
-\item \textbf{FALCON-FILTER} - filters local similarity of inferred sequences;
-\item \textbf{FALCON-EYE} - displays the output from FALCON and FALCON-FILTER in 
-a compact map;
-\end{sloppypar}
-\end{enumerate}
-
-\section*{FALCON program}
-\addcontentsline{toc}{section}{11.1~~~FALCON program}
-
-The FALCON program enables to identify and quantify the similarity between
-present-days reference sequences and the FASTQ reads from ancient genomes.
-In the following subsections, we explain the input and output paramters.
-
-\subsection*{Input parameters}
-\addcontentsline{toc}{subsection}{11.1.1~~~Input parameters}
-
-The FALCON program needs two files for the computation. The FILE1,
-with the reads provided from the NGS platform, and the FILE2,
-with the multi-FASTA cointaining the sequences of the genomes and
-respective headers, are mandatory arguments. The rest of the parameters
-are non mandatory, namely:
-\begin{lstlisting}
-Usage: FALCON [OPTION]... [FILE1] [FILE2]                                
-A compression-based method to infer metagenomic sample composition.      
-                                                                         
-Non-mandatory arguments:                                                 
-                                                                         
-  -h                       give this help,                               
-  -F                       force mode (overwrites top file),             
-  -V                       display version number,                       
-  -v                       verbose mode (more information),              
-  -Z                       database local similarity,                    
-  -s                       show compression levels,                      
-  -l <level>               compression level [1;44],                    
-  -p <sample>              subsampling (default: 1),                    
-  -t <top>                 top of similarity (default: 20),              
-  -n <nThreads>            number of threads (default: 2),              
-  -x <FILE>                similarity top filename,                      
-  -y <FILE>                local similarities filename,                  
-                                                                         
-Mandatory arguments:                                                     
-                                                                         
-  [FILE1]                  metagenomic filename (FASTA or FASTQ),        
-  [FILE2]                  database filename (FASTA or Multi-FASTA).
-\end{lstlisting}
-There are two hidden parameters. One for setting the cache size:
-\begin{lstlisting}
-  -c <cache>             maximum collisions for hash cache. Memory     
-                         values are higly dependent of the parameter   
-                         specification.                                
-\end{lstlisting}
-This is a parameter that affects the precision and computational resources
-needed for the computation. Lower values use less memory. For a complete
-description see \cite{Pratas-2016a,Pratas-2016b}.
-The previous parameter is only needed when the context of the Markov model
-is higher than 13. For setting specifically the models through the command
-line use the following explanation (more information can be found at 
-\cite{Pratas-2016a,Pratas-2016b}):
-
-\subsection*{Output}
-\addcontentsline{toc}{subsection}{11.1.2~~~Output}
-
-The output of the FALCON program are two files. One file contains the top-$n$ 
-values with the highest similarity relatively to the reads. The following 
-output shows an example of a top-5:
-\begin{lstlisting}
-1	9472	92.597	548558394	Human endogenous retrovirus K113
-2	4668621	42.184	1069460419	Escherichia coli strain 210221272
-3	4558287	42.016	1008930592	Shigella sp. PAMC 28760
-4	4574246	36.661	844762407	Shigella boydii strain ATCC 9210
-5	4878853	36.531	992379426	Shigella sonnei strain FDAARGOS 90
-\end{lstlisting} 
-These column values stand, respectively, for the ranking of higher similarity, 
-the sequence size, the percentage of similarity, the global identifyer (GI) and
-the name of the FASTA read (genome name).\\
-~\\
-The other file contains the relative local similarities and it is only 
-available when FALCON runs with the ``-Z'' flag. This file is the input of
-the FALCON-FILTER program that we describe next. This file is packed in 
-a compact format for not increasing the substantially the storage.
-
-\section*{FALCON-FILTER program}
-\addcontentsline{toc}{section}{11.2~~~FALCON-FILTER program}
-
-The FALCON-FILTER program enables to identify and quantify where the 
-similarity between present-days reference sequences and the FASTQ reads 
-from ancient genomes, below a certain threshold, occurs.
-In the following subsections, we explain the input and output paramters.
-
-\subsection*{Input parameters}
-\addcontentsline{toc}{subsection}{11.2.1~~~Input parameters}
-
-The FALCON-FILTER program needs only one file for the computation. The
-file is provided from the output of the FALCON program (when the flag
-``-Z'' is set on the FALCON program). The non-mandatory arguments are
-mostly filters and the threshold.
-\begin{lstlisting}
-Usage: FALCON-FILTER [OPTION]... [FILE]                                  
-Filter and segment FALCON output.                                        
-                                                                         
-Non-mandatory arguments:                                                 
-                                                                         
-  -h                       give this help,                               
-  -F                       force mode (overwrites top file),             
-  -V                       display version number,                       
-  -v                       verbose mode (more information),              
-  -s  <size>               filter window size,                           
-  -w  <type>               filter window type,                           
-  -x  <sampling>           filter window sampling,                       
-  -sl <lower>              similarity lower bound,                       
-  -su <upper>              similarity upper bound,                       
-  -dl <lower>              size lower bound,                             
-  -du <upper>              size upper bound,                             
-  -t  <threshold>          threshold [0;2.0],                            
-  -o  <FILE>               output filename,                              
-                                                                         
-Mandatory arguments:                                                     
-                                                                         
-  [FILE]                   profile filename (from FALCON).
-\end{lstlisting}
-
-\subsection*{Output}
-\addcontentsline{toc}{subsection}{11.2.2~~~Output}
-
-The output of the file contains the coordinates of the relative
-similar regions with the respective self-similarity classification.
 
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{IEEEtran}
