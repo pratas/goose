@@ -71,8 +71,9 @@ zcat $INITALS-X$CHR > $INITALS$CHR;
 echo "$INITALS UNPLACED filtered";
 
 CHR=27;
-downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Pan_troglodytes/Assembled_chromosomes/seq/ptr_ref_Pan_tro_3.0_chrX.fa.gz" "$CHR" "$INITALS";
+downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Pan_troglodytes/Assembled_chromosomes/seq/ptr_ref_Pan_tro_3.0_chrMT.fa.gz" "$CHR" "$INITALS";
 zcat $INITALS-X$CHR > $INITALS$CHR;
+cat $INITALS$CHR | grep -v ">" | tr -d -c "ACGT" > MT_PT.seq
 echo "$INITALS MITOCONDRIA filtered";
 
 rm -f *PT-* $INITALS-X2A $INITALS-X2B;
