@@ -3,7 +3,7 @@
 INITALS="AN";
 MAX=20;
 WGETOP=" --trust-server-names -q ";
-ONWAY="ftp://ftp.ncbi.nlm.nih.gov/genomes/Papio_anubis/Assembled_chromosomes/seq/pan_ref_Panu_2.0_chr"
+ONWAY="ftp://ftp.ncbi.nlm.nih.gov/genomes/Papio_anubis/Assembled_chromosomes/seq/pan_ref_Panu_3.0_chr"
 #-----------------------------------------------------------------------------
 function downloadEach
   {
@@ -41,7 +41,7 @@ zcat $INITALS-X$CHR > $INITALS$CHR;
 echo "$INITALS CX filtered";
 
 CHR=22;
-downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Papio_anubis/Assembled_chromosomes/seq/pan_ref_Panu_2.0_unplaced.fa.gz" "$CHR" "$INITALS";
+downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Papio_anubis/Assembled_chromosomes/seq/pan_ref_Panu_3.0_unplaced.fa.gz" "$CHR" "$INITALS";
 zcat $INITALS-X$CHR > $INITALS$CHR;
 echo "$INITALS UNPLACED filtered";
 
