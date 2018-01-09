@@ -66,6 +66,7 @@ echo "$INITALS UNPLACED filtered";
 CHR=26;
 downloadEach "$WGETOP" "ftp://ftp.ncbi.nlm.nih.gov/genomes/Pongo_abelii/Assembled_chromosomes/seq/pab_ref_P_pygmaeus_2.0.2_chrMT.fa.gz" "$CHR" "$INITALS";
 zcat $INITALS-X$CHR > $INITALS$CHR;
+cat $INITALS$CHR | grep -v ">" | tr -d -c "ACGT" > MT_PA.seq
 echo "$INITALS MITOCONDRIA filtered";
 
 rm -f *PA-* $INITALS-X2A $INITALS-X2B;
