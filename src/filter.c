@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
 
   if(argc < 2){
     fprintf(stderr,
-    "Usage: %s <OPTIONS>... [FILE]                                  \n"
+    "Usage: %s <OPTIONS>... < [STDIN] > [STDOUT]                    \n"
     "A tool for filtering numerical sequences.                      \n"
     "The output is sent to stdout.                                  \n"
     "                                                               \n"
