@@ -66,6 +66,7 @@ int main(int argc, char *argv[]){
   "  goose-SequenceToGroupSequence\n"
   "  goose-splitreads\n"
   "  goose-sum\n"
+  "  goose-UpperBound\n"
   "  goose-wsearch\n");
   fprintf(stdout, "\n");
   return EXIT_SUCCESS;
