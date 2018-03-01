@@ -6,7 +6,8 @@
 
 int UpperB(double upper){	
   double value;
-  while(fscanf(stdin, "%lf", &value) == 1)
+  fprintf(stderr, "Using upper bound: %lf\n", upper);
+  while(fscanf(stdin, "%lf\n", &value) == 1)
     fprintf(stdout, "%lf\n", value > upper ? upper : value);
   return 0;
   }
@@ -19,7 +20,7 @@ void Usage(char *f){
 int main(int argc, char *argv[]){
   if(argc != 2){ Usage(argv[0]); exit(1); }
   
-  if(UpperB(atof(argv[2])) == -1){
+  if(UpperB(atof(argv[1])) == -1){
     perror("Error on computing upperbound!");
     exit(1);
     }
