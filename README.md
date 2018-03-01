@@ -70,6 +70,7 @@ Included programs:
   [+] goose-SequenceToGroupSequence
   [+] goose-splitreads
   [+] goose-sum
+  [+] goose-UpperBound
   [+] goose-wsearch
 </pre>
 
