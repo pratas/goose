@@ -6,54 +6,71 @@
 #include "mem.h"
 #include "buffer.h"
 
-int main(int argc, char *argv[]){
-  uint32_t k, i;
-  uint8_t  s, header = 1;
-  BUF *B;
+/*
+ * This application shows the readed information of a FASTA or Multi-FASTA file format.
+ */
+int main(int argc, char *argv[])
+{
+  uint32_t streamSize, index;
+  uint8_t  value, header = 1;
+  BUF *Buffer;
 
-  if(argc != 1){
+  if(argc != 1)
+  {
     fprintf(stderr, "Usage: %s < input.fasta > output\n"
     "It shows read information of a FASTA or Multi-FASTA file format.\n", argv[0]);
     return EXIT_SUCCESS;
-    }
+  }
 
-  B = CreateBuffer(BUF_SIZE);
+  Buffer = CreateBuffer(BUF_SIZE);
 
-  uint64_t min_n_bases = UINT_MAX, max_n_bases = 0, cum_n_bases = 0, 
-           i_bases = 0, n_reads = 0;
+  uint64_t min_number_bases = UINT_MAX, max_number_bases = 0, reads_counter = 0,
+           cumulative_number_bases = 0, bases_in_current_read = 0;
 
-  while((k = fread(B->buf, 1, B->size, stdin)))
-    for(i = 0 ; i < k ; ++i){
-      s = B->buf[i];
-      if(s == '>'){ 
+  while((streamSize = fread(Buffer->buf, 1, Buffer->size, stdin)))
+  {
+    for(index = 0 ; index < streamSize ; ++index)
+    {
+      value = Buffer->buf[index];
+      if(value == '>')
+      { 
         header = 1; 
-        if(i_bases != 0){
-          cum_n_bases += i_bases;
-          if(i_bases > max_n_bases)
-            max_n_bases = i_bases;        
-          if(i_bases < min_n_bases)
-            min_n_bases = i_bases;        
-          }
-        ++n_reads;
-        i_bases = 0;
-        continue; 
+        if(bases_in_current_read != 0)
+        {
+          cumulative_number_bases += bases_in_current_read;
+          if(bases_in_current_read > max_number_bases) max_number_bases = bases_in_current_read;        
+          if(bases_in_current_read < min_number_bases) min_number_bases = bases_in_current_read;        
         }
-      if(s == '\n' && header == 1){ header = 0; continue; }
-      if(s == '\n') continue;
-      if(header == 1) continue;
-      if(s < 65 || s > 122) continue;
-
-      ++i_bases;
+        ++reads_counter;
+        bases_in_current_read = 0;
+        continue; 
       }
 
-  fprintf(stdout, "Number of reads      : %"PRIu64"\n", n_reads);
-  fprintf(stdout, "Number of bases      : %"PRIu64"\n", cum_n_bases);
-  fprintf(stdout, "MIN of bases in read : %"PRIu64"\n", min_n_bases);
-  fprintf(stdout, "MAX of bases in read : %"PRIu64"\n", max_n_bases);
-  fprintf(stdout, "AVG of bases in read : %.4lf\n", (double) cum_n_bases / 
-  n_reads);
+      if(value == '\n' && header == 1){ header = 0; continue; }
+      if(value == '\n') continue;
+      if(header == 1) continue;
+      if(value < 65 || value > 122) continue;
 
-  RemoveBuffer(B); 
-  return EXIT_SUCCESS;
+      ++bases_in_current_read;
+    }
   }
+
+  //To consider the last read
+  if(value != '>') 
+  {
+    cumulative_number_bases += bases_in_current_read;
+    if(bases_in_current_read > max_number_bases) max_number_bases = bases_in_current_read;        
+    if(bases_in_current_read < min_number_bases) min_number_bases = bases_in_current_read; 
+  }
+
+  fprintf(stdout, "Number of reads      : %"PRIu64"\n", reads_counter);
+  fprintf(stdout, "Number of bases      : %"PRIu64"\n", cumulative_number_bases);
+  fprintf(stdout, "MIN of bases in read : %"PRIu64"\n", min_number_bases);
+  fprintf(stdout, "MAX of bases in read : %"PRIu64"\n", max_number_bases);
+  fprintf(stdout, "AVG of bases in read : %.4lf\n", (double) cumulative_number_bases / 
+  reads_counter);
+
+  RemoveBuffer(Buffer); 
+  return EXIT_SUCCESS;
+}
 
