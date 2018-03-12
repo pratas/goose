@@ -1,0 +1,64 @@
+\section{Program goose-ProteinToPseudoDNA}
+
+The \texttt{goose-ProteinToPseudoDNA} converts an amino acid (protein) sequence to a pseudo DNA sequence.\\
+For help type:
+\begin{lstlisting}
+./goose-ProteinToPseudoDNA -h
+\end{lstlisting}
+In the following subsections, we explain the input and output paramters.
+
+\subsection{Input parameters}
+
+The \texttt{goose-ProteinToPseudoDNA} program needs two streams for the computation,
+namely the input and output standard. The input stream is an amino acid sequence.
+The attribution is given according to:
+\begin{lstlisting}
+Usage: ./goose-ProteinToPseudoDNA < in.prot > out.dna
+It converts a protein sequence to a pseudo DNA sequence.
+Table:
+Prot  DNA
+A	  GCA
+C	  TGC
+D	  GAC
+E	  GAG
+F	  TTT
+G	  GGC
+H	  CAT
+I	  ATC
+K	  AAA
+L	  CTG
+M	  ATG
+N	  AAC
+P	  CCG
+Q	  CAG
+R	  CGT
+S     TCT
+T	  ACG
+V	  GTA
+W	  TGG
+Y	  TAC
+*	  TAG
+X	  GGG
+\end{lstlisting}
+It can be used to generate pseudo-DNA with characteristics passed by amino acid (protein) sequences. An example on such an input file is:
+\begin{lstlisting}
+IPFLLKKQFALADKLVLSKLRQLLGGRIKMMPCGGAKLEPAIGLFFHAIGINIKLGYGMTETTATVSCWHDFQFNPNSIG
+TLMPKAEVKIGENNEILVRGGMVMKGYYKKPEETAQAFTEDGFLKTGDAGEFDEQGNLFITDRIKELMKTSNGKYIAPQY
+IESKIGKDKFIEQIAIIADAKKYVSALIVPCFDSLEEYAKQLNIKYHDRLELLKNSDILKMFE
+\end{lstlisting}
+
+\subsection{Output}
+
+The output of the \texttt{goose-ProteinToPseudoDNA} program is a DNA sequence.\\
+An example, for the input, is:
+\begin{lstlisting}
+ATCCCGTTTCTGCTGAAAAAACAGTTTGCACTGGCAGACAAACTGGTACTGTCTAAACTGCGTCAGCTGCTGGGCGGCCG
+TATCAAAATGATGCCGTGCGGCGGCGCAAAACTGGAGCCGGCAATCGGCCTGTTTTTTCATGCAATCGGCATCAACATCA
+AACTGGGCTACGGCATGACGGAGACGACGGCAACGGTATCTTGCTGGCATGACTTTCAGTTTAACCCGAACTCTATCGGC
+ACGCTGATGCCGAAAGCAGAGGTAAAAATCGGCGAGAACAACGAGATCCTGGTACGTGGCGGCATGGTAATGAAAGGCTA
+CTACAAAAAACCGGAGGAGACGGCACAGGCATTTACGGAGGACGGCTTTCTGAAAACGGGCGACGCAGGCGAGTTTGACG
+AGCAGGGCAACCTGTTTATCACGGACCGTATCAAAGAGCTGATGAAAACGTCTAACGGCAAATACATCGCACCGCAGTAC
+ATCGAGTCTAAAATCGGCAAAGACAAATTTATCGAGCAGATCGCAATCATCGCAGACGCAAAAAAATACGTATCTGCACT
+GATCGTACCGTGCTTTGACTCTCTGGAGGAGTACGCAAAACAGCTGAACATCAAATACCATGACCGTCTGGAGCTGCTGA
+AAAACTCTGACATCCTGAAAATGTTTGAG
+\end{lstlisting}

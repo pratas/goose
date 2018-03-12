@@ -5,31 +5,39 @@
 #include "mem.h"
 #include "buffer.h"
 
-int main(int argc, char *argv[]){
-  uint32_t k, i;
-  uint8_t  s, header = 1;
-  BUF *B;
+/*
+ * This application converts a FASTA or Multi-FASTA file format to a seq.
+ */
+int main(int argc, char *argv[])
+{
+  uint32_t streamSize, index;
+  uint8_t  value, header = 1;
+  BUF *Buffer;
 
-  if(argc != 1){
+  if(argc != 1)
+  {
     fprintf(stderr, "Usage: %s < input.fasta > output.seq\n"
     "It converts a FASTA or Multi-FASTA file format to a seq.\n", argv[0]);
     return EXIT_SUCCESS;
-    }
-
-  B = CreateBuffer(BUF_SIZE);
-
-  while((k = fread(B->buf, 1, B->size, stdin)))
-    for(i = 0 ; i < k ; ++i){
-      s = B->buf[i];
-      if(s == '>'){ header = 1; continue; }
-      if(s == '\n' && header == 1){ header = 0; continue; }
-      if(s == '\n') continue;
-      if(header == 1) continue;
-      if(s < 65 || s > 122) continue;
-      putchar(s);
-      }
-
-  RemoveBuffer(B); 
-  return EXIT_SUCCESS;
   }
+
+  Buffer = CreateBuffer(BUF_SIZE);
+
+  while((streamSize = fread(Buffer->buf, 1, Buffer->size, stdin)))
+  {
+    for(index = 0 ; index < streamSize ; ++index)
+    {
+      value = Buffer->buf[index];
+      if(value == '>'){ header = 1; continue; }
+      if(value == '\n' && header == 1){ header = 0; continue; }
+      if(value == '\n') continue;
+      if(header == 1) continue;
+      if(value < 65 || value > 122) continue;
+      putchar(value);
+    }
+  }
+
+  RemoveBuffer(Buffer); 
+  return EXIT_SUCCESS;
+}
 
