@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "defs.h"
 #include "misc.h"
 #include "mem.h"
 #include "buffer.h"
+#include "argparse.h"
 
 /*
  * This application converts a FASTA or Multi-FASTA file format to a seq.
@@ -14,12 +16,26 @@ int main(int argc, char *argv[])
   uint8_t  value, header = 1;
   BUF *Buffer;
 
-  if(argc != 1)
-  {
-    fprintf(stderr, "Usage: %s < input.fasta > output.seq\n"
-    "It converts a FASTA or Multi-FASTA file format to a seq.\n", argv[0]);
-    return EXIT_SUCCESS;
-  }
+  char *programName = argv[0];
+  struct argparse_option options[] = {
+        OPT_HELP(),
+        OPT_GROUP("Basic options"),
+        OPT_BUFF('<', "input.fasta", "Input FASTA or Multi-FASTA file format"),
+        OPT_BUFF('>', "output.seq", "Output sequence file (This parameter should be the last)"),
+        OPT_END(),
+  };
+  struct argparse argparse;
+
+  char usage[250] = "\nExample: "; 
+  strcat(usage, programName);
+  strcat(usage, " < input.fasta > output.seq\n");
+
+  argparse_init(&argparse, options, NULL, programName, 0);
+  argparse_describe(&argparse, "\nIt converts a FASTA or Multi-FASTA file format to a seq.", &usage);
+  argc = argparse_parse(&argparse, argc, argv);
+
+  if(argc != 0)
+    argparse_help_cb(&argparse, options);
 
   Buffer = CreateBuffer(BUF_SIZE);
 

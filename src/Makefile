@@ -76,7 +76,8 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-UpperBound
 
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
-         phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o 
+         phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o \
+         argparse.o
 OBJSCMAP = common-cmap.o mem-cmap.o msg-cmap.o paint-cmap.o time-cmap.o
 OBJSGECO = arith_aux-geco.o arith-geco.o bitio-geco.o buffer-geco.o \
          common-geco.o context-geco.o mem-geco.o levels-geco.o msg-geco.o
@@ -208,6 +209,8 @@ $(BIN)/goose-BruteForceString: BruteForceString.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-BruteForceString BruteForceString.c $(OBJS) $(LIBS)
 $(BIN)/goose-UpperBound: upperBound.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-UpperBound upperBound.c $(OBJS) $(LIBS)
+argparse.o: argparse.c argparse.h $(DEPS)
+	$(CC) -c $(CFLAGS) argparse.c
 mem.o: mem.c mem.h $(DEPS)
 	$(CC) -c $(CFLAGS) mem.c
 misc.o: misc.c misc.h $(DEPS)
