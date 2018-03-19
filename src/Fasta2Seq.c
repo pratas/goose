@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
   struct argparse_option options[] = {
         OPT_HELP(),
         OPT_GROUP("Basic options"),
-        OPT_BUFF('<', "input.fasta", "Input FASTA or Multi-FASTA file format"),
-        OPT_BUFF('>', "output.seq", "Output sequence file (This parameter should be the last)"),
+        OPT_BUFF('<', "input.fasta", "Input FASTA or Multi-FASTA file format (stdin)"),
+        OPT_BUFF('>', "output.seq", "Output sequence file (stdout)"),
         OPT_END(),
   };
   struct argparse argparse;

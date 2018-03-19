@@ -13,32 +13,42 @@ The \texttt{goose-ProteinToPseudoDNA} program needs two streams for the computat
 namely the input and output standard. The input stream is an amino acid sequence.
 The attribution is given according to:
 \begin{lstlisting}
-Usage: ./goose-ProteinToPseudoDNA < in.prot > out.dna
+Usage: ./goose-ProteinToPseudoDNA [options] [[--] args]
+   or: ./goose-ProteinToPseudoDNA [options]
+
 It converts a protein sequence to a pseudo DNA sequence.
+
+    -h, --help        show this help message and exit
+
+Basic options
+    < input.prot      Input amino acid sequence file (stdin)
+    > output.dna      Output DNA sequence file (stdout)
+
+Example: ./goose-ProteinToPseudoDNA < input.prot > output.dna
 Table:
-Prot  DNA
-A	  GCA
-C	  TGC
-D	  GAC
-E	  GAG
-F	  TTT
-G	  GGC
-H	  CAT
-I	  ATC
-K	  AAA
-L	  CTG
-M	  ATG
-N	  AAC
-P	  CCG
-Q	  CAG
-R	  CGT
-S     TCT
-T	  ACG
-V	  GTA
-W	  TGG
-Y	  TAC
-*	  TAG
-X	  GGG
+Prot	DNA
+A	GCA
+C	TGC
+D	GAC
+E	GAG
+F	TTT
+G	GGC
+H	CAT
+I	ATC
+K	AAA
+L	CTG
+M	ATG
+N	AAC
+P	CCG
+Q	CAG
+R	CGT
+S	TCT
+T	ACG
+V	GTA
+W	TGG
+Y	TAC
+*	TAG
+X	GGG
 \end{lstlisting}
 It can be used to generate pseudo-DNA with characteristics passed by amino acid (protein) sequences. An example on such an input file is:
 \begin{lstlisting}

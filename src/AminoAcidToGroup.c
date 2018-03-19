@@ -5,58 +5,76 @@
 #include "misc.h"
 #include "mem.h"
 #include "buffer.h"
+#include "argparse.h"
 
-int main(int argc, char *argv[]){
-  int64_t n, k, i;
-  char c;
-  BUF *B;
+/*
+ * This application converts a amino acid sequence to a group sequence.
+ */
+int main(int argc, char *argv[])
+{
+  int64_t streamSize, index;
+  char value;
+  BUF *Buffer;
 
-  for(n = 1 ; n < argc ; ++n)
-    if(strcmp(argv[n], "-h") == 0){
-      argc = 0;
-      }
+  char *programName = argv[0];
+  struct argparse_option options[] = {
+        OPT_HELP(),
+        OPT_GROUP("Basic options"),
+        OPT_BUFF('<', "input.prot", "Input amino acid sequence file (stdin)"),
+        OPT_BUFF('>', "output.group", "Output group sequence file (stdout)"),
+        OPT_END(),
+  };
+  struct argparse argparse;
 
-  if(argc == 0 || argc > 1){
-    fprintf(stderr, "Usage: %s < in.prot > out.group\n"
-    "It converts a amino acid sequence to a group sequence.\n"
-    "Table:\n"
-    "Prot\tGroup\n"
-    "R\tP\n"
-    "H\tP  Amino acids with electric charged side chains: POSITIVE\n"
-    "K\tP\n"
-    "-\t-\n"
-    "D\tN\n"
-    "E\tN  Amino acids with electric charged side chains: NEGATIVE\n"
-    "-\t-\n"
-    "S\tU\n"
-    "T\tU\n"
-    "N\tU  Amino acids with electric UNCHARGED side chains\n"
-    "Q\tU\n"
-    "-\t-\n"
-    "C\tS\n"
-    "U\tS\n"
-    "G\tS  Special cases\n"
-    "P\tS\n"
-    "-\t-\n"
-    "A\tH\n"
-    "V\tH\n"
-    "I\tH\n"
-    "L\tH\n"
-    "M\tH  Amino acids with hydrophobic side chains\n"
-    "F\tH\n"
-    "Y\tH\n"
-    "W\tH\n"
-    "-\t-\n"
-    "*\t*  Others\n"
-    "X\tX  Unknown\n", argv[0]);
-    return EXIT_SUCCESS;
-    }
+  char usage[500] = "\nExample: "; 
+  strcat(usage, programName);
+  strcat(usage, " < input.prot > output.group\n");
+  strcat(usage, "Table:\n");
+  strcat(usage, "Prot\tGroup\n");
+  strcat(usage, "R\tP\n");
+  strcat(usage, "H\tP  Amino acids with electric charged side chains: POSITIVE\n");
+  strcat(usage, "K\tP\n");
+  strcat(usage, "-\t-\n");
+  strcat(usage, "D\tN\n");
+  strcat(usage, "E\tN  Amino acids with electric charged side chains: NEGATIVE\n");
+  strcat(usage, "-\t-\n");
+  strcat(usage, "S\tU\n");
+  strcat(usage, "T\tU\n");
+  strcat(usage, "N\tU  Amino acids with electric UNCHARGED side chains\n");
+  strcat(usage, "Q\tU\n");
+  strcat(usage, "-\t-\n");
+  strcat(usage, "C\tS\n");
+  strcat(usage, "U\tS\n");
+  strcat(usage, "G\tS  Special cases\n");
+  strcat(usage, "P\tS\n");
+  strcat(usage, "-\t-\n");
+  strcat(usage, "A\tH\n");
+  strcat(usage, "V\tH\n");
+  strcat(usage, "I\tH\n");
+  strcat(usage, "L\tH\n");
+  strcat(usage, "M\tH  Amino acids with hydrophobic side chains\n");
+  strcat(usage, "F\tH\n");
+  strcat(usage, "Y\tH\n");
+  strcat(usage, "W\tH\n");
+  strcat(usage, "-\t-\n");
+  strcat(usage, "*\t*  Others\n");
+  strcat(usage, "X\tX  Unknown\n");
 
-  B = CreateBuffer(BUF_SIZE);
-  while((k = fread(B->buf, 1, B->size, stdin)))
-    for(i = 0 ; i < k ; ++i){
-      c = B->buf[i];
-      switch(c){
+  argparse_init(&argparse, options, NULL, programName, 0);
+  argparse_describe(&argparse, "\nIt converts a amino acid sequence to a group sequence.", &usage);
+  argc = argparse_parse(&argparse, argc, argv);
+
+  if(argc != 0)
+    argparse_help_cb(&argparse, options);
+
+  Buffer = CreateBuffer(BUF_SIZE);
+  while((streamSize = fread(Buffer->buf, 1, Buffer->size, stdin)))
+  {
+    for(index = 0 ; index < streamSize ; ++index)
+    {
+      value = Buffer->buf[index];
+      switch(value)
+      {
         case 'R': putchar('P'); break;
         case 'H': putchar('P'); break;
         case 'K': putchar('P'); break;
@@ -85,11 +103,13 @@ int main(int argc, char *argv[]){
 
         case '*': putchar('*'); break;
         case 'X': putchar('X'); break;
-        }
       }
-  RemoveBuffer(B);
+    }
+  }
+
+  RemoveBuffer(Buffer);
 
   return EXIT_SUCCESS;
-  }
+}
 
 

@@ -355,7 +355,7 @@ void argparse_usage(struct argparse *self)
     {
         if(self->programName)
         {
-            fprintf(stdout, "Usage: %s [options] [[--] args]\n", self->programName);
+            fprintf(stdout, "\nUsage: %s [options] [[--] args]\n", self->programName);
             fprintf(stdout, "   or: %s [options]\n", self->programName);
         }
         else
