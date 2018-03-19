@@ -5,6 +5,7 @@
 #include "defs.h"
 #include "misc.h"
 #include "buffer.h"
+#include "argparse.h"
 
 #define END  100
 
@@ -18,30 +19,28 @@ int main(int argc, char *argv[])
   uint8_t  value, header = 1;
   BUF *Buffer;
 
-  if(argc < 3)
-  {
-    fprintf(stderr, "Usage: %s -i <init> -e <end> < input.fasta >" 
-    " out.seq\nIt extracts sequences from a FASTA file.\n", argv[0]);
-    return EXIT_SUCCESS;
-  }
+  char *programName = argv[0];
+  struct argparse_option options[] = {
+        OPT_HELP(),
+        OPT_GROUP("Basic options"),
+        OPT_INTEGER('i', "init", &init, "The first position to start the extraction (default 0)"),
+        OPT_INTEGER('e', "end", &end, "The last extract position (default 100)"),
+        OPT_BUFF('<', "input.fasta", "Input FASTA or Multi-FASTA file format (stdin)"),
+        OPT_BUFF('>', "output.seq", "Output sequence file (stdout)"),
+        OPT_END(),
+  };
+  struct argparse argparse;
 
-  for(index = 1; index < argc; index++)
-  {
-    if(strcmp("-i",argv[index]) == 0)
-    {
-      init = atol(argv[index + 1]);
-      break;
-    }
-  }
+  char usage[250] = "\nExample: "; 
+  strcat(usage, programName);
+  strcat(usage, " -i <init> -e <end> < input.fasta > output.seq\n");
 
-  for(index = 1; index < argc; index++)
-  {
-    if(strcmp("-e",argv[index]) == 0)
-    {
-      end = atol(argv[index + 1]);
-      break;
-    }
-  }
+  argparse_init(&argparse, options, NULL, programName, 0);
+  argparse_describe(&argparse, "\nIt extracts sequences from a FASTA file.", &usage);
+  argc = argparse_parse(&argparse, argc, argv);
+
+  if(argc != 0)
+    argparse_help_cb(&argparse, options);
 
   Buffer = CreateBuffer(BUF_SIZE);
 

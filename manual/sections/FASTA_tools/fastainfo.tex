@@ -12,8 +12,18 @@ The \texttt{goose-fastainfo} program needs two streams for the computation,
 namely the input and output standard. The input stream is a FASTA or Multi-FASTA file.\\
 The attribution is given according to:
 \begin{lstlisting}
-Usage: ./goose-fastainfo < input.fasta > output
+Usage: ./goose-fastainfo [options] [[--] args]
+   or: ./goose-fastainfo [options]
+
 It shows read information of a FASTA or Multi-FASTA file format.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    < input.fasta         Input FASTA or Multi-FASTA file format (stdin)
+    > output              Output read information (stdout)
+
+Example: ./goose-fastainfo < input.fasta > output
 \end{lstlisting}
 An example on such an input file is:
 \begin{lstlisting}

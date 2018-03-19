@@ -12,8 +12,18 @@ The \texttt{goose-fasta2seq} program needs two streams for the computation,
 namely the input and output standard. The input stream is a FASTA or Multi-FASTA file.\\
 The attribution is given according to:
 \begin{lstlisting}
-Usage: ./goose-fasta2seq < input.fasta > output.seq
+Usage: ./goose-fasta2seq [options] [[--] args]
+   or: ./goose-fasta2seq [options]
+
 It converts a FASTA or Multi-FASTA file format to a seq.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    < input.fasta         Input FASTA or Multi-FASTA file format (stdin)
+    > output.seq          Output sequence file (stdout)
+
+Example: ./goose-fasta2seq < input.fasta > output.seq
 \end{lstlisting}
 An example on such an input file is:
 \begin{lstlisting}

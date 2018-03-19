@@ -14,8 +14,18 @@ The \texttt{goose-AminoAcidToGroup} program needs two streams for the computatio
 namely the input and output standard. The input stream is an amino acid sequence.
 The attribution is given according to:
 \begin{lstlisting}
-Usage: ./goose-AminoAcidToGroup < in.prot > out.group
+Usage: ./goose-AminoAcidToGroup [options] [[--] args]
+   or: ./goose-AminoAcidToGroup [options]
+
 It converts a amino acid sequence to a group sequence.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    < input.prot          Input amino acid sequence file (stdin)
+    > output.group        Output group sequence file (stdout)
+
+Example: ./goose-AminoAcidToGroup < input.prot > output.group
 Table:
 Prot	Group
 R	P

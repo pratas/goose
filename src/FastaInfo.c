@@ -5,6 +5,7 @@
 #include "misc.h"
 #include "mem.h"
 #include "buffer.h"
+#include "argparse.h"
 
 /*
  * This application shows the readed information of a FASTA or Multi-FASTA file format.
@@ -15,12 +16,27 @@ int main(int argc, char *argv[])
   uint8_t  value, header = 1;
   BUF *Buffer;
 
-  if(argc != 1)
-  {
-    fprintf(stderr, "Usage: %s < input.fasta > output\n"
-    "It shows read information of a FASTA or Multi-FASTA file format.\n", argv[0]);
-    return EXIT_SUCCESS;
-  }
+
+  char *programName = argv[0];
+  struct argparse_option options[] = {
+        OPT_HELP(),
+        OPT_GROUP("Basic options"),
+        OPT_BUFF('<', "input.fasta", "Input FASTA or Multi-FASTA file format (stdin)"),
+        OPT_BUFF('>', "output", "Output read information (stdout)"),
+        OPT_END(),
+  };
+  struct argparse argparse;
+
+  char usage[250] = "\nExample: "; 
+  strcat(usage, programName);
+  strcat(usage, " < input.fasta > output\n");
+
+  argparse_init(&argparse, options, NULL, programName, 0);
+  argparse_describe(&argparse, "\nIt shows read information of a FASTA or Multi-FASTA file format.", &usage);
+  argc = argparse_parse(&argparse, argc, argv);
+
+  if(argc != 0)
+    argparse_help_cb(&argparse, options);
 
   Buffer = CreateBuffer(BUF_SIZE);
 
