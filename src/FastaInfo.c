@@ -6,6 +6,7 @@
 #include "mem.h"
 #include "buffer.h"
 #include "argparse.h"
+#include "parser.h"
 
 /*
  * This application shows the readed information of a FASTA or Multi-FASTA file format.
@@ -14,6 +15,7 @@ int main(int argc, char *argv[])
 {
   uint32_t streamSize, index;
   uint8_t  value, header = 1;
+  PARSER *Parser = CreateParser();
   BUF *Buffer;
 
 
@@ -37,6 +39,13 @@ int main(int argc, char *argv[])
 
   if(argc != 0)
     argparse_help_cb(&argparse, options);
+
+  FileType(Parser, stdin);
+  if(Parser->type != 1)
+  {
+    fprintf(stderr, "ERROR: This is not a FASTA file!\n");
+    exit(1);
+  }
 
   Buffer = CreateBuffer(BUF_SIZE);
 

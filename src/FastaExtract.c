@@ -6,6 +6,7 @@
 #include "misc.h"
 #include "buffer.h"
 #include "argparse.h"
+#include "parser.h"
 
 #define END  100
 
@@ -17,6 +18,7 @@ int main(int argc, char *argv[])
   uint32_t streamSize, index;
   uint64_t counter = 0, init = 0, end = END;
   uint8_t  value, header = 1;
+  PARSER *Parser = CreateParser();
   BUF *Buffer;
 
   char *programName = argv[0];
@@ -42,6 +44,13 @@ int main(int argc, char *argv[])
   if(argc != 0)
     argparse_help_cb(&argparse, options);
 
+  FileType(Parser, stdin);
+  if(Parser->type != 1)
+  {
+    fprintf(stderr, "ERROR: This is not a FASTA file!\n");
+    exit(1);
+  }
+  
   Buffer = CreateBuffer(BUF_SIZE);
 
   while((streamSize = fread(Buffer->buf, 1, Buffer->size, stdin)))
