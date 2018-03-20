@@ -43,7 +43,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-fastqunpack \
          $(BIN)/goose-extractreadbypattern \
          $(BIN)/goose-period \
-	 $(BIN)/goose-genrandomdna \
+	 	 $(BIN)/goose-genrandomdna \
          $(BIN)/goose-mutatedna \
          $(BIN)/goose-mutatefastq \
          $(BIN)/goose-mutatefasta \
@@ -73,7 +73,8 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-AminoAcidToGroup \
          $(BIN)/goose-SequenceToGroupSequence \
          $(BIN)/goose-BruteForceString \
-         $(BIN)/goose-UpperBound
+         $(BIN)/goose-UpperBound \
+         $(BIN)/goose-fastaextractbyread 
 
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o \
@@ -91,6 +92,8 @@ $(BIN)/goose-extract: extract.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-extract extract.c $(OBJS) $(LIBS)
 $(BIN)/goose-fastaextract: FastaExtract.c $(DEPS) $(OBJS) 
 	$(CC) $(CFLAGS) -o $(BIN)/goose-fastaextract FastaExtract.c $(OBJS) $(LIBS)
+$(BIN)/goose-fastaextractbyread: FastaExtractByRead.c $(DEPS) $(OBJS) 
+	$(CC) $(CFLAGS) -o $(BIN)/goose-fastaextractbyread FastaExtractByRead.c $(OBJS) $(LIBS)
 $(BIN)/goose-info: info.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-info info.c $(OBJS) $(LIBS)
 $(BIN)/goose-count: count.c $(DEPS) $(OBJS)
