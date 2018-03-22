@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
   strcat(usage, " -i <init> -e <end> < input.fasta > output.fasta\n");
 
   argparse_init(&argparse, options, NULL, programName, 0);
-  argparse_describe(&argparse, "\nIt extracts sequences from each read in a FASTA or Multi-FASTA file (splited by \\n)", &usage);
+  argparse_describe(&argparse, "\nIt extracts sequences from each read in a FASTA or Multi-FASTA file (splited by \\n)", usage);
   argc = argparse_parse(&argparse, argc, argv);
 
   if(argc != 0)

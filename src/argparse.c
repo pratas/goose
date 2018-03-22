@@ -26,15 +26,13 @@ static const char *const usages[] = {
 #define OPT_UNSET 1
 #define OPT_LONG  (1 << 1)
 
-static const char *
-prefix_skip(const char *str, const char *prefix)
+static const char * prefix_skip(const char *str, const char *prefix)
 {
     size_t len = strlen(prefix);
     return strncmp(str, prefix, len) ? NULL : str + len;
 }
 
-static int
-prefix_cmp(const char *str, const char *prefix)
+static int prefix_cmp(const char *str, const char *prefix)
 {
     for (;; str++, prefix++)
         if (!*prefix) {
@@ -132,18 +130,18 @@ static int argparse_getvalue(struct argparse *self, const struct argparse_option
             if (s[0] != '\0')
                 argparse_error(self, opt, "expects an integer value", flags);
             break;
-        case ARGPARSE_OPT_FLOAT:
+        case ARGPARSE_OPT_DOUBLE:
             errno = 0; 
             if (self->optvalue) 
             {
-                *(float *)opt->value = strtof(self->optvalue, (char **)&s);
+                *(double *)opt->value = strtof(self->optvalue, (char **)&s);
                 self->optvalue     = NULL;
             } 
             else 
                 if (self->argc > 1) 
                 {
                     self->argc--;
-                    *(float *)opt->value = strtof(*++self->argv, (char **)&s);
+                    *(double *)opt->value = strtof(*++self->argv, (char **)&s);
                 } 
                 else 
                 {
@@ -178,7 +176,7 @@ static void argparse_options_check(const struct argparse_option *options)
             case ARGPARSE_OPT_BOOLEAN:
             case ARGPARSE_OPT_BIT:
             case ARGPARSE_OPT_INTEGER:
-            case ARGPARSE_OPT_FLOAT:
+            case ARGPARSE_OPT_DOUBLE:
             case ARGPARSE_OPT_STRING:
             case ARGPARSE_OPT_GROUP:
                 continue;
@@ -189,8 +187,7 @@ static void argparse_options_check(const struct argparse_option *options)
     }
 }
 
-static int
-argparse_short_opt(struct argparse *self, const struct argparse_option *options)
+static int argparse_short_opt(struct argparse *self, const struct argparse_option *options)
 {
     for (; options->type != ARGPARSE_OPT_END; options++) {
         if (options->short_name == *self->optvalue) {
@@ -268,7 +265,7 @@ void argparse_describe(struct argparse *self, const char *description,
     self->epilog      = epilog;
 }
 
-int argparse_parse(struct argparse *self, int argc, const char **argv)
+int argparse_parse(struct argparse *self, int argc, char *argv[])
 {
     self->argc = argc - 1;
     self->argv = argv + 1;
@@ -393,9 +390,9 @@ void argparse_usage(struct argparse *self)
         {
             len += strlen("=<int>");
 		}
-        if (options->type == ARGPARSE_OPT_FLOAT) 
+        if (options->type == ARGPARSE_OPT_DOUBLE) 
         {
-            len += strlen("=<flt>");
+            len += strlen("=<dbl>");
         } 
         else 
             if (options->type == ARGPARSE_OPT_STRING) 
@@ -459,9 +456,9 @@ void argparse_usage(struct argparse *self)
             pos += fprintf(stdout, "=<int>");
         }
 
-        if (options->type == ARGPARSE_OPT_FLOAT) 
+        if (options->type == ARGPARSE_OPT_DOUBLE) 
         {
-            pos += fprintf(stdout, "=<flt>");
+            pos += fprintf(stdout, "=<dbl>");
         } 
         else 
             if (options->type == ARGPARSE_OPT_STRING) 

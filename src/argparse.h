@@ -40,7 +40,7 @@ extern "C"
         ARGPARSE_OPT_BIT,
         /* options with arguments (optional or required) */
         ARGPARSE_OPT_INTEGER,
-        ARGPARSE_OPT_FLOAT,
+        ARGPARSE_OPT_DOUBLE,
         ARGPARSE_OPT_STRING,
     };
 
@@ -120,7 +120,7 @@ extern "C"
     #define OPT_BOOLEAN(...) { ARGPARSE_OPT_BOOLEAN, __VA_ARGS__ }
     #define OPT_BIT(...)     { ARGPARSE_OPT_BIT, __VA_ARGS__ }
     #define OPT_INTEGER(...) { ARGPARSE_OPT_INTEGER, __VA_ARGS__ }
-    #define OPT_FLOAT(...)   { ARGPARSE_OPT_FLOAT, __VA_ARGS__ }
+    #define OPT_DOUBLE(...)  { ARGPARSE_OPT_DOUBLE, __VA_ARGS__ }
     #define OPT_STRING(...)  { ARGPARSE_OPT_STRING, __VA_ARGS__ }
     #define OPT_GROUP(h)     { ARGPARSE_OPT_GROUP, 0, NULL, NULL, h, NULL, 0, 0 }
     #define OPT_HELP()       OPT_BOOLEAN('h', "help", NULL,                 \
@@ -131,7 +131,7 @@ extern "C"
                       const char *const *usages, const char *programName, int flags);
     void argparse_describe(struct argparse *self, const char *description,
                            const char *epilog);
-    int argparse_parse(struct argparse *self, int argc, const char **argv);
+    int argparse_parse(struct argparse *self, int argc, char *argv[]);
     void argparse_usage(struct argparse *self);
 
     #ifdef __cplusplus
