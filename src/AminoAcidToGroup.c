@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
   strcat(usage, "X\tX  Unknown\n");
 
   argparse_init(&argparse, options, NULL, programName, 0);
-  argparse_describe(&argparse, "\nIt converts a amino acid sequence to a group sequence.", &usage);
+  argparse_describe(&argparse, "\nIt converts a amino acid sequence to a group sequence.", usage);
   argc = argparse_parse(&argparse, argc, argv);
 
   if(argc != 0)

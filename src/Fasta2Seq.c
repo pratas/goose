@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
   strcat(usage, " < input.fasta > output.seq\n");
 
   argparse_init(&argparse, options, NULL, programName, 0);
-  argparse_describe(&argparse, "\nIt converts a FASTA or Multi-FASTA file format to a seq.", &usage);
+  argparse_describe(&argparse, "\nIt converts a FASTA or Multi-FASTA file format to a seq.", usage);
   argc = argparse_parse(&argparse, argc, argv);
 
   if(argc != 0)

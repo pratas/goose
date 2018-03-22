@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <string.h>
 #include "defs.h"
 #include "misc.h"
 #include "mem.h"
@@ -14,7 +15,7 @@
 int main(int argc, char *argv[])
 {
   uint32_t streamSize, index;
-  uint8_t  value, header = 1;
+  uint8_t  value = 0, header = 1;
   PARSER *Parser = CreateParser();
   BUF *Buffer;
 
@@ -34,7 +35,7 @@ int main(int argc, char *argv[])
   strcat(usage, " < input.fasta > output\n");
 
   argparse_init(&argparse, options, NULL, programName, 0);
-  argparse_describe(&argparse, "\nIt shows read information of a FASTA or Multi-FASTA file format.", &usage);
+  argparse_describe(&argparse, "\nIt shows read information of a FASTA or Multi-FASTA file format.", usage);
   argc = argparse_parse(&argparse, argc, argv);
 
   if(argc != 0)
