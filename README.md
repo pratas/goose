@@ -56,6 +56,7 @@ Included programs:
   [+] goose-period
   [+] goose-permuteseqbyblocks
   [+] goose-QSInfo
+  [+] goose-QSMin
   [+] goose-randfastaextrachars
   [+] goose-randfastqextrachars
   [+] goose-randseqextrachars
