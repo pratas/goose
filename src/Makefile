@@ -43,7 +43,7 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-fastqunpack \
          $(BIN)/goose-extractreadbypattern \
          $(BIN)/goose-period \
-	 	 $(BIN)/goose-genrandomdna \
+ 	 $(BIN)/goose-genrandomdna \
          $(BIN)/goose-mutatedna \
          $(BIN)/goose-mutatefastq \
          $(BIN)/goose-mutatefasta \
@@ -74,7 +74,8 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-SequenceToGroupSequence \
          $(BIN)/goose-BruteForceString \
          $(BIN)/goose-UpperBound \
-         $(BIN)/goose-fastaextractbyread 
+         $(BIN)/goose-fastaextractbyread \
+         $(BIN)/goose-QSInfo
 
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o \
@@ -212,6 +213,9 @@ $(BIN)/goose-BruteForceString: BruteForceString.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-BruteForceString BruteForceString.c $(OBJS) $(LIBS)
 $(BIN)/goose-UpperBound: upperBound.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-UpperBound upperBound.c $(OBJS) $(LIBS)
+$(BIN)/goose-QSInfo: QSInfo.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-QSInfo QSInfo.c $(OBJS) $(LIBS)
+
 argparse.o: argparse.c argparse.h $(DEPS)
 	$(CC) -c $(CFLAGS) argparse.c
 mem.o: mem.c mem.h $(DEPS)
