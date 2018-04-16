@@ -57,6 +57,7 @@ Included programs:
   [+] goose-permuteseqbyblocks
   [+] goose-QSInfo
   [+] goose-QSMin
+  [+] goose-QSMax
   [+] goose-randfastaextrachars
   [+] goose-randfastqextrachars
   [+] goose-randseqextrachars

@@ -76,7 +76,8 @@ PROGS  = $(BIN)/goose \
          $(BIN)/goose-UpperBound \
          $(BIN)/goose-fastaextractbyread \
          $(BIN)/goose-QSInfo \
-         $(BIN)/goose-QSMin
+         $(BIN)/goose-QSMin \
+         $(BIN)/goose-QSMax
 
 OBJS     = mem.o misc.o args.o hash.o alpha.o csmodel.o dna.o reads.o fcm.o \
          phash.o parser.o xsmisc.o xsmsg.o s454.o common.o buffer.o labels.o \
@@ -218,6 +219,8 @@ $(BIN)/goose-QSInfo: QSInfo.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-QSInfo QSInfo.c $(OBJS) $(LIBS)
 $(BIN)/goose-QSMin: QSMin.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-QSMin QSMin.c $(OBJS) $(LIBS)
+$(BIN)/goose-QSMax: QSMax.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-QSMax QSMax.c $(OBJS) $(LIBS)
 argparse.o: argparse.c argparse.h $(DEPS)
 	$(CC) -c $(CFLAGS) argparse.c
 mem.o: mem.c mem.h $(DEPS)

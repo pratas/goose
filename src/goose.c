@@ -53,6 +53,7 @@ int main(int argc, char *argv[]){
   "  goose-ProteinToPseudoDNA\n"
   "  goose-QSInfo\n"
   "  goose-QSMin\n"
+  "  goose-QSMax\n"
   "  goose-randfastaextrachars\n"
   "  goose-randfastqextrachars\n"
   "  goose-randseqextrachars\n"
