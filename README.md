@@ -55,6 +55,7 @@ Included programs:
   [+] goose-newlineonnewx
   [+] goose-period
   [+] goose-permuteseqbyblocks
+  [+] goose-QSInfo
   [+] goose-randfastaextrachars
   [+] goose-randfastqextrachars
   [+] goose-randseqextrachars

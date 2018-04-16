@@ -51,6 +51,7 @@ int main(int argc, char *argv[]){
   "  goose-period\n"
   "  goose-permuteseqbyblocks\n"
   "  goose-ProteinToPseudoDNA\n"
+  "  goose-QSInfo\n"
   "  goose-randfastaextrachars\n"
   "  goose-randfastqextrachars\n"
   "  goose-randseqextrachars\n"
