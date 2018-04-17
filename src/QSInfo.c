@@ -104,7 +104,7 @@ int main(int argc, char *argv[]){
       }
 
     fprintf(stdout, "\n");
-    line -= 2;
+    line -= 1;
     }
 
   Free(QS, 0);
