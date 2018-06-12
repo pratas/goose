@@ -22,16 +22,15 @@ void PrintArgs(char *name){
 int main(int argc, char *argv[]){
 
   Read *Read = CreateRead(65536+GUARD, 65535+GUARD);
-  uint32_t seqSize = 0, x1. x2, x, n;
-  uint64_t okReads = 0, totalReads = 0;
+  uint32_t seqSize = 0, x1, x2, n;
 
   if(argc < 3 || ArgBin(0, argv, argc, "-h") || ArgBin(0, argv, argc, "?")){
     PrintArgs(argv[0]);
     return EXIT_SUCCESS;
     }
   
-  int x1 = atoi(argv[1]);
-  int x2 = atoi(argv[2]);
+  x1 = atoi(argv[1]);
+  x2 = atoi(argv[2]);
  
   while(GetRead(stdin, Read)){
 
