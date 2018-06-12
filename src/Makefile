@@ -223,7 +223,7 @@ $(BIN)/goose-QSMin: QSMin.c $(DEPS) $(OBJS)
 $(BIN)/goose-QSMax: QSMax.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/goose-QSMax QSMax.c $(OBJS) $(LIBS)
 $(BIN)/goose-FastqCut: FastqCut.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqCut goose-FastqCut.c $(OBJS) $(LIBS)
+	$(CC) $(CFLAGS) -o $(BIN)/goose-FastqCut FastqCut.c $(OBJS) $(LIBS)
 argparse.o: argparse.c argparse.h $(DEPS)
 	$(CC) -c $(CFLAGS) argparse.c
 mem.o: mem.c mem.h $(DEPS)
