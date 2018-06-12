@@ -20,6 +20,7 @@ int main(int argc, char *argv[]){
   "  goose-fastq2fasta\n"
   "  goose-fastq2mfasta\n"
   "  goose-fastqclustreads\n"
+  "  goose-FastqCut\n"
   "  goose-FastqExcludeN\n"
   "  goose-FastqExtractQualityScores\n"
   "  goose-FastqInfo\n"

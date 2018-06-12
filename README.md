@@ -25,6 +25,7 @@ Included programs:
   [+] goose-fastq2fasta
   [+] goose-fastq2mfasta
   [+] goose-fastqclustreads
+  [+] goose-FastqCut
   [+] goose-FastqExcludeN
   [+] goose-FastqInfo
   [+] goose-FastqMaximumReadSize
