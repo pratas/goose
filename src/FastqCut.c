@@ -29,8 +29,8 @@ int main(int argc, char *argv[]){
     return EXIT_SUCCESS;
     }
   
-  x1 = atoi(argv[1]);
-  x2 = atoi(argv[2]);
+  x1 = atoi(argv[1])-1;
+  x2 = atoi(argv[2])-1;
  
   while(GetRead(stdin, Read)){
 
