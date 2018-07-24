@@ -8,14 +8,14 @@ Current available FASTA tools, for analysis and manipulation, are:
 \item \texttt{goose-fastaextract}: it extracts sequences from a FASTA file, which the range is defined by the user in the parameters.
 \item \texttt{goose-fastaextractbyread}: it extracts sequences from each read in a Multi-FASTA file (splited by \textbackslash n), which the range is defined by the user in the parameters.
 \item \texttt{goose-fastainfo}: it shows the readed information of a FASTA or Multi-FASTA file format.
-\item \texttt{goose-mutatefasta}
-\item \texttt{goose-randfastaextrachars}
+\item \texttt{goose-mutatefasta}: it reates a synthetic mutation of a fasta file given specific rates of editions, deletions and additions.
+\item \texttt{goose-randfastaextrachars}: it substitues in the DNA sequence the outside ACGT chars by random ACGT symbols.
 \item \texttt{goose-geco}
 \item \texttt{goose-gede}
-\item \texttt{goose-mutatedna}
-\item \texttt{goose-randseqextrachars}
-\item \texttt{goose-reverse}: it reverses the order of a sequence.
-\item \texttt{goose-reverselm}: it reverses the order of a large sequence. Low memory usage for large files.
+\item \texttt{goose-reverse}%: it reverses the order of a sequence.
+
+%Incomplete tools
+%%\item \texttt{goose-reverselm}%: it reverses the order of a large sequence. Low memory usage for large files.
 \end{enumerate}
 
 \input{\FASTAToolsPath/fasta2seq.tex}
@@ -23,11 +23,11 @@ Current available FASTA tools, for analysis and manipulation, are:
 \input{\FASTAToolsPath/fastaextractbyread.tex}
 \input{\FASTAToolsPath/fastainfo.tex} 
 \input{\FASTAToolsPath/mutatefasta.tex}
+\input{\FASTAToolsPath/randfastaextrachars.tex}
 %TO DO
-%\input{\FASTAToolsPath/randfastaextrachars.tex}
 %\input{\FASTAToolsPath/geco.tex}
 %\input{\FASTAToolsPath/gede.tex}
-%\input{\FASTAToolsPath/mutatedna.tex}
-%\input{\FASTAToolsPath/randseqextrachars.tex}
 %\input{\FASTAToolsPath/reverse.tex}
-%\input{\FASTAToolsPath/reverselm.tex}
+
+%Incomplete tools
+%%\input{\FASTAToolsPath/reverselm.tex}
