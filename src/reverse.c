@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
   Buffer = CreateBuffer(BUF_SIZE);
   while((streamSize = fread(Buffer->buf, 1, Buffer->size, stdin)))
   {
-    for(index = streamSize - 1 ; index > 0 ; --index)
+    for(index = streamSize ; index > 0 ; --index)
     {
       value = Buffer->buf[index-1];
       putchar(value);
