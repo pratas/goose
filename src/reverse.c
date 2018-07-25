@@ -1,30 +1,55 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "defs.h"
 #include "misc.h"
 #include "mem.h"
+#include "buffer.h"
+#include "argparse.h"
+#include "parser.h"
 
-int main(int argc, char *argv[]){
-  FILE     *F;
-  uint8_t  *seq;
-  int c;
-  uint64_t i, size;
+/*
+ * This application reverses the order of a sequence file
+ */
+int main(int argc, char *argv[])
+{
+  uint32_t streamSize, index;
+  uint8_t  value, header = 1;
+  PARSER *Parser = CreateParser();
+  BUF *Buffer;
 
-  if(argc != 2){
-    fprintf(stderr, "Usage: %s file\n", argv[0]);
-    return EXIT_SUCCESS;
+  char *programName = argv[0];
+  struct argparse_option options[] = {
+        OPT_HELP(),
+        OPT_GROUP("Basic options"),
+        OPT_BUFF('<', "input.seq", "Input sequence file (stdin)"),
+        OPT_BUFF('>', "output.seq", "Output sequence file (stdout)"),
+        OPT_END(),
+  };
+  struct argparse argparse;
+
+  char usage[250] = "\nExample: "; 
+  strcat(usage, programName);
+  strcat(usage, " < input.seq > output.seq\n");
+
+  argparse_init(&argparse, options, NULL, programName, 0);
+  argparse_describe(&argparse, "\nIt reverses the order of a sequence file.", usage);
+  argc = argparse_parse(&argparse, argc, argv);
+
+  if(argc != 0)
+    argparse_help_cb(&argparse, options);
+
+  Buffer = CreateBuffer(BUF_SIZE);
+  while((streamSize = fread(Buffer->buf, 1, Buffer->size, stdin)))
+  {
+    for(index = streamSize - 1 ; index > 0 ; --index)
+    {
+      value = Buffer->buf[index-1];
+      putchar(value);
     }
-
-  F    = Fopen(argv[argc - 1], "r");
-  size = FNBytes(F);
-  seq  = (uint8_t *) Calloc(size, sizeof(uint8_t));
-
-  i = 0;
-  while((c = getc(F)) != EOF) seq[i++] = c;
-  while(i) putchar(seq[--i]);
-
-  Free(seq, size * sizeof(uint8_t));
-  fclose(F);
-  return EXIT_SUCCESS;
   }
+
+  RemoveBuffer(Buffer); 
+  return EXIT_SUCCESS;
+}
 
