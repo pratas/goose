@@ -4,45 +4,68 @@
 #include "misc.h"
 #include "mem.h"
 #include "buffer.h"
+#include "argparse.h"
 
-int main(int argc, char *argv[]){
-  uint32_t k, i;
-  uint8_t  s, line = 0;
-  BUF *B;
+/*
+ * This application converts a FASTQ file format to a pseudo FASTA file.
+ */
+int main(int argc, char *argv[])
+{
+  uint32_t streamSize, index;
+  uint8_t  value, line = 0;
+  BUF *Buffer;
 
-  if(argc != 1){
-    fprintf(stderr, "Usage: %s < input.fastq > output.fasta\n"
-    "It converts a FASTQ file format to a pseudo FASTA file.\n"
+  char *programName = argv[0];
+  struct argparse_option options[] = {
+        OPT_HELP(),
+        OPT_GROUP("Basic options"),
+        OPT_BUFF('<', "input.fastq", "Input FASTQ file format (stdin)"),
+        OPT_BUFF('>', "output.fasta", "Output FASTA file format (stdout)"),
+        OPT_END(),
+  };
+  struct argparse argparse;
+
+  char usage[250] = "\nExample: "; 
+  strcat(usage, programName);
+  strcat(usage, " < input.fastq > output.fasta\n");
+
+  argparse_init(&argparse, options, NULL, programName, 0);
+  argparse_describe(&argparse, 
+    "\nIt converts a FASTQ file format to a pseudo FASTA file.\n"
     "It does NOT align the sequence.\n"
-    "It extracts the sequence and adds a pseudo header\n", argv[0]);
-    return EXIT_SUCCESS;
-    }
+    "It extracts the sequence and adds a pseudo header.", usage);
+  argc = argparse_parse(&argparse, argc, argv);
 
-  B = CreateBuffer(BUF_SIZE);
+  if(argc != 0)
+    argparse_help_cb(&argparse, options);
+
+  Buffer = CreateBuffer(BUF_SIZE);
 
   fprintf(stdout, "> Computed with Fastq2Fasta\n");
 
-  while((k = fread(B->buf, 1, B->size, stdin)))
-    for(i = 0 ; i < k ; ++i){
-      s = B->buf[i];
-      switch(line){ 
+  while((streamSize = fread(Buffer->buf, 1, Buffer->size, stdin)))
+    for(index = 0 ; index < streamSize ; ++index)
+    {
+      value = Buffer->buf[index];
+      switch(line)
+      { 
         case 0: 
-          if(s == '\n') line = 1;
-        break;
+          if(value == '\n') line = 1;
+          break;
         case 1: 
-          if(s == '\n') line = 2;
-          putchar(s);
-        break;
+          if(value == '\n') line = 2;
+          putchar(value);
+          break;
         case 2:
-          if(s == '\n') line = 3;
-        break;
+          if(value == '\n') line = 3;
+          break;
         case 3:
-          if(s == '\n') line = 0;
-        break;
-        } 
-      }
+          if(value == '\n') line = 0;
+          break;
+      } 
+    }
 
-  RemoveBuffer(B); 
+  RemoveBuffer(Buffer); 
   return EXIT_SUCCESS;
-  }
+}
 
