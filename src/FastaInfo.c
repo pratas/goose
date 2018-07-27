@@ -32,7 +32,13 @@ int main(int argc, char *argv[])
 
   char usage[250] = "\nExample: "; 
   strcat(usage, programName);
-  strcat(usage, " < input.fasta > output\n");
+  strcat(usage, " < input.fasta > output\n"
+    "\nOutput example :\n"
+    "Number of reads      : value\n"  
+    "Number of bases      : value\n"
+    "MIN of bases in read : value\n"
+    "MAX of bases in read : value\n"
+    "AVG of bases in read : value\n");
 
   argparse_init(&argparse, options, NULL, programName, 0);
   argparse_describe(&argparse, "\nIt shows read information of a FASTA or Multi-FASTA file format.", usage);
