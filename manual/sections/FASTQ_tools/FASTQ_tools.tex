@@ -7,37 +7,30 @@ Current available tools for FASTQ format analysis and manipulation include:
 \item \texttt{goose-fastq2fasta}: it converts a FASTQ file format to a pseudo FASTA file.
 \item \texttt{goose-fastq2mfasta}: it converts a FASTQ file format to a pseudo Multi-FASTA file.
 \item \texttt{goose-fastqclustreads}
-\item \texttt{goose-FastqExcludeN}
-\item \texttt{goose-FastqExtractQualityScores}
+\item \texttt{goose-FastqExcludeN}: it discards the FASTQ reads with the minimum number of "N" symbols.
+\item \texttt{goose-FastqExtractQualityScores}: it extracts all the quality-scores from FASTQ reads.
 \item \texttt{goose-FastqInfo}: it analyses the basic informations of FASTQ file format.
 \item \texttt{goose-FastqMaximumReadSize}: it filters the FASTQ reads with the length higher than the value defined.
 \item \texttt{goose-FastqMinimumLocalQualityScoreForward}
 \item \texttt{goose-FastqMinimumLocalQualityScoreReverse}
 \item \texttt{goose-FastqMinimumQualityScore}
-\item \texttt{goose-FastqMinimumReadSize}
-
-\item \texttt{goose-count}
-\item \texttt{goose-extractreadbypattern}
-
+\item \texttt{goose-FastqMinimumReadSize}: it filters the FASTQ reads with the length smaller than the value defined.
 \item \texttt{goose-fastqpack}
 \item \texttt{goose-fastqsimulation}
 \item \texttt{goose-FastqSplit}
 \item \texttt{goose-FastqTrimm}
 \item \texttt{goose-fastqunpack}
-\item \texttt{goose-filter}
-\item \texttt{goose-findnpos}
+\item \texttt{goose-randfastqextrachars}
+\item \texttt{goose-seq2fastq}
 
+%Check if theses ones are in the right chapter
 \item \texttt{goose-genrandomdna}
 \item \texttt{goose-getunique}
-\item \texttt{goose-info}
 \item \texttt{goose-mfmotifcoords}
 
 \item \texttt{goose-mutatefastq}
 \item \texttt{goose-newlineonnewx}
 \item \texttt{goose-period}
-\item \texttt{goose-permuteseqbyblocks}
-
-\item \texttt{goose-randfastqextrachars}
 
 \item \texttt{goose-real2binthreshold}
 \item \texttt{goose-reducematrixbythreshold}
@@ -45,50 +38,39 @@ Current available tools for FASTQ format analysis and manipulation include:
 
 \item \texttt{goose-searchphash}
 
-\item \texttt{goose-seq2fasta}
-\item \texttt{goose-seq2fastq}
 \item \texttt{goose-SequenceToGroupSequence}
 \item \texttt{goose-splitreads}
 
-\item \texttt{goose-wsearch}
 \end{enumerate}
 
 %TO DO
 \input{\FASTQToolsPath/fastq2fasta.tex}
 \input{\FASTQToolsPath/fastq2mfasta.tex}
 %\input{\FASTQToolsPath/fastqclustreads.tex}
-%\input{\FASTQToolsPath/FastqExcludeN.tex}
-%\input{\FASTQToolsPath/FastqExtractQualityScores.tex}
+\input{\FASTQToolsPath/FastqExcludeN.tex}
+\input{\FASTQToolsPath/FastqExtractQualityScores.tex}
 \input{\FASTQToolsPath/FastqInfo.tex}
 \input{\FASTQToolsPath/FastqMaximumReadSize.tex}
 %\input{\FASTQToolsPath/FastqMinimumLocalQualityScoreForward.tex}
 %\input{\FASTQToolsPath/FastqMinimumLocalQualityScoreReverse.tex}
 %\input{\FASTQToolsPath/FastqMinimumQualityScore.tex}
-%\input{\FASTQToolsPath/FastqMinimumReadSize.tex}
-%\input{\FASTQToolsPath/count.tex}
-%\input{\FASTQToolsPath/extractreadbypattern.tex}
+\input{\FASTQToolsPath/FastqMinimumReadSize.tex}
 %\input{\FASTQToolsPath/fastqpack.tex}
 %\input{\FASTQToolsPath/fastqsimulation.tex}
 %\input{\FASTQToolsPath/FastqSplit.tex}
 %\input{\FASTQToolsPath/FastqTrimm.tex}
 %\input{\FASTQToolsPath/fastqunpack.tex}
-%\input{\FASTQToolsPath/filter.tex}
-%\input{\FASTQToolsPath/findnpos.tex}
 %\input{\FASTQToolsPath/genrandomdna.tex}
 %\input{\FASTQToolsPath/getunique.tex}
-%\input{\FASTQToolsPath/info.tex}
 %\input{\FASTQToolsPath/mfmotifcoords.tex}
 %\input{\FASTQToolsPath/mutatefastq.tex}
 %\input{\FASTQToolsPath/newlineonnewx.tex}
 %\input{\FASTQToolsPath/period.tex}
-%\input{\FASTQToolsPath/permuteseqbyblocks.tex}
 %\input{\FASTQToolsPath/randfastqextrachars.tex}
 %\input{\FASTQToolsPath/real2binthreshold.tex}
 %\input{\FASTQToolsPath/reducematrixbythreshold.tex}
 %\input{\FASTQToolsPath/renamehumanheaders.tex}
 %\input{\FASTQToolsPath/searchphash.tex}
-%\input{\FASTQToolsPath/seq2fasta.tex}
 %\input{\FASTQToolsPath/seq2fastq.tex}
 %\input{\FASTQToolsPath/SequenceToGroupSequence.tex}
 %\input{\FASTQToolsPath/splitreads.tex}
-%\input{\FASTQToolsPath/wsearch.tex}
