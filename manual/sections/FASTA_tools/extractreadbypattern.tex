@@ -1,6 +1,5 @@
 \section{Program goose-extractreadbypattern}
-The \texttt{goose-extractreadbypattern} ...
-
+The \texttt{goose-extractreadbypattern} extracts reads from a Multi-FASTA file format given a pattern in the header. Also, this pattern is case insensitive. \\
 For help type:
 \begin{lstlisting}
 ./goose-extractreadbypattern -h
@@ -9,20 +8,48 @@ In the following subsections, we explain the input and output paramters.
 
 \subsection*{Input parameters}
 
-The \texttt{goose-extractreadbypattern} program needs ...
+The \texttt{goose-extractreadbypattern} program needs two streams for the computation,
+namely the input and output standard. The input stream is a Multi-FASTA file.\\
 The attribution is given according to:
 \begin{lstlisting}
-TO DO
-\end{lstlisting}
+Usage: ./goose-extractreadbypattern [options] [[--] args]
+   or: ./goose-extractreadbypattern [options]
 
+It extracts reads from a Multi-FASTA file format given a pattern in the header (ID).
+
+    -h, --help            show this help message and exit
+
+Basic options
+    -p, --pattern=<str>   Pattern to search in the file header
+    < input.fa            Input Multi-FASTA file format (stdin)
+    > output.fa           Output Multi-FASTA file format (stdout)
+
+Example: ./goose-extractreadbypattern-p <pattern> < input.fa > output.fa
+\end{lstlisting}
 An example on such an input file is:
 \begin{lstlisting}
-TO DO
+>AB000264 |acc=AB000264|descr=Homo sapiens mRNA 
+ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCTGCCCTGCTGCCATTGTCCCC
+GGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAA
+GTGGTTTGAGTGGACCTCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGCAGGCCAGTGCC
+GCGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAGACCTTCTCCACCCCCCCAGC
+TAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACAGACCTGAA
+>AB000263 |acc=AB000263|descr=Homo sapiens mRNA 
+ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCACCGCTGCCCTGCCCCTGGAGGGT
+GGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTG
+GTGGTTTGAGTGGACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAG
+GCGCACCCCCCCAGCAATCCGCGCGCCGGGACAGAATGCCCTGCAGGAACTTCTTCTGGAAGACCTTCTCCTCCTGCAAA
+TAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACAGACCTGAA
 \end{lstlisting}
 
 \subsection*{Output}
-The output of the \texttt{goose-extractreadbypattern} program ...
-An example, for the input, is:
+The output of the \texttt{goose-extractreadbypattern} program is a Multi-FASTA file.\\
+An example, using the pattern ''264'', for the provided input, is:
 \begin{lstlisting}
-TO DO
+>AB000264 |acc=AB000264|descr=Homo sapiens mRNA 
+ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCTGCCCTGCTGCCATTGTCCCC
+GGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAA
+GTGGTTTGAGTGGACCTCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGCAGGCCAGTGCC
+GCGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAGACCTTCTCCACCCCCCCAGC
+TAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACAGACCTGAA
 \end{lstlisting}
