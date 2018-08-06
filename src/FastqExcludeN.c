@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
   strcat(usage, programName);
   strcat(usage, " < input.fastq > output\n"
     "\nOutput example :\n"
-    "<FASTQ filtered reads>\n"
+    "<FASTQ non-filtered reads>\n"
     "Total reads    : value\n"
     "Filtered reads : value\n");
 
