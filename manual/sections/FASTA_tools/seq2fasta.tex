@@ -1,6 +1,5 @@
 \section{Program goose-seq2fasta}
-The \texttt{goose-seq2fasta} ...
-
+The \texttt{goose-seq2fasta} converts a genomic sequence to pseudo FASTA file format.\\
 For help type:
 \begin{lstlisting}
 ./goose-seq2fasta -h
@@ -9,20 +8,54 @@ In the following subsections, we explain the input and output paramters.
 
 \subsection*{Input parameters}
 
-The \texttt{goose-seq2fasta} program needs ...
+The \texttt{goose-seq2fasta} program needs two streams for the computation,
+namely the input and output standard. The input stream is a sequence group file.\\
 The attribution is given according to:
 \begin{lstlisting}
-TO DO
-\end{lstlisting}
+Usage: ./goose-seq2fasta [options] [[--] args]
+   or: ./goose-seq2fasta [options]
 
+It converts a genomic sequence to pseudo FASTA file format.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    < input.fa            Input Multi-FASTA file format (stdin)
+    > output.fa           Output Multi-FASTA file format (stdout)
+
+Optional options
+    -n, --name=<str>      The read's header
+    -l, --lineSize=<int>  The maximum of chars for line
+
+Example: ./goose-seq2fasta -l <lineSize> -n <name> < input.seq > output.fa
+\end{lstlisting}
 An example on such an input file is:
 \begin{lstlisting}
-TO DO
+ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCTGCCCTGCTGCCATTGTCCCC
+GGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAA
+GTGGTTTGAGTGGACCTCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGCAGGCCAGTGCC
+GCGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAGACCTTCTCCACCCCCCCAGC
+TAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACAGACCTGAAACAAGATGCCATTGTCCCCCGGCCTCCTGCTG
+CTGCTGCTCTCCGGGGCCACGGCCACCGCTGCCCTGCCCCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCA
+GGAAGCGGCAGGAATAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTGGACCTCCCAGGCCAGTGCCG
+GGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGCAATCCGCGCGCCGGGAC
+AGAATGCCCTGCAGGAACTTCTTCTGGAAGACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAGTT
+TAATTACAGACCTGAA
 \end{lstlisting}
 
 \subsection*{Output}
-The output of the \texttt{goose-seq2fasta} program ...
-An example, for the input, is:
+The output of the \texttt{goose-seq2fasta} program is a pseudo FASTA file.\\
+An example, using the size line as 80 and the read's header as ''Seq2Fasta'', for the input, is:
 \begin{lstlisting}
-TO DO
+>Seq2Fasta
+ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCTGCCCTGCTGCCATTGTCCCC
+GGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAA
+GTGGTTTGAGTGGACCTCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGCAGGCCAGTGCC
+GCGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAGACCTTCTCCACCCCCCCAGC
+TAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACAGACCTGAAACAAGATGCCATTGTCCCCCGGCCTCCTGCTG
+CTGCTGCTCTCCGGGGCCACGGCCACCGCTGCCCTGCCCCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCA
+GGAAGCGGCAGGAATAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTGGACCTCCCAGGCCAGTGCCG
+GGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGCAATCCGCGCGCCGGGAC
+AGAATGCCCTGCAGGAACTTCTTCTGGAAGACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAGTT
+TAATTACAGACCTGAA
 \end{lstlisting}

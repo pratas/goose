@@ -1,55 +1,79 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 #include "defs.h"
 #include "misc.h"
 #include "args.h"
 #include "mem.h"
 #include "buffer.h"
+#include "argparse.h"
 
 #define BREAKER 100
 
-int main(int argc, char *argv[]){
-  uint32_t n, k, i, pos = 0, lineSize;
-  BUF *B;
+/*
+ * This application converts a genomic sequence to pseudo FASTA file format.
+ */
+int main(int argc, char *argv[])
+{
+  uint32_t sequenceSize, index, pos = 0, lineSize = BREAKER;
+  uint8_t  value;
+  BUF *Buffer;
+  const char *readTitle = NULL;
 
-  for(n = 1 ; n < argc ; ++n)
-    if(strcmp(argv[n], "-h") == 0){
-      argc = 0;
-      }
+  char *programName = argv[0];
+  struct argparse_option options[] = {
+        OPT_HELP(),
+        OPT_GROUP("Basic options"),
+        OPT_BUFF('<', "input.fa", "Input Multi-FASTA file format (stdin)"),
+        OPT_BUFF('>', "output.fa", "Output Multi-FASTA file format (stdout)"),
+        OPT_GROUP("Optional options"),
+        OPT_STRING('n', "name", &readTitle, "The read's header"),
+        OPT_INTEGER('l', "lineSize", &lineSize, "The maximum of chars for line"),
+        OPT_END(),
+  };
+  struct argparse argparse;
 
-  if(argc == 0 || argc > 5){
-    fprintf(stderr, "Usage: %s -l <lineSize> -n <name> < in.seq > out.fa\n"
-    "It converts a genomic sequence to pseudo FASTA file format.\n", argv[0]);
-    return EXIT_SUCCESS;
-    }
-  
-  lineSize = BREAKER;
-  for(n = 1 ; n < argc ; ++n)
-    if(strcmp(argv[n], "-l") == 0){
-      lineSize = atoi(argv[n+1]);
-      break;
-      }
+  char usage[250] = "\nExample: "; 
+  strcat(usage, programName);
+  strcat(usage, " -l <lineSize> -n <name> < input.seq > output.fa\n");
 
-  for(n = 1 ; n < argc ; ++n)
-    if(strcmp(argv[n], "-n") == 0){
-      fprintf(stdout, ">%s\n", argv[n+1]);
-      goto XPS;
-      }
-  fprintf(stdout, ">Computed_with_%s\n", argv[0]);
-   
-  XPS:
-  B = CreateBuffer(BUF_SIZE);
-  while((k = fread(B->buf, 1, B->size, stdin)))
-    for(i = 0 ; i < k ; ++i){
-      putchar(B->buf[i]);
-      if(++pos == lineSize){
-        putchar('\n');
-        pos = 0;
-        }
-      }
-  RemoveBuffer(B); 
+  argparse_init(&argparse, options, NULL, programName, 0);
+  argparse_describe(&argparse, "\nIt converts a genomic sequence to pseudo FASTA file format.", usage);
+  argc = argparse_parse(&argparse, argc, argv);
 
-  return EXIT_SUCCESS;
+  if(argc != 0)
+    argparse_help_cb(&argparse, options);
+
+  if(lineSize <= 0 || lineSize > UINT_MAX)
+  {
+    fprintf(stderr, "\nERROR: The paramenter ''lineSize'' most be a positive unsigned int!\n");
+    argparse_help_cb(&argparse, options);
+    exit(1);
   }
 
+  if(readTitle != NULL)
+    fprintf(stdout, ">%s\n", readTitle);
+  else
+    fprintf(stdout, ">Computed_with_%s\n", programName);
+
+  Buffer = CreateBuffer(BUF_SIZE);
+  while((sequenceSize = fread(Buffer->buf, 1, Buffer->size, stdin)))
+    for(index = 0 ; index < sequenceSize ; ++index)
+    {
+      value = Buffer->buf[index];
+
+      if(value == '\n')
+        continue; 
+
+      putchar(value);
+      if(++pos == lineSize)
+      {
+        putchar('\n');
+        pos = 0;
+      }
+    }
+  RemoveBuffer(Buffer); 
+
+  return EXIT_SUCCESS;
+}
