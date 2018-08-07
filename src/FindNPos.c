@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
   struct argparse_option options[] = {
         OPT_HELP(),
         OPT_GROUP("Basic options"),
-        OPT_BUFF('<', "input.fasta", "Input FASTQ file format or a sequence (stdin)"),
+        OPT_BUFF('<', "input.fasta", "Input FASTA file format or a sequence (stdin)"),
         OPT_BUFF('>', "output", "Output report of \'N\' positions (stdout)"),
         OPT_END(),
   };

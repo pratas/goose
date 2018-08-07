@@ -1,5 +1,5 @@
 \section{Program goose-mutatefasta}
-The \texttt{goose-mutatefasta} creates a synthetic mutation of a fasta file given specific rates of editions, deletions and additions. All these paramenters are defined by the user, and their are optional.\\
+The \texttt{goose-mutatefasta} creates a synthetic mutation of a FASTA file given specific rates of editions, deletions and additions. All these paramenters are defined by the user, and their are optional.\\
 For help type:
 \begin{lstlisting}
 ./goose-mutatefasta -h
@@ -14,7 +14,8 @@ The attribution is given according to:
 Usage: ./goose-mutatefasta [options] [[--] args]
    or: ./goose-mutatefasta [options]
 
-Creates a synthetic mutation of a fasta file given specific rates of editions, deletions and additions
+Creates a synthetic mutation of a fasta file given specific rates of editions, 
+deletions and additions
 
     -h, --help                    show this help message and exit
 
@@ -29,7 +30,8 @@ Optional
     -i, --insertion-rate=<dbl>    Defines the insertion rate (default 0.0)
     -a, --ACGTN-alphabet          When active, the application uses the ACGTN alphabet
 
-Example: ./goose-mutatefasta -s <seed> -e <edit rate> -d <deletion rate> -i <insertion rate> -a < input.fasta > output.fasta
+Example: ./goose-mutatefasta -s <seed> -e <edit rate> -d <deletion rate> -i 
+<insertion rate> -a < input.fasta > output.fasta
 \end{lstlisting}
 An example on such an input file is:
 \begin{lstlisting}

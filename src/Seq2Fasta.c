@@ -25,8 +25,8 @@ int main(int argc, char *argv[])
   struct argparse_option options[] = {
         OPT_HELP(),
         OPT_GROUP("Basic options"),
-        OPT_BUFF('<', "input.fa", "Input Multi-FASTA file format (stdin)"),
-        OPT_BUFF('>', "output.fa", "Output Multi-FASTA file format (stdout)"),
+        OPT_BUFF('<', "input.seq", "Input sequence file (stdin)"),
+        OPT_BUFF('>', "output.fasta", "Output FASTA file format (stdout)"),
         OPT_GROUP("Optional options"),
         OPT_STRING('n', "name", &readTitle, "The read's header"),
         OPT_INTEGER('l', "lineSize", &lineSize, "The maximum of chars for line"),
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 
   char usage[250] = "\nExample: "; 
   strcat(usage, programName);
-  strcat(usage, " -l <lineSize> -n <name> < input.seq > output.fa\n");
+  strcat(usage, " -l <lineSize> -n <name> < input.seq > output.fasta\n");
 
   argparse_init(&argparse, options, NULL, programName, 0);
   argparse_describe(&argparse, "\nIt converts a genomic sequence to pseudo FASTA file format.", usage);
