@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
   struct argparse_option options[] = {
         OPT_HELP(),
         OPT_GROUP("Basic options"),
-        OPT_BUFF('<', "input.fa", "Input Multi-FASTA file format (stdin)"),
+        OPT_BUFF('<', "input.fasta", "Input Multi-FASTA file format (stdin)"),
         OPT_GROUP("Optional options"),
         OPT_STRING('l', "location", &location, "Location to store the files"),
         OPT_END(),
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 
         char name[500];
         char fileLocation[2048];
-        sprintf(name, "out%u.fa", indexHeader);
+        sprintf(name, "out%u.fasta", indexHeader);
         strcpy(fileLocation, location);
         strcat(fileLocation, "/");
         strcat(fileLocation, name);

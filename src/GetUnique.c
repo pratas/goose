@@ -24,7 +24,7 @@ int32_t main(int argc, char *argv[]){
     "It extracts unique reads from NCBI by appearing order.\n"
     "It is STRONGLY advised to run first: \n"
     "  cat db.fa | tr ' ' '_' > input.fa\n"
-    "OR: cat in.fa | tr ' ' '_' | ./goose-getunique > out.fa\n",
+    "OR: cat in.fa | tr ' ' '_' | ./goose-getunique > out.fasta\n",
     argv[0]);
     return EXIT_SUCCESS;
     }
