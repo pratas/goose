@@ -10,7 +10,7 @@
 #include "argparse.h"
 
 /*
- * This application creates a synthetic mutation of a fasta file given specific 
+ * This application creates a synthetic mutation of a FASTA file given specific 
  * rates of editions, deletions and additions
  */
 int main(int argc, char *argv[])
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
   strcat(usage, " -s <seed> -e <edit rate> -d <deletion rate> -i <insertion rate> -a < input.fasta > output.fasta\n");
 
   argparse_init(&argparse, options, NULL, programName, 0);
-  argparse_describe(&argparse, "\nCreates a synthetic mutation of a fasta file given specific rates of editions, deletions and additions", usage);
+  argparse_describe(&argparse, "\nCreates a synthetic mutation of a FASTA file given specific rates of editions, deletions and additions", usage);
   argc = argparse_parse(&argparse, argc, argv);
 
   if(argc != 0)
