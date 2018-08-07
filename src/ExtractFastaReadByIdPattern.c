@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 
   char usage[250] = "\nExample: "; 
   strcat(usage, programName);
-  strcat(usage, "-p <pattern> < input.fa > output.fa\n");
+  strcat(usage, "-p <pattern> < input.fasta > output.fa\n");
 
   argparse_init(&argparse, options, NULL, programName, 0);
   argparse_describe(&argparse, "\nIt extracts reads from a Multi-FASTA file format given a pattern in the header (ID).", usage);
