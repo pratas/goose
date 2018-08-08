@@ -79,30 +79,6 @@ int main(int argc, char *argv[])
     exit(1);
   }
 
-
-
-/*
-  if(ArgBin(0, argv, argc, "-h")){
-    fprintf(stderr, "Usage: %s < input > output\n", argv[0]);
-    fprintf(stderr, " Arguments:                    \n");
-    fprintf(stderr, " -s  <seed>                    \n");
-    fprintf(stderr, " -mr <mutationRate>  (def:0.0) \n");
-    fprintf(stderr, " -dr <deletionRate>  (def:0.0) \n");
-    fprintf(stderr, " -ir <insertionRate> (def:0.0) \n");
-    fprintf(stderr, " -a5 (use ACGTN alphabet)      \n");
-    fprintf(stderr, "It works on FASTQ domain.      \n");
-    return EXIT_SUCCESS;
-    }
-
-  seed          = ArgNum(0, argv, argc, "-s", 1, UINT_MAX);
-  mutationRate  = ArgDbl(0, argv, argc, "-mr");
-  deletionRate  = ArgDbl(0, argv, argc, "-dr");
-  insertionRate = ArgDbl(0, argv, argc, "-ir");
-  if(ArgBin(0, argv, argc, "-a5") == 1){
-    bases = "ACGTN";
-    nSymbols = 5;
-    }*/
-
   FileType(Parser, stdin);
   if(Parser->type != 2)
   {
