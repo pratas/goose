@@ -15,7 +15,7 @@ Note, an already compiled version of GOOSE is available for 64 bit Linux OS in
 the `bin/` directory.
 
 
-## INCLUDED PROGRAMS
+## PROGRAMS
 
 The GOOSE toolkit include the following programs:
 <pre>
