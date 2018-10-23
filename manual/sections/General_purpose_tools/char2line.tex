@@ -1,5 +1,5 @@
 \section{Program goose-char2line}
-The \texttt{goose-char2line} ...
+The \texttt{goose-char2line} splits a sequence into lines, creating an output sequence which has a char for each line.
 
 For help type:
 \begin{lstlisting}
@@ -9,20 +9,61 @@ In the following subsections, we explain the input and output paramters.
 
 \subsection*{Input parameters}
 
-The \texttt{goose-char2line} program needs ...
+The \texttt{goose-char2line} program needs two streams for the computation,
+namely the input and output standard. The input stream is a sequence file.\\
 The attribution is given according to:
 \begin{lstlisting}
-TO DO
-\end{lstlisting}
+Usage: ./goose-char2line [options] [[--] args]
+   or: ./goose-char2line [options]
 
+It splits a sequence into lines, creating an output sequence which has a char for each line.
+
+    -h, --help        show this help message and exit
+
+Basic options
+    < input.seq       Input sequence file (stdin)
+    > output.seq      Output sequence file (stdout)
+
+Example: ./goose-char2line < input.seq > output.seq
+\end{lstlisting}
 An example on such an input file is:
 \begin{lstlisting}
-TO DO
+ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCTGCCCTGCTGCCATTGTCCCC
+GGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAA
+GTGGTTTGAGTGGACCTCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGCAGGCCAGTGCC
+GCGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAGACCTTCTCCACCCCCCCAGC
+TAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACAGACCTGAAACAAGATGCCATTGTCCCCCGGCCTCCTGCTG
+CTGCTGCTCTCCGGGGCCACGGCCACCGCTGCCCTGCCCCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCA
+GGAAGCGGCAGGAATAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTGGACCTCCCAGGCCAGTGCCG
+GGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGCAATCCGCGCGCCGGGAC
+AGAATGCCCTGCAGGAACTTCTTCTGGAAGACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAGTT
+TAATTACAGACCTGAA
 \end{lstlisting}
 
 \subsection*{Output}
-The output of the \texttt{goose-char2line} program ...
+The output of the \texttt{goose-char2line} program is a group sequence splited by \textbackslash n foreach character.\\
 An example, for the input, is:
 \begin{lstlisting}
-TO DO
+A
+C
+A
+A
+G
+A
+C
+G
+G
+C
+C
+T
+C
+C
+T
+G
+C
+T
+G
+C
+T
+...
 \end{lstlisting}
