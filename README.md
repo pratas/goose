@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/pratas/goose.svg?branch=master)](https://travis-ci.org/pratas/goose)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE)
 
 <p align="center"><img src="imgs/logo.png"
