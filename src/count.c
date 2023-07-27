@@ -17,6 +17,19 @@
 #include "buffer.h"
 #include "common.h"
 
+#if __linux__
+#include <linux/version.h>
+#if LINUX_VERSION_CODE > KERNEL_VERSION(2,6,22)
+#define _MAP_POPULATE_AVAILABLE
+#endif
+#endif
+
+#ifdef _MAP_POPULATE_AVAILABLE
+#define MMAP_FLAGS (MAP_PRIVATE | MAP_POPULATE)
+#else
+#define MMAP_FLAGS MAP_PRIVATE
+#endif
+
 //////////////////////////////////////////////////////////////////////////////
 // - - - - - - - - - - - - - - - - R E F E R E N C E - - - - - - - - - - - - -
 
@@ -39,7 +52,7 @@ void LoadReference(char *fn){
 
   fstat(fd, &s);
   size = s.st_size;
-  buf = (uint8_t *) mmap(0, size, PROT_READ, MAP_PRIVATE|MAP_POPULATE, fd, 0);
+  buf = (uint8_t *) mmap(0, size, PROT_READ, MMAP_FLAGS, fd, 0);
   madvise(buf, s.st_size, MADV_SEQUENTIAL);
   for(k = 0 ; k < size ; ++k){
     if(ParseSym(PA, (sym = *buf++)) == -1)
